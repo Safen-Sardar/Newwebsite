@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Anti Vandalism Bot</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    background: #0b1120;
+    color: white;
+}
+
+/* NAV */
+nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 20px;
+    background: #020617;
+}
+
+nav h1 {
+    color: #22c55e;
+}
+
+/* MENU ICON */
+.menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* SIDE MENU */
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 250px;
+    height: 100%;
+    background: #020617;
+    padding: 30px;
+    transition: 0.3s;
+}
+
+.nav-menu a {
+    display: block;
+    margin: 20px 0;
+    color: #22c55e;
+    text-decoration: none;
+}
+
+.nav-menu.active {
+    right: 0;
+}
+
+/* HERO */
+.hero {
+    text-align: center;
+    padding: 100px 20px;
+}
+
+.hero h2 {
+    font-size: 40px;
+}
+
+.btn {
+    padding: 12px 20px;
+    border-radius: 8px;
+    background: #22c55e;
+    color: black;
+    text-decoration: none;
+}
+
+/* FEATURES */
+.features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+    padding: 50px;
+}
+
+.card {
+    background: #020617;
+    padding: 20px;
+    border-radius: 12px;
+    transition: 0.3s;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+}
+
+/* BIG FOOTER */
+footer {
+    background: #020617;
+    padding: 60px;
+}
+
+.footer-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
+    gap: 30px;
+}
+
+footer h3 {
+    color: #22c55e;
+}
+
+footer p {
+    color: #94a3b8;
+}
+
+.bottom {
+    text-align: center;
+    margin-top: 30px;
+    color: #64748b;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <h1>Anti Vandalism</h1>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<!-- MENU -->
+<div class="nav-menu" id="menu">
+    <a href="#">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Add Bot</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <h2>Advanced Discord Protection</h2>
+    <p>Protect your server from raids and nukes</p>
+    <a class="btn">Add Bot</a>
+</section>
+
+<!-- FEATURES -->
+<section class="features">
+    <div class="card">
+        <h3>🛡 Anti-Raid</h3>
+        <p>Detect and stop mass joins instantly.</p>
+    </div>
+
+    <div class="card">
+        <h3>⚡ Anti-Nuke</h3>
+        <p>Prevents channel and role abuse.</p>
+    </div>
+
+    <div class="card">
+        <h3>🔒 Security</h3>
+        <p>Advanced protection system.</p>
+    </div>
+</section>
+
+<!-- BIG FOOTER -->
+<footer>
+
+<div class="footer-grid">
+
+    <div>
+        <h3>Bot</h3>
+        <p>Best anti raid & anti nuke bot.</p>
+    </div>
+
+    <div>
+        <h3>Links</h3>
+        <p>Invite</p>
+        <p>Support</p>
+        <p>Dashboard</p>
+    </div>
+
+    <div>
+        <h3>Features</h3>
+        <p>Anti-Raid</p>
+        <p>Anti-Nuke</p>
+        <p>Security</p>
+    </div>
+
+    <div>
+        <h3>Contact</h3>
+        <p>Discord: yourname</p>
+        <p>Email: example@mail.com</p>
+    </div>
+
+</div>
+
+<div class="bottom">
+    © 2026 Anti Vandalism Bot
+</div>
+
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+}
+</script>
+
+</body>
+</html>
