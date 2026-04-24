@@ -5,9 +5,6 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anti Vandalism Bot</title>
 
-
-
-    
 <style>
 body {
     margin: 0;
@@ -29,7 +26,13 @@ nav h1 {
     color: #38bdf8;
 }
 
-/* MENU */
+/* HAMBURGER */
+.menu-icon {
+    font-size: 28px;
+    cursor: pointer;
+}
+
+/* SIDE MENU */
 .nav-menu {
     position: fixed;
     top: 0;
@@ -39,6 +42,7 @@ nav h1 {
     background: #0b1224;
     padding: 30px;
     transition: 0.3s;
+    z-index: 999;
 }
 
 .nav-menu a {
@@ -48,14 +52,14 @@ nav h1 {
     text-decoration: none;
 }
 
-.nav-menu a:hover {
-    color: #7dd3fc;
+.nav-menu.active {
+    right: 0;
 }
 
 /* HERO */
 .hero {
     text-align: center;
-    padding: 100px 20px;
+    padding: 90px 20px;
 }
 
 .hero h2 {
@@ -67,12 +71,11 @@ nav h1 {
 
 /* BUTTON */
 .btn {
-    padding: 12px 22px;
+    padding: 12px 20px;
+    background: #38bdf8;
+    color: black;
     border-radius: 10px;
-    background: linear-gradient(90deg, #38bdf8, #6366f1);
-    color: white;
     text-decoration: none;
-    display: inline-block;
 }
 
 /* FEATURES */
@@ -80,26 +83,68 @@ nav h1 {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     gap: 20px;
-    padding: 50px;
+    padding: 40px;
 }
 
 .card {
     background: #0b1224;
     padding: 20px;
-    border-radius: 14px;
+    border-radius: 12px;
     border: 1px solid #1e293b;
-    transition: 0.3s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-    border-color: #38bdf8;
+/* IMAGE + TEXT SECTION */
+.showcase {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    padding: 60px;
+    gap: 30px;
+}
+
+.showcase img {
+    width: 100%;
+    max-width: 400px;
+    border-radius: 12px;
+    border: 1px solid #1e293b;
+}
+
+.showcase-text {
+    flex: 1;
+}
+
+.showcase-text h2 {
+    color: #38bdf8;
+}
+
+/* FAQ */
+.faq {
+    padding: 60px;
+}
+
+.faq h2 {
+    text-align: center;
+    color: #38bdf8;
+    margin-bottom: 30px;
+}
+
+.faq-item {
+    background: #0b1224;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #1e293b;
+}
+
+.faq-item h3 {
+    color: #38bdf8;
 }
 
 /* FOOTER */
 footer {
     background: #0b1224;
     padding: 60px;
+    margin-top: 40px;
 }
 
 .footer-grid {
@@ -122,8 +167,6 @@ footer p {
     color: #64748b;
 }
 </style>
-
-
 </head>
 
 <body>
@@ -138,62 +181,75 @@ footer p {
 <div class="nav-menu" id="menu">
     <a href="#">Home</a>
     <a href="#">Features</a>
-    <a href="#">Add Bot</a>
+    <a href="#">FAQ</a>
+    <a href="#">Support</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
-    <h2>Advanced Discord Protection</h2>
-    <p>Protect your server from raids and nukes</p>
+    <h2>Discord Security Bot</h2>
     <a class="btn">Add Bot</a>
 </section>
 
 <!-- FEATURES -->
 <section class="features">
-    <div class="card">
-        <h3>🛡 Anti-Raid</h3>
-        <p>Detect and stop mass joins instantly.</p>
-    </div>
+    <div class="card">🛡 Anti-Raid</div>
+    <div class="card">⚡ Anti-Nuke</div>
+    <div class="card">🔒 Security</div>
+</section>
 
-    <div class="card">
-        <h3>⚡ Anti-Nuke</h3>
-        <p>Prevents channel and role abuse.</p>
-    </div>
+<!-- IMAGE + TEXT -->
+<section class="showcase">
+    <img src="https://via.placeholder.com/400x300" alt="bot image">
 
-    <div class="card">
-        <h3>🔒 Security</h3>
-        <p>Advanced protection system.</p>
+    <div class="showcase-text">
+        <h2>Powerful Protection System</h2>
+        <p>
+            This bot protects your Discord server from raids, nukes, and attacks using advanced automation system.
+        </p>
     </div>
 </section>
 
-<!-- BIG FOOTER -->
+<!-- FAQ -->
+<section class="faq">
+    <h2>FAQ</h2>
+
+    <div class="faq-item">
+        <h3>What is this bot?</h3>
+        <p>It is a security bot for Discord servers.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Is it free?</h3>
+        <p>Yes, basic protection is free.</p>
+    </div>
+
+    <div class="faq-item">
+        <h3>Does it stop raids?</h3>
+        <p>Yes, it detects and blocks mass joins.</p>
+    </div>
+</section>
+
+<!-- FOOTER -->
 <footer>
 
 <div class="footer-grid">
 
     <div>
         <h3>Bot</h3>
-        <p>Best anti raid & anti nuke bot.</p>
+        <p>Anti raid protection system</p>
     </div>
 
     <div>
         <h3>Links</h3>
         <p>Invite</p>
         <p>Support</p>
-        <p>Dashboard</p>
     </div>
 
     <div>
         <h3>Features</h3>
         <p>Anti-Raid</p>
         <p>Anti-Nuke</p>
-        <p>Security</p>
-    </div>
-
-    <div>
-        <h3>Contact</h3>
-        <p>Discord: yourname</p>
-        <p>Email: example@mail.com</p>
     </div>
 
 </div>
