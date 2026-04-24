@@ -26,17 +26,30 @@ nav h1 {
     color: #38bdf8;
 }
 
-/* HAMBURGER */
+/* MENU ICON */
 .menu-icon {
     font-size: 28px;
     cursor: pointer;
+    z-index: 1001;
+}
+
+/* OVERLAY (fix click issue) */
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+    display: none;
+    z-index: 998;
 }
 
 /* SIDE MENU */
 .nav-menu {
     position: fixed;
     top: 0;
-    right: -100%;
+    right: -260px;
     width: 260px;
     height: 100%;
     background: #0b1224;
@@ -69,15 +82,6 @@ nav h1 {
     -webkit-text-fill-color: transparent;
 }
 
-/* BUTTON */
-.btn {
-    padding: 12px 20px;
-    background: #38bdf8;
-    color: black;
-    border-radius: 10px;
-    text-decoration: none;
-}
-
 /* FEATURES */
 .features {
     display: grid;
@@ -93,58 +97,35 @@ nav h1 {
     border: 1px solid #1e293b;
 }
 
-/* IMAGE + TEXT SECTION */
-.showcase {
-    display: flex;
-    flex-wrap: wrap;
-    align-items: center;
-    padding: 60px;
-    gap: 30px;
+/* IMAGE FEATURES */
+.image-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+    padding: 40px;
 }
 
-.showcase img {
-    width: 100%;
-    max-width: 400px;
-    border-radius: 12px;
-    border: 1px solid #1e293b;
-}
-
-.showcase-text {
-    flex: 1;
-}
-
-.showcase-text h2 {
-    color: #38bdf8;
-}
-
-/* FAQ */
-.faq {
-    padding: 60px;
-}
-
-.faq h2 {
-    text-align: center;
-    color: #38bdf8;
-    margin-bottom: 30px;
-}
-
-.faq-item {
+.img-card {
     background: #0b1224;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 10px;
+    border-radius: 12px;
+    overflow: hidden;
     border: 1px solid #1e293b;
 }
 
-.faq-item h3 {
-    color: #38bdf8;
+.img-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.img-card .text {
+    padding: 15px;
 }
 
 /* FOOTER */
 footer {
     background: #0b1224;
     padding: 60px;
-    margin-top: 40px;
 }
 
 .footer-grid {
@@ -177,57 +158,68 @@ footer p {
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
 </nav>
 
+<!-- OVERLAY -->
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
 <!-- MENU -->
 <div class="nav-menu" id="menu">
     <a href="#">Home</a>
     <a href="#">Features</a>
-    <a href="#">FAQ</a>
     <a href="#">Support</a>
 </div>
 
 <!-- HERO -->
 <section class="hero">
     <h2>Discord Security Bot</h2>
-    <a class="btn">Add Bot</a>
 </section>
 
-<!-- FEATURES -->
+<!-- FEATURES WITH TEXT -->
 <section class="features">
-    <div class="card">🛡 Anti-Raid</div>
-    <div class="card">⚡ Anti-Nuke</div>
-    <div class="card">🔒 Security</div>
+
+    <div class="card">
+        <h3>🛡 Anti-Raid</h3>
+        <p>Detect and stop mass joins instantly with smart protection system.</p>
+    </div>
+
+    <div class="card">
+        <h3>⚡ Anti-Nuke</h3>
+        <p>Prevents channel delete, role spam and dangerous actions.</p>
+    </div>
+
+    <div class="card">
+        <h3>🔒 Security</h3>
+        <p>Advanced logs and auto moderation system for full protection.</p>
+    </div>
+
 </section>
 
-<!-- IMAGE + TEXT -->
-<section class="showcase">
-    <img src="https://via.placeholder.com/400x300" alt="bot image">
+<!-- IMAGE SECTION -->
+<section class="image-cards">
 
-    <div class="showcase-text">
-        <h2>Powerful Protection System</h2>
-        <p>
-            This bot protects your Discord server from raids, nukes, and attacks using advanced automation system.
-        </p>
-    </div>
-</section>
-
-<!-- FAQ -->
-<section class="faq">
-    <h2>FAQ</h2>
-
-    <div class="faq-item">
-        <h3>What is this bot?</h3>
-        <p>It is a security bot for Discord servers.</p>
+    <div class="img-card">
+        <img src="https://via.placeholder.com/400x200" alt="">
+        <div class="text">
+            <h3>Protection System</h3>
+            <p>Smart AI-like security engine.</p>
+        </div>
     </div>
 
-    <div class="faq-item">
-        <h3>Is it free?</h3>
-        <p>Yes, basic protection is free.</p>
+    <div class="img-card">
+        <img src="https://via.placeholder.com/400x200/38bdf8" alt="">
+        <div class="text">
+            <h3>Server Guard</h3>
+            <p>Stops raids before they happen.</p>
+        </div>
     </div>
 
-    <div class="faq-item">
-        <h3>Does it stop raids?</h3>
-        <p>Yes, it detects and blocks mass joins.</p>
+    <div class="img-card">
+        <img src="https://via.placeholder.com/400x200/a78bfa" alt="">
+        <div class="text">
+            <h3>Auto Logs</h3>
+            <p>Tracks all server actions.</p>
+        </div>
     </div>
+
 </section>
 
 <!-- FOOTER -->
@@ -250,6 +242,7 @@ footer p {
         <h3>Features</h3>
         <p>Anti-Raid</p>
         <p>Anti-Nuke</p>
+        <p>Security</p>
     </div>
 
 </div>
@@ -263,6 +256,12 @@ footer p {
 <script>
 function toggleMenu() {
     document.getElementById("menu").classList.toggle("active");
+    document.getElementById("overlay").style.display = "block";
+}
+
+function closeMenu() {
+    document.getElementById("menu").classList.remove("active");
+    document.getElementById("overlay").style.display = "none";
 }
 </script>
 
