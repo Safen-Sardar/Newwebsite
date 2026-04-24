@@ -12,9 +12,8 @@ body {
     color: white;
     overflow-x: hidden;
 
-    /* ONE PIECE BACKGROUND */
-    background: linear-gradient(180deg, #050816 0%, #0a0f1c 50%, #050816 100%);
-    background-attachment: fixed;
+    /* brighter clean background */
+    background: linear-gradient(180deg, #0b1020 0%, #0f172a 50%, #0b1020 100%);
 }
 
 /* NAV */
@@ -23,7 +22,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background: #0b1224;
+    background: #111827;
 }
 
 nav h1 {
@@ -40,7 +39,7 @@ nav h1 {
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.6);
+    background: rgba(0,0,0,0.5);
     display: none;
     z-index: 998;
 }
@@ -49,16 +48,16 @@ nav h1 {
     display: block;
 }
 
-/* SIDE MENU */
+/* MENU */
 .nav-menu {
     position: fixed;
     top: 0;
     right: -300px;
     width: 260px;
     height: 100%;
-    background: #0b1224;
-    padding: 30px;
-    transition: 0.35s ease;
+    background: #111827;
+    padding: 25px;
+    transition: 0.35s;
     z-index: 999;
 }
 
@@ -67,7 +66,6 @@ nav h1 {
     margin: 15px 0;
     color: #38bdf8;
     text-decoration: none;
-    font-size: 16px;
 }
 
 .nav-menu.active {
@@ -77,28 +75,17 @@ nav h1 {
 /* HERO */
 .hero {
     text-align: center;
-    padding: 90px 20px;
+    padding: 80px 20px;
 }
 
 .hero h2 {
-    font-size: 42px;
+    font-size: 40px;
     background: linear-gradient(90deg,#38bdf8,#a78bfa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* BUTTON */
-.btn {
-    padding: 12px 20px;
-    background: #38bdf8;
-    color: black;
-    border-radius: 10px;
-    text-decoration: none;
-    display: inline-block;
-    margin-top: 10px;
-}
-
-/* FEATURES */
+/* FEATURES FIX (NO BLACK BLOCK ISSUE) */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
@@ -107,28 +94,71 @@ nav h1 {
 }
 
 .card {
-    background: #0b1224;
+    background: #1e293b; /* brighter than before */
     padding: 20px;
     border-radius: 12px;
-    border: 1px solid #1e293b;
+    border: 1px solid #334155;
+    color: #e5e7eb;
 }
 
-/* OFFER SECTION */
-.offer {
+/* IMAGE CARDS FIX */
+.image-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
+    gap: 20px;
+    padding: 40px;
+}
+
+.img-card {
+    background: #1e293b; /* FIXED */
+    border-radius: 12px;
+    overflow: hidden;
+    border: 1px solid #334155;
+}
+
+.img-card img {
+    width: 100%;
+    height: 160px;
+    object-fit: cover;
+}
+
+.img-card .text {
+    padding: 15px;
+    color: #e5e7eb; /* FIX TEXT VISIBILITY */
+}
+
+/* OFFER BOX */
+.offer-box {
     margin: 40px;
     padding: 30px;
-    background: linear-gradient(90deg, #38bdf8, #a78bfa);
-    color: black;
+    background: #1e293b;
     border-radius: 15px;
+    border: 1px solid #334155;
     text-align: center;
-    font-weight: bold;
+}
+
+.offer-box h2 {
+    color: #38bdf8;
+}
+
+.offer-box p {
+    color: #cbd5e1;
+}
+
+.offer-box button {
+    margin-top: 15px;
+    padding: 12px 20px;
+    border: none;
+    background: linear-gradient(90deg,#38bdf8,#a78bfa);
+    color: black;
+    border-radius: 10px;
+    cursor: pointer;
 }
 
 /* FOOTER */
 footer {
-    background: #0b1224;
+    background: #111827;
     padding: 60px;
-    margin-top: 40px;
 }
 
 .footer-grid {
@@ -142,84 +172,88 @@ footer h3 {
 }
 
 footer p {
-    color: #94a3b8;
+    color: #cbd5e1;
 }
 
 .bottom {
     text-align: center;
     margin-top: 30px;
-    color: #64748b;
+    color: #94a3b8;
 }
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
     <h1>Anti Vandalism</h1>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
 </nav>
 
-<!-- OVERLAY -->
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
-<!-- MENU -->
 <div class="nav-menu" id="menu">
-
     <a href="#">Home</a>
     <a href="#">Features</a>
     <a href="#">Support</a>
     <a href="#">Invite Bot</a>
-
-    <!-- BOT NAME (EDIT HERE) -->
-    <a href="#">🤖 Bot Name: Anti Vandalism</a>
-
-    <!-- OFFER -->
-    <a href="#">🔥 Special Offer</a>
-
 </div>
 
-<!-- HERO -->
 <section class="hero">
     <h2>Discord Security Bot</h2>
-    <p>Protect your server from raids and nukes</p>
-    <a class="btn">Add Bot</a>
 </section>
 
-<!-- FEATURES -->
 <section class="features">
 
     <div class="card">
         <h3>🛡 Anti-Raid</h3>
-        <p>Detect and stop mass joins instantly.</p>
+        <p>Stops mass joins instantly.</p>
     </div>
 
     <div class="card">
         <h3>⚡ Anti-Nuke</h3>
-        <p>Blocks dangerous server actions.</p>
+        <p>Protects server actions.</p>
     </div>
 
     <div class="card">
         <h3>🔒 Security</h3>
-        <p>Advanced protection system with logs.</p>
+        <p>Full protection system.</p>
     </div>
 
 </section>
 
-<!-- OFFER BOX -->
-<div class="offer">
-    🔥 LIMITED OFFER: Premium protection now available for cheaper price! 💎
+<section class="image-cards">
+
+    <div class="img-card">
+        <img src="https://via.placeholder.com/400x200" alt="">
+        <div class="text">
+            Anti Raid System
+        </div>
+    </div>
+
+    <div class="img-card">
+        <img src="https://via.placeholder.com/400x200/38bdf8" alt="">
+        <div class="text">
+            Anti Nuke Protection
+        </div>
+    </div>
+
+</section>
+
+<div class="offer-box">
+    <h2>🔥 Premium Offer</h2>
+    <p>Get full protection system + logs + support</p>
+    <p><b>$1.99 / month</b></p>
+    <button>Buy Now</button>
 </div>
 
-<!-- FOOTER -->
 <footer>
 
 <div class="footer-grid">
 
     <div>
         <h3>Bot</h3>
-        <p>Anti raid protection system</p>
+        <p>Anti raid system</p>
     </div>
 
     <div>
@@ -232,7 +266,6 @@ footer p {
         <h3>Features</h3>
         <p>Anti-Raid</p>
         <p>Anti-Nuke</p>
-        <p>Security</p>
     </div>
 
 </div>
