@@ -5,11 +5,14 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anti Vandalism Bot</title>
 
+
+
+    
 <style>
 body {
     margin: 0;
     font-family: Arial;
-    background: #0b1120;
+    background: #0a0f1c;
     color: white;
 }
 
@@ -19,27 +22,21 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background: #020617;
+    background: #0b1224;
 }
 
 nav h1 {
-    color: #22c55e;
+    color: #38bdf8;
 }
 
-/* MENU ICON */
-.menu-icon {
-    font-size: 28px;
-    cursor: pointer;
-}
-
-/* SIDE MENU */
+/* MENU */
 .nav-menu {
     position: fixed;
     top: 0;
     right: -100%;
-    width: 250px;
+    width: 260px;
     height: 100%;
-    background: #020617;
+    background: #0b1224;
     padding: 30px;
     transition: 0.3s;
 }
@@ -47,12 +44,12 @@ nav h1 {
 .nav-menu a {
     display: block;
     margin: 20px 0;
-    color: #22c55e;
+    color: #38bdf8;
     text-decoration: none;
 }
 
-.nav-menu.active {
-    right: 0;
+.nav-menu a:hover {
+    color: #7dd3fc;
 }
 
 /* HERO */
@@ -62,15 +59,20 @@ nav h1 {
 }
 
 .hero h2 {
-    font-size: 40px;
+    font-size: 42px;
+    background: linear-gradient(90deg, #38bdf8, #a78bfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
 }
 
+/* BUTTON */
 .btn {
-    padding: 12px 20px;
-    border-radius: 8px;
-    background: #22c55e;
-    color: black;
+    padding: 12px 22px;
+    border-radius: 10px;
+    background: linear-gradient(90deg, #38bdf8, #6366f1);
+    color: white;
     text-decoration: none;
+    display: inline-block;
 }
 
 /* FEATURES */
@@ -82,19 +84,21 @@ nav h1 {
 }
 
 .card {
-    background: #020617;
+    background: #0b1224;
     padding: 20px;
-    border-radius: 12px;
+    border-radius: 14px;
+    border: 1px solid #1e293b;
     transition: 0.3s;
 }
 
 .card:hover {
     transform: translateY(-5px);
+    border-color: #38bdf8;
 }
 
-/* BIG FOOTER */
+/* FOOTER */
 footer {
-    background: #020617;
+    background: #0b1224;
     padding: 60px;
 }
 
@@ -105,7 +109,7 @@ footer {
 }
 
 footer h3 {
-    color: #22c55e;
+    color: #38bdf8;
 }
 
 footer p {
@@ -118,6 +122,8 @@ footer p {
     color: #64748b;
 }
 </style>
+
+
 </head>
 
 <body>
