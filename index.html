@@ -12,8 +12,8 @@ body {
     color: white;
     overflow-x: hidden;
 
-    /* brighter clean background */
-    background: linear-gradient(180deg, #0b1020 0%, #0f172a 50%, #0b1020 100%);
+    background: linear-gradient(180deg, #050816 0%, #0a0f1c 50%, #050816 100%);
+    background-attachment: fixed;
 }
 
 /* NAV */
@@ -22,7 +22,7 @@ nav {
     justify-content: space-between;
     align-items: center;
     padding: 15px 20px;
-    background: #111827;
+    background: #0b1224;
 }
 
 nav h1 {
@@ -39,7 +39,7 @@ nav h1 {
 .overlay {
     position: fixed;
     inset: 0;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
     display: none;
     z-index: 998;
 }
@@ -55,21 +55,42 @@ nav h1 {
     right: -300px;
     width: 260px;
     height: 100%;
-    background: #111827;
+    background: #0b1224;
     padding: 25px;
-    transition: 0.35s;
+    transition: 0.35s ease;
     z-index: 999;
-}
-
-.nav-menu a {
-    display: block;
-    margin: 15px 0;
-    color: #38bdf8;
-    text-decoration: none;
+    text-align: center;
 }
 
 .nav-menu.active {
     right: 0;
+}
+
+/* BOT PROFILE IN MENU */
+.menu-bot img {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    border: 2px solid #38bdf8;
+}
+
+.menu-bot h3 {
+    margin: 10px 0 5px;
+    color: #38bdf8;
+}
+
+.menu-bot p {
+    margin: 0 0 20px;
+    font-size: 12px;
+    color: #94a3b8;
+}
+
+/* MENU LINKS */
+.nav-menu a {
+    display: block;
+    margin: 12px 0;
+    color: #38bdf8;
+    text-decoration: none;
 }
 
 /* HERO */
@@ -79,13 +100,13 @@ nav h1 {
 }
 
 .hero h2 {
-    font-size: 40px;
+    font-size: 42px;
     background: linear-gradient(90deg,#38bdf8,#a78bfa);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
 }
 
-/* FEATURES FIX (NO BLACK BLOCK ISSUE) */
+/* FEATURES */
 .features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
@@ -94,14 +115,13 @@ nav h1 {
 }
 
 .card {
-    background: #1e293b; /* brighter than before */
+    background: #1e293b;
     padding: 20px;
     border-radius: 12px;
     border: 1px solid #334155;
-    color: #e5e7eb;
 }
 
-/* IMAGE CARDS FIX */
+/* IMAGE CARDS */
 .image-cards {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
@@ -110,7 +130,7 @@ nav h1 {
 }
 
 .img-card {
-    background: #1e293b; /* FIXED */
+    background: #1e293b;
     border-radius: 12px;
     overflow: hidden;
     border: 1px solid #334155;
@@ -124,7 +144,7 @@ nav h1 {
 
 .img-card .text {
     padding: 15px;
-    color: #e5e7eb; /* FIX TEXT VISIBILITY */
+    color: #e5e7eb;
 }
 
 /* OFFER BOX */
@@ -153,11 +173,38 @@ nav h1 {
     color: black;
     border-radius: 10px;
     cursor: pointer;
+    font-weight: bold;
+}
+
+/* FAQ */
+.faq {
+    padding: 40px;
+}
+
+.faq h2 {
+    text-align: center;
+    color: #38bdf8;
+    margin-bottom: 20px;
+}
+
+.faq-item {
+    background: #1e293b;
+    margin: 10px 0;
+    padding: 15px;
+    border-radius: 10px;
+    border: 1px solid #334155;
+    cursor: pointer;
+}
+
+.faq-item p {
+    display: none;
+    margin-top: 10px;
+    color: #cbd5e1;
 }
 
 /* FOOTER */
 footer {
-    background: #111827;
+    background: #0b1224;
     padding: 60px;
 }
 
@@ -172,37 +219,51 @@ footer h3 {
 }
 
 footer p {
-    color: #cbd5e1;
+    color: #94a3b8;
 }
 
 .bottom {
     text-align: center;
     margin-top: 30px;
-    color: #94a3b8;
+    color: #64748b;
 }
 </style>
 </head>
 
 <body>
 
+<!-- NAV -->
 <nav>
     <h1>Anti Vandalism</h1>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
 </nav>
 
+<!-- OVERLAY -->
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
+<!-- MENU -->
 <div class="nav-menu" id="menu">
+
+    <!-- BOT PROFILE CENTER -->
+    <div class="menu-bot">
+        <img src="https://via.placeholder.com/100" alt="">
+        <h3>Anti Vandalism</h3>
+        <p>Discord Security Bot</p>
+    </div>
+
     <a href="#">Home</a>
     <a href="#">Features</a>
     <a href="#">Support</a>
     <a href="#">Invite Bot</a>
+
 </div>
 
+<!-- HERO -->
 <section class="hero">
     <h2>Discord Security Bot</h2>
 </section>
 
+<!-- FEATURES -->
 <section class="features">
 
     <div class="card">
@@ -212,7 +273,7 @@ footer p {
 
     <div class="card">
         <h3>⚡ Anti-Nuke</h3>
-        <p>Protects server actions.</p>
+        <p>Blocks server attacks.</p>
     </div>
 
     <div class="card">
@@ -222,31 +283,52 @@ footer p {
 
 </section>
 
+<!-- IMAGE SECTION -->
 <section class="image-cards">
 
     <div class="img-card">
         <img src="https://via.placeholder.com/400x200" alt="">
-        <div class="text">
-            Anti Raid System
-        </div>
+        <div class="text">Anti Raid System</div>
     </div>
 
     <div class="img-card">
         <img src="https://via.placeholder.com/400x200/38bdf8" alt="">
-        <div class="text">
-            Anti Nuke Protection
-        </div>
+        <div class="text">Anti Nuke Protection</div>
     </div>
 
 </section>
 
+<!-- OFFER -->
 <div class="offer-box">
     <h2>🔥 Premium Offer</h2>
-    <p>Get full protection system + logs + support</p>
+    <p>Full protection + logs + support system</p>
     <p><b>$1.99 / month</b></p>
     <button>Buy Now</button>
 </div>
 
+<!-- FAQ -->
+<section class="faq">
+
+    <h2>FAQ</h2>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+        <h3>What is this bot?</h3>
+        <p>It is a Discord security bot.</p>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+        <h3>Does it stop raids?</h3>
+        <p>Yes, it blocks mass joins instantly.</p>
+    </div>
+
+    <div class="faq-item" onclick="toggleFaq(this)">
+        <h3>Is it free?</h3>
+        <p>Basic version is free.</p>
+    </div>
+
+</section>
+
+<!-- FOOTER -->
 <footer>
 
 <div class="footer-grid">
@@ -285,6 +367,15 @@ function toggleMenu() {
 function closeMenu() {
     document.getElementById("menu").classList.remove("active");
     document.getElementById("overlay").classList.remove("active");
+}
+
+function toggleFaq(el) {
+    let p = el.querySelector("p");
+    if(p.style.display === "block") {
+        p.style.display = "none";
+    } else {
+        p.style.display = "block";
+    }
 }
 </script>
 
