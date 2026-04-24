@@ -3,162 +3,96 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Anti Vandalism Bot</title>
+<title>Fixed Menu Bot</title>
 
 <style>
-body {
-    margin: 0;
-    font-family: Arial;
-    background: #0a0f1c;
-    color: white;
-    overflow-x: hidden;
+body{
+    margin:0;
+    font-family:Arial;
+    background:#0a0f1c;
+    color:white;
+    overflow-x:hidden;
 }
 
 /* NAV */
-nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: #0b1224;
+nav{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    background:#0b1224;
+    position:relative;
+    z-index:1000;
 }
 
-nav h1 {
-    color: #38bdf8;
-}
+nav h1{color:#38bdf8;}
 
 /* MENU ICON */
-.menu-icon {
-    font-size: 28px;
-    cursor: pointer;
-    z-index: 10001;
+.menu-icon{
+    font-size:28px;
+    cursor:pointer;
+    z-index:1002;
 }
 
 /* OVERLAY */
-.overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    display: none;
-    z-index: 9998;
+.overlay{
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    z-index:998;
 }
 
-.overlay.active {
-    display: block;
+.overlay.active{
+    display:block;
 }
 
-/* SIDE MENU */
-.nav-menu {
-    position: fixed;
-    top: 0;
-    right: -280px;
-    width: 260px;
-    height: 100%;
-    background: #0b1224;
-    padding: 30px;
-    transition: 0.35s ease;
-    z-index: 9999;
+/* SIDE MENU (IMPORTANT FIX) */
+.nav-menu{
+    position:fixed;
+    top:0;
+    right:-300px;   /* مهم: hidden fully */
+    width:260px;
+    height:100%;
+    background:#0b1224;
+    padding:30px;
+    transition:0.35s ease;
+    z-index:999;
 }
 
-.nav-menu a {
-    display: block;
-    margin: 20px 0;
-    color: #38bdf8;
-    text-decoration: none;
+/* LINKS */
+.nav-menu a{
+    display:block;
+    margin:20px 0;
+    color:#38bdf8;
+    text-decoration:none;
 }
 
-.nav-menu.active {
-    right: 0;
+/* ACTIVE STATE */
+.nav-menu.active{
+    right:0;
 }
 
 /* HERO */
-.hero {
-    text-align: center;
-    padding: 90px 20px;
+.hero{
+    text-align:center;
+    padding:90px 20px;
 }
 
-.hero h2 {
-    font-size: 42px;
-    background: linear-gradient(90deg, #38bdf8, #a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-}
-
-/* FEATURES */
-.features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 20px;
-    padding: 40px;
-}
-
-.card {
-    background: #0b1224;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #1e293b;
-}
-
-/* IMAGE SECTION */
-.image-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 20px;
-    padding: 40px;
-}
-
-.img-card {
-    background: #0b1224;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #1e293b;
-}
-
-.img-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-}
-
-.img-card .text {
-    padding: 15px;
+.hero h2{
+    font-size:42px;
+    background:linear-gradient(90deg,#38bdf8,#a78bfa);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 /* BUTTON */
-.btn {
-    padding: 12px 20px;
-    background: #38bdf8;
-    color: black;
-    border-radius: 10px;
-    text-decoration: none;
-    display: inline-block;
-}
-
-/* FOOTER */
-footer {
-    background: #0b1224;
-    padding: 60px;
-    margin-top: 40px;
-}
-
-.footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap: 30px;
-}
-
-footer h3 {
-    color: #38bdf8;
-}
-
-footer p {
-    color: #94a3b8;
-}
-
-.bottom {
-    text-align: center;
-    margin-top: 30px;
-    color: #64748b;
+.btn{
+    padding:12px 20px;
+    background:#38bdf8;
+    color:black;
+    border-radius:10px;
+    text-decoration:none;
 }
 </style>
 </head>
@@ -168,7 +102,7 @@ footer p {
 <!-- NAV -->
 <nav>
     <h1>Anti Vandalism</h1>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+    <div class="menu-icon" onclick="openMenu()">☰</div>
 </nav>
 
 <!-- OVERLAY -->
@@ -179,7 +113,7 @@ footer p {
     <a href="#">Home</a>
     <a href="#">Features</a>
     <a href="#">Support</a>
-    <a href="#">Invite Bot</a>
+    <a href="#">Invite</a>
 </div>
 
 <!-- HERO -->
@@ -188,93 +122,13 @@ footer p {
     <a class="btn">Add Bot</a>
 </section>
 
-<!-- FEATURES -->
-<section class="features">
-
-    <div class="card">
-        <h3>🛡 Anti-Raid</h3>
-        <p>Detect and stop mass joins instantly with smart system.</p>
-    </div>
-
-    <div class="card">
-        <h3>⚡ Anti-Nuke</h3>
-        <p>Blocks channel delete, role spam and attacks.</p>
-    </div>
-
-    <div class="card">
-        <h3>🔒 Security</h3>
-        <p>Advanced protection system with auto logs.</p>
-    </div>
-
-</section>
-
-<!-- IMAGE SECTION -->
-<section class="image-cards">
-
-    <div class="img-card">
-        <img src="https://via.placeholder.com/400x200" alt="">
-        <div class="text">
-            <h3>Protection System</h3>
-            <p>Smart and fast security engine.</p>
-        </div>
-    </div>
-
-    <div class="img-card">
-        <img src="https://via.placeholder.com/400x200/38bdf8" alt="">
-        <div class="text">
-            <h3>Server Guard</h3>
-            <p>Stops raids before damage happens.</p>
-        </div>
-    </div>
-
-    <div class="img-card">
-        <img src="https://via.placeholder.com/400x200/a78bfa" alt="">
-        <div class="text">
-            <h3>Auto Logs</h3>
-            <p>Tracks all server activity.</p>
-        </div>
-    </div>
-
-</section>
-
-<!-- FOOTER -->
-<footer>
-
-<div class="footer-grid">
-
-    <div>
-        <h3>Bot</h3>
-        <p>Anti raid protection system</p>
-    </div>
-
-    <div>
-        <h3>Links</h3>
-        <p>Invite</p>
-        <p>Support</p>
-    </div>
-
-    <div>
-        <h3>Features</h3>
-        <p>Anti-Raid</p>
-        <p>Anti-Nuke</p>
-        <p>Security</p>
-    </div>
-
-</div>
-
-<div class="bottom">
-    © 2026 Anti Vandalism Bot
-</div>
-
-</footer>
-
 <script>
-function toggleMenu() {
-    document.getElementById("menu").classList.toggle("active");
-    document.getElementById("overlay").classList.toggle("active");
+function openMenu(){
+    document.getElementById("menu").classList.add("active");
+    document.getElementById("overlay").classList.add("active");
 }
 
-function closeMenu() {
+function closeMenu(){
     document.getElementById("menu").classList.remove("active");
     document.getElementById("overlay").classList.remove("active");
 }
