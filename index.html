@@ -11,6 +11,8 @@ body {
     font-family: Arial;
     color: white;
     overflow-x: hidden;
+
+    /* ONE PIECE BACKGROUND */
     background: linear-gradient(180deg, #050816 0%, #0a0f1c 50%, #050816 100%);
     background-attachment: fixed;
 }
@@ -55,39 +57,17 @@ nav h1 {
     width: 260px;
     height: 100%;
     background: #0b1224;
-    padding: 25px;
+    padding: 30px;
     transition: 0.35s ease;
     z-index: 999;
-    text-align: center;
-}
-
-/* BOT PROFILE INSIDE MENU */
-.menu-bot {
-    margin-bottom: 25px;
-}
-
-.menu-bot img {
-    width: 70px;
-    height: 70px;
-    border-radius: 50%;
-    border: 2px solid #38bdf8;
-}
-
-.menu-bot h3 {
-    margin: 10px 0 5px;
-    color: #38bdf8;
-}
-
-.menu-bot p {
-    font-size: 12px;
-    color: #94a3b8;
 }
 
 .nav-menu a {
     display: block;
-    margin: 12px 0;
+    margin: 15px 0;
     color: #38bdf8;
     text-decoration: none;
+    font-size: 16px;
 }
 
 .nav-menu.active {
@@ -107,69 +87,41 @@ nav h1 {
     -webkit-text-fill-color: transparent;
 }
 
-/* FEATURES (IMAGE CARDS FIXED STYLE) */
-.image-cards {
+/* BUTTON */
+.btn {
+    padding: 12px 20px;
+    background: #38bdf8;
+    color: black;
+    border-radius: 10px;
+    text-decoration: none;
+    display: inline-block;
+    margin-top: 10px;
+}
+
+/* FEATURES */
+.features {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
     gap: 20px;
     padding: 40px;
 }
 
-.img-card {
+.card {
     background: #0b1224;
+    padding: 20px;
     border-radius: 12px;
-    overflow: hidden;
     border: 1px solid #1e293b;
-    transition: 0.3s;
 }
 
-.img-card:hover {
-    transform: translateY(-5px);
-}
-
-.img-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-}
-
-.img-card .text {
-    padding: 15px;
-    color: #94a3b8;
-}
-
-/* OFFER / SHOP CARD */
-.offer-box {
+/* OFFER SECTION */
+.offer {
     margin: 40px;
     padding: 30px;
-    background: #0b1224;
-    border: 1px solid #1e293b;
+    background: linear-gradient(90deg, #38bdf8, #a78bfa);
+    color: black;
     border-radius: 15px;
     text-align: center;
-}
-
-.offer-box h2 {
-    color: #38bdf8;
-}
-
-.offer-box p {
-    color: #94a3b8;
-    margin: 10px 0;
-}
-
-.offer-box button {
-    margin-top: 15px;
-    padding: 12px 20px;
-    border: none;
-    background: linear-gradient(90deg,#38bdf8,#a78bfa);
-    color: black;
-    border-radius: 10px;
-    cursor: pointer;
     font-weight: bold;
-}
-
-.offer-box button:hover {
-    opacity: 0.9;
 }
 
 /* FOOTER */
@@ -215,61 +167,49 @@ footer p {
 <!-- MENU -->
 <div class="nav-menu" id="menu">
 
-    <!-- BOT CENTER PROFILE -->
-    <div class="menu-bot">
-        <img src="https://via.placeholder.com/100" alt="">
-        <h3>Anti Vandalism</h3>
-        <p>Discord Security Bot</p>
-    </div>
-
     <a href="#">Home</a>
     <a href="#">Features</a>
     <a href="#">Support</a>
     <a href="#">Invite Bot</a>
+
+    <!-- BOT NAME (EDIT HERE) -->
+    <a href="#">🤖 Bot Name: Anti Vandalism</a>
+
+    <!-- OFFER -->
+    <a href="#">🔥 Special Offer</a>
 
 </div>
 
 <!-- HERO -->
 <section class="hero">
     <h2>Discord Security Bot</h2>
+    <p>Protect your server from raids and nukes</p>
+    <a class="btn">Add Bot</a>
 </section>
 
-<!-- IMAGE CARDS -->
-<section class="image-cards">
+<!-- FEATURES -->
+<section class="features">
 
-    <div class="img-card">
-        <img src="https://via.placeholder.com/400x200" alt="">
-        <div class="text">
-            <h3>Anti Raid System</h3>
-            <p>Stops mass joins automatically.</p>
-        </div>
+    <div class="card">
+        <h3>🛡 Anti-Raid</h3>
+        <p>Detect and stop mass joins instantly.</p>
     </div>
 
-    <div class="img-card">
-        <img src="https://via.placeholder.com/400x200/38bdf8" alt="">
-        <div class="text">
-            <h3>Anti Nuke</h3>
-            <p>Protects channels & roles.</p>
-        </div>
+    <div class="card">
+        <h3>⚡ Anti-Nuke</h3>
+        <p>Blocks dangerous server actions.</p>
     </div>
 
-    <div class="img-card">
-        <img src="https://via.placeholder.com/400x200/a78bfa" alt="">
-        <div class="text">
-            <h3>Security Logs</h3>
-            <p>Tracks all server actions.</p>
-        </div>
+    <div class="card">
+        <h3>🔒 Security</h3>
+        <p>Advanced protection system with logs.</p>
     </div>
 
 </section>
 
-<!-- OFFER / SHOP BOX -->
-<div class="offer-box">
-    <h2>🔥 Premium Protection Offer</h2>
-    <p>Get full anti-raid + anti-nuke system with advanced logs and priority support.</p>
-    <p><b>Only $1.99 / month</b></p>
-
-    <button>Buy Now</button>
+<!-- OFFER BOX -->
+<div class="offer">
+    🔥 LIMITED OFFER: Premium protection now available for cheaper price! 💎
 </div>
 
 <!-- FOOTER -->
