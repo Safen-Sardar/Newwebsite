@@ -24,8 +24,6 @@ nav {
     align-items: center;
     padding: 15px 20px;
     background: #0b1224;
-    position: relative;
-    z-index: 1000;
 }
 
 nav h1 {
@@ -36,7 +34,6 @@ nav h1 {
 .menu-icon {
     font-size: 28px;
     cursor: pointer;
-    z-index: 1002;
 }
 
 /* OVERLAY */
@@ -45,14 +42,14 @@ nav h1 {
     inset: 0;
     background: rgba(0,0,0,0.6);
     display: none;
-    z-index: 9998;
+    z-index: 998;
 }
 
 .overlay.active {
     display: block;
 }
 
-/* SIDE MENU (FIXED) */
+/* SIDE MENU */
 .nav-menu {
     position: fixed;
     top: 0;
@@ -61,16 +58,16 @@ nav h1 {
     height: 100%;
     background: #0b1224;
     padding: 30px;
-    transition: right 0.35s ease;
-    z-index: 9999;
+    transition: 0.35s ease;
+    z-index: 999;
 }
 
 .nav-menu a {
     display: block;
-    margin: 20px 0;
+    margin: 15px 0;
     color: #38bdf8;
     text-decoration: none;
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .nav-menu.active {
@@ -98,6 +95,7 @@ nav h1 {
     border-radius: 10px;
     text-decoration: none;
     display: inline-block;
+    margin-top: 10px;
 }
 
 /* FEATURES */
@@ -115,29 +113,15 @@ nav h1 {
     border: 1px solid #1e293b;
 }
 
-/* IMAGE SECTION */
-.image-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 20px;
-    padding: 40px;
-}
-
-.img-card {
-    background: #0b1224;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #1e293b;
-}
-
-.img-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
-}
-
-.img-card .text {
-    padding: 15px;
+/* OFFER SECTION */
+.offer {
+    margin: 40px;
+    padding: 30px;
+    background: linear-gradient(90deg, #38bdf8, #a78bfa);
+    color: black;
+    border-radius: 15px;
+    text-align: center;
+    font-weight: bold;
 }
 
 /* FOOTER */
@@ -182,10 +166,18 @@ footer p {
 
 <!-- MENU -->
 <div class="nav-menu" id="menu">
+
     <a href="#">Home</a>
     <a href="#">Features</a>
     <a href="#">Support</a>
     <a href="#">Invite Bot</a>
+
+    <!-- BOT NAME (EDIT HERE) -->
+    <a href="#">🤖 Bot Name: Anti Vandalism</a>
+
+    <!-- OFFER -->
+    <a href="#">🔥 Special Offer</a>
+
 </div>
 
 <!-- HERO -->
@@ -200,49 +192,25 @@ footer p {
 
     <div class="card">
         <h3>🛡 Anti-Raid</h3>
-        <p>Detect and stop mass joins instantly with smart system.</p>
+        <p>Detect and stop mass joins instantly.</p>
     </div>
 
     <div class="card">
         <h3>⚡ Anti-Nuke</h3>
-        <p>Blocks channel delete, role spam and attacks.</p>
+        <p>Blocks dangerous server actions.</p>
     </div>
 
     <div class="card">
         <h3>🔒 Security</h3>
-        <p>Advanced protection system with auto logs.</p>
+        <p>Advanced protection system with logs.</p>
     </div>
 
 </section>
 
-<!-- IMAGE SECTION -->
-<section class="image-cards">
-
-    <div class="img-card">
-        <img src="https://via.placeholder.com/400x200" alt="">
-        <div class="text">
-            <h3>Protection System</h3>
-            <p>Smart and fast security engine.</p>
-        </div>
-    </div>
-
-    <div class="img-card">
-        <img src="https://via.placeholder.com/400x200/38bdf8" alt="">
-        <div class="text">
-            <h3>Server Guard</h3>
-            <p>Stops raids before damage happens.</p>
-        </div>
-    </div>
-
-    <div class="img-card">
-        <img src="https://via.placeholder.com/400x200/a78bfa" alt="">
-        <div class="text">
-            <h3>Auto Logs</h3>
-            <p>Tracks all server activity.</p>
-        </div>
-    </div>
-
-</section>
+<!-- OFFER BOX -->
+<div class="offer">
+    🔥 LIMITED OFFER: Premium protection now available for cheaper price! 💎
+</div>
 
 <!-- FOOTER -->
 <footer>
