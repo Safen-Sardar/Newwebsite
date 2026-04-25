@@ -120,6 +120,46 @@ nav {
     -webkit-text-fill-color:transparent;
 }
 
+/* HERO BUTTONS */
+.hero-buttons {
+    margin-top: 25px;
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+/* PRIMARY BUTTON */
+.btn-primary {
+    padding: 12px 20px;
+    background: linear-gradient(90deg,#38bdf8,#a78bfa);
+    color: black;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* SECOND BUTTON */
+.btn-secondary {
+    padding: 12px 20px;
+    background: transparent;
+    border: 2px solid #38bdf8;
+    color: #38bdf8;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+/* HOVER EFFECT */
+.btn-primary:hover {
+    opacity: 0.9;
+}
+
+.btn-secondary:hover {
+    background: #38bdf8;
+    color: black;
+}
+    /* shsvsb */
 /* FEATURES */
 .features {
     display:grid;
@@ -295,6 +335,11 @@ footer p {
 <!-- HERO -->
 <section class="hero">
     <h2>Discord Security Bot</h2>
+
+    <div class="hero-buttons">
+        <a href="#" class="btn-primary">➕ Add Server</a>
+        <a href="#" class="btn-secondary">💬 Support</a>
+    </div>
 </section>
 
 <!-- FEATURES -->
