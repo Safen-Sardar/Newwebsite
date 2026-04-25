@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium - Anti Vandalism</title>
+
+<style>
+body {
+    margin: 0;
+    font-family: Arial;
+    color: white;
+    overflow-x: hidden;
+    background: radial-gradient(circle at top, #111c33 0%, #0b1020 40%, #070a14 100%);
+}
+
+/* NAV */
+nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    background:#0b1224;
+}
+
+.nav-left {
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.nav-left img {
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
+}
+
+.nav-left h1 {
+    margin:0;
+    font-size:20px;
+    color:#38bdf8;
+}
+
+/* MENU ICON */
+.menu-icon {
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* OVERLAY */
+.overlay {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    z-index:998;
+}
+
+.overlay.active {
+    display:block;
+}
+
+/* MENU */
+.nav-menu {
+    position:fixed;
+    top:0;
+    right:-300px;
+    width:260px;
+    height:100%;
+    background:#0b1224;
+    padding:25px;
+    transition:0.35s;
+    z-index:999;
+    text-align:center;
+}
+
+.nav-menu.active {
+    right:0;
+}
+
+/* BOT PROFILE */
+.menu-bot img {
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
+}
+
+.menu-bot h3 {
+    margin:10px 0 5px;
+    color:#38bdf8;
+}
+
+.menu-bot p {
+    margin:0 0 20px;
+    font-size:12px;
+    color:#94a3b8;
+}
+
+.nav-menu a {
+    display:block;
+    margin:12px 0;
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+/* HERO */
+.hero {
+    text-align:center;
+    padding:60px 20px;
+}
+
+.hero h2 {
+    font-size:38px;
+    color:#38bdf8;
+}
+
+/* PRICING */
+.pricing {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:40px;
+}
+
+.card {
+    background:#1e293b;
+    padding:25px;
+    border-radius:15px;
+    border:1px solid #334155;
+    text-align:center;
+    transition:0.3s;
+}
+
+.card:hover {
+    transform:translateY(-5px);
+}
+
+.card h3 {
+    color:#38bdf8;
+}
+
+.price {
+    font-size:28px;
+    margin:15px 0;
+}
+
+.card p {
+    color:#cbd5e1;
+}
+
+.btn-buy {
+    margin-top:15px;
+    padding:12px 20px;
+    background:#020617;
+    color:#38bdf8;
+    border-radius:10px;
+    text-decoration:none;
+    border:1px solid #1e293b;
+    display:inline-block;
+}
+
+.btn-buy:hover {
+    border-color:#38bdf8;
+}
+
+.best {
+    border:2px solid #38bdf8;
+}
+
+/* FOOTER */
+footer {
+    background:#0b1224;
+    padding:60px;
+    position:relative;
+}
+
+.footer-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+}
+
+footer h3 {
+    color:#38bdf8;
+}
+
+footer p {
+    color:#94a3b8;
+}
+
+.bottom {
+    text-align:center;
+    margin-top:30px;
+    color:#64748b;
+}
+
+/* QR */
+.qr-box {
+    position:absolute;
+    right:20px;
+    top:40px;
+    text-align:center;
+}
+
+.qr-box img {
+    width:80px;
+    height:80px;
+    border-radius:8px;
+    border:2px solid #38bdf8;
+}
+
+.qr-box p {
+    font-size:12px;
+    color:#94a3b8;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+    <div class="nav-left">
+        <img src="https://via.placeholder.com/40">
+        <h1>Anti Vandalism</h1>
+    </div>
+    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<!-- MENU -->
+<div class="nav-menu" id="menu">
+    <div class="menu-bot">
+        <img src="https://via.placeholder.com/100">
+        <h3>Anti Vandalism</h3>
+        <p>Discord Security Bot</p>
+    </div>
+
+    <a href="index.html">Home</a>
+    <a href="#">Features</a>
+    <a href="#">Support</a>
+    <a href="Premium.html">Premium</a>
+</div>
+
+<!-- HERO -->
+<section class="hero">
+    <h2>Premium Plans</h2>
+</section>
+
+<!-- PRICING -->
+<section class="pricing">
+
+<div class="card">
+    <h3>Basic</h3>
+    <div class="price">$1.99</div>
+    <p>✔ Anti-Raid</p>
+    <p>✔ Basic Logs</p>
+    <a href="#" class="btn-buy">Buy</a>
+</div>
+
+<div class="card best">
+    <h3>Pro</h3>
+    <div class="price">$4.99</div>
+    <p>✔ Anti-Raid</p>
+    <p>✔ Anti-Nuke</p>
+    <p>✔ Logs System</p>
+    <a href="#" class="btn-buy">Buy</a>
+</div>
+
+<div class="card">
+    <h3>Ultra</h3>
+    <div class="price">$9.99</div>
+    <p>✔ All Features</p>
+    <p>✔ AI Protection</p>
+    <a href="#" class="btn-buy">Buy</a>
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+<div class="footer-grid">
+
+<div>
+    <h3>Bot</h3>
+    <p>Security system</p>
+</div>
+
+<div>
+    <h3>Links</h3>
+    <p>Home</p>
+    <p>Premium</p>
+</div>
+
+<div>
+    <h3>Features</h3>
+    <p>Anti-Raid</p>
+    <p>Anti-Nuke</p>
+</div>
+
+</div>
+
+<div class="bottom">
+© 2026 Anti Vandalism
+</div>
+
+<!-- QR -->
+<div class="qr-box">
+    <img src="https://via.placeholder.com/100">
+    <p>Scan Me</p>
+</div>
+
+</footer>
+
+<script>
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("active");
+    document.getElementById("overlay").classList.toggle("active");
+}
+
+function closeMenu() {
+    document.getElementById("menu").classList.remove("active");
+    document.getElementById("overlay").classList.remove("active");
+}
+</script>
+
+</body>
+</html>
