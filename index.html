@@ -12,220 +12,254 @@ body {
     color: white;
     overflow-x: hidden;
 
-    /* CLEAN ONE-PIECE BACKGROUND */
+    /* CLEAN ONE PIECE BACKGROUND */
     background: radial-gradient(circle at top, #111c33 0%, #0b1020 40%, #070a14 100%);
 }
 
 /* NAV */
 nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 20px;
-    background: #0b1224;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    padding:15px 20px;
+    background:#0b1224;
 }
 
-nav h1 {
-    color: #38bdf8;
+.nav-left {
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.nav-left img {
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
+}
+
+.nav-left h1 {
+    margin:0;
+    font-size:20px;
+    color:#38bdf8;
 }
 
 /* MENU ICON */
 .menu-icon {
-    font-size: 28px;
-    cursor: pointer;
+    font-size:28px;
+    cursor:pointer;
 }
 
 /* OVERLAY */
 .overlay {
-    position: fixed;
-    inset: 0;
-    background: rgba(0,0,0,0.6);
-    display: none;
-    z-index: 998;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    z-index:998;
 }
 
 .overlay.active {
-    display: block;
+    display:block;
 }
 
 /* MENU */
 .nav-menu {
-    position: fixed;
-    top: 0;
-    right: -300px;
-    width: 260px;
-    height: 100%;
-    background: #0b1224;
-    padding: 25px;
-    transition: 0.35s ease;
-    z-index: 999;
-    text-align: center;
+    position:fixed;
+    top:0;
+    right:-300px;
+    width:260px;
+    height:100%;
+    background:#0b1224;
+    padding:25px;
+    transition:0.35s;
+    z-index:999;
+    text-align:center;
 }
 
 .nav-menu.active {
-    right: 0;
+    right:0;
 }
 
-/* BOT PROFILE IN MENU */
+/* BOT PROFILE */
 .menu-bot img {
-    width: 80px;
-    height: 80px;
-    border-radius: 50%;
-    border: 2px solid #38bdf8;
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
 }
 
 .menu-bot h3 {
-    margin: 10px 0 5px;
-    color: #38bdf8;
+    margin:10px 0 5px;
+    color:#38bdf8;
 }
 
 .menu-bot p {
-    margin: 0 0 20px;
-    font-size: 12px;
-    color: #94a3b8;
+    margin:0 0 20px;
+    font-size:12px;
+    color:#94a3b8;
 }
 
-/* MENU LINKS */
 .nav-menu a {
-    display: block;
-    margin: 12px 0;
-    color: #38bdf8;
-    text-decoration: none;
+    display:block;
+    margin:12px 0;
+    color:#38bdf8;
+    text-decoration:none;
 }
 
 /* HERO */
 .hero {
-    text-align: center;
-    padding: 80px 20px;
+    text-align:center;
+    padding:80px 20px;
 }
 
 .hero h2 {
-    font-size: 42px;
-    background: linear-gradient(90deg,#38bdf8,#a78bfa);
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
+    font-size:42px;
+    background:linear-gradient(90deg,#38bdf8,#a78bfa);
+    -webkit-background-clip:text;
+    -webkit-text-fill-color:transparent;
 }
 
 /* FEATURES */
 .features {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 20px;
-    padding: 40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:40px;
 }
 
 .card {
-    background: #1e293b;
-    padding: 20px;
-    border-radius: 12px;
-    border: 1px solid #334155;
+    background:#1e293b;
+    padding:20px;
+    border-radius:12px;
+    border:1px solid #334155;
 }
 
 /* IMAGE CARDS */
 .image-cards {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px,1fr));
-    gap: 20px;
-    padding: 40px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:40px;
 }
 
 .img-card {
-    background: #1e293b;
-    border-radius: 12px;
-    overflow: hidden;
-    border: 1px solid #334155;
+    background:#1e293b;
+    border-radius:12px;
+    overflow:hidden;
+    border:1px solid #334155;
 }
 
 .img-card img {
-    width: 100%;
-    height: 160px;
-    object-fit: cover;
+    width:100%;
+    height:160px;
+    object-fit:cover;
 }
 
 .img-card .text {
-    padding: 15px;
-    color: #e5e7eb;
+    padding:15px;
+    color:#e5e7eb;
 }
 
-/* OFFER BOX */
+/* OFFER */
 .offer-box {
-    margin: 40px;
-    padding: 30px;
-    background: #1e293b;
-    border-radius: 15px;
-    border: 1px solid #334155;
-    text-align: center;
+    margin:40px;
+    padding:30px;
+    background:#1e293b;
+    border-radius:15px;
+    border:1px solid #334155;
+    text-align:center;
 }
 
 .offer-box h2 {
-    color: #38bdf8;
+    color:#38bdf8;
 }
 
 .offer-box p {
-    color: #cbd5e1;
+    color:#cbd5e1;
 }
 
 .offer-box button {
-    margin-top: 15px;
-    padding: 12px 20px;
-    border: none;
-    background: linear-gradient(90deg,#38bdf8,#a78bfa);
-    color: black;
-    border-radius: 10px;
-    cursor: pointer;
-    font-weight: bold;
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    background:linear-gradient(90deg,#38bdf8,#a78bfa);
+    color:black;
+    border-radius:10px;
+    cursor:pointer;
+    font-weight:bold;
 }
 
 /* FAQ */
 .faq {
-    padding: 40px;
+    padding:40px;
 }
 
 .faq h2 {
-    text-align: center;
-    color: #38bdf8;
-    margin-bottom: 20px;
+    text-align:center;
+    color:#38bdf8;
 }
 
 .faq-item {
-    background: #1e293b;
-    margin: 10px 0;
-    padding: 15px;
-    border-radius: 10px;
-    border: 1px solid #334155;
-    cursor: pointer;
+    background:#1e293b;
+    margin:10px 0;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #334155;
+    cursor:pointer;
 }
 
 .faq-item p {
-    display: none;
-    margin-top: 10px;
-    color: #cbd5e1;
+    display:none;
+    margin-top:10px;
+    color:#cbd5e1;
 }
 
 /* FOOTER */
 footer {
-    background: #0b1224;
-    padding: 60px;
+    background:#0b1224;
+    padding:60px;
+    position:relative;
 }
 
 .footer-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px,1fr));
-    gap: 30px;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
 }
 
 footer h3 {
-    color: #38bdf8;
+    color:#38bdf8;
 }
 
 footer p {
-    color: #94a3b8;
+    color:#94a3b8;
 }
 
 .bottom {
-    text-align: center;
-    margin-top: 30px;
-    color: #64748b;
+    text-align:center;
+    margin-top:30px;
+    color:#64748b;
+}
+
+/* QR CODE */
+.qr-box {
+    position:absolute;
+    right:20px;
+    bottom:20px;
+    text-align:center;
+}
+
+.qr-box img {
+    width:80px;
+    height:80px;
+    border-radius:8px;
+    border:2px solid #38bdf8;
+}
+
+.qr-box p {
+    font-size:12px;
+    color:#94a3b8;
 }
 </style>
 </head>
@@ -233,32 +267,20 @@ footer p {
 <body>
 
 <!-- NAV -->
-<nav style="display:flex; align-items:center; justify-content:space-between; padding:15px 20px; background:#0b1224;">
-
-    <!-- BOT LOGO + NAME -->
-    <div style="display:flex; align-items:center; gap:10px;">
-        <img src="https://via.placeholder.com/40"
-             style="width:35px;height:35px;border-radius:50%;border:2px solid #38bdf8;">
-
-        <h1 style="margin:0; font-size:20px; color:#38bdf8;">
-            Anti Vandalism
-        </h1>
+<nav>
+    <div class="nav-left">
+        <img src="https://via.placeholder.com/40">
+        <h1>Anti Vandalism</h1>
     </div>
-
-    <!-- MENU ICON -->
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
-
 </nav>
 
-<!-- OVERLAY -->
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
 <!-- MENU -->
 <div class="nav-menu" id="menu">
-
-    <!-- BOT PROFILE CENTER -->
     <div class="menu-bot">
-        <img src="https://via.placeholder.com/100" alt="">
+        <img src="https://via.placeholder.com/100">
         <h3>Anti Vandalism</h3>
         <p>Discord Security Bot</p>
     </div>
@@ -267,7 +289,6 @@ footer p {
     <a href="#">Features</a>
     <a href="#">Support</a>
     <a href="#">Invite Bot</a>
-
 </div>
 
 <!-- HERO -->
@@ -277,50 +298,42 @@ footer p {
 
 <!-- FEATURES -->
 <section class="features">
-
     <div class="card">
         <h3>🛡 Anti-Raid</h3>
         <p>Stops mass joins instantly.</p>
     </div>
-
     <div class="card">
         <h3>⚡ Anti-Nuke</h3>
         <p>Blocks server attacks.</p>
     </div>
-
     <div class="card">
         <h3>🔒 Security</h3>
         <p>Full protection system.</p>
     </div>
-
 </section>
 
-<!-- IMAGE SECTION -->
+<!-- IMAGE -->
 <section class="image-cards">
-
     <div class="img-card">
-        <img src="https://via.placeholder.com/400x200" alt="">
+        <img src="https://via.placeholder.com/400x200">
         <div class="text">Anti Raid System</div>
     </div>
-
     <div class="img-card">
-        <img src="https://via.placeholder.com/400x200/38bdf8" alt="">
+        <img src="https://via.placeholder.com/400x200/38bdf8">
         <div class="text">Anti Nuke Protection</div>
     </div>
-
 </section>
 
 <!-- OFFER -->
 <div class="offer-box">
     <h2>🔥 Premium Offer</h2>
-    <p>Full protection + logs + support system</p>
+    <p>Full protection + logs + support</p>
     <p><b>$1.99 / month</b></p>
     <button>Buy Now</button>
 </div>
 
 <!-- FAQ -->
 <section class="faq">
-
     <h2>FAQ</h2>
 
     <div class="faq-item" onclick="toggleFaq(this)">
@@ -330,12 +343,7 @@ footer p {
 
     <div class="faq-item" onclick="toggleFaq(this)">
         <h3>Does it stop raids?</h3>
-        <p>Yes, it blocks mass joins instantly.</p>
-    </div>
-
-    <div class="faq-item" onclick="toggleFaq(this)">
-        <h3>Is it free?</h3>
-        <p>Basic version is free.</p>
+        <p>Yes, instantly.</p>
     </div>
 
 </section>
@@ -344,7 +352,6 @@ footer p {
 <footer>
 
 <div class="footer-grid">
-
     <div>
         <h3>Bot</h3>
         <p>Anti raid system</p>
@@ -361,11 +368,16 @@ footer p {
         <p>Anti-Raid</p>
         <p>Anti-Nuke</p>
     </div>
-
 </div>
 
 <div class="bottom">
     © 2026 Anti Vandalism Bot
+</div>
+
+<!-- QR CODE -->
+<div class="qr-box">
+    <img src="https://via.placeholder.com/100">
+    <p>Scan Me</p>
 </div>
 
 </footer>
@@ -383,11 +395,7 @@ function closeMenu() {
 
 function toggleFaq(el) {
     let p = el.querySelector("p");
-    if(p.style.display === "block") {
-        p.style.display = "none";
-    } else {
-        p.style.display = "block";
-    }
+    p.style.display = (p.style.display === "block") ? "none" : "block";
 }
 </script>
 
