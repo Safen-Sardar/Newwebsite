@@ -21,7 +21,6 @@ nav {
     padding:15px 20px;
     background:#0b1224;
     z-index:1000;
-    position:relative;
 }
 
 .nav-left {
@@ -38,8 +37,8 @@ nav {
 }
 
 .nav-left h1 {
-    margin:0;
     color:#38bdf8;
+    margin:0;
 }
 
 /* MENU */
@@ -64,78 +63,69 @@ nav {
     background:#0b1224;
     padding:25px;
     transition:0.3s;
-    text-align:center;
     z-index:999;
 }
 
 .nav-menu.active { right:0; }
 
+.nav-menu a {
+    display:block;
+    margin:12px 0;
+    color:#38bdf8;
+    text-decoration:none;
+}
+
 /* HERO */
 .hero {
     text-align:center;
-    padding:40px 20px;
+    padding:40px;
 }
 
-.hero h2 { color:#38bdf8; }
-
-/* REWARD (TOP NOW) */
+/* REWARD */
 .reward-section {
     text-align:center;
-    padding:40px 20px;
+    padding:30px;
 }
 
 .reward-box {
     margin:auto;
-    margin-top:20px;
-    padding:30px;
-    max-width:400px;
+    padding:20px;
+    max-width:300px; /* SMALLER */
     background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    border-radius:15px;
+    border-radius:12px;
 }
 
 .reward-btn {
-    margin-top:15px;
-    padding:12px 20px;
+    margin-top:10px;
+    padding:10px 16px;
     border:none;
-    border-radius:10px;
+    border-radius:8px;
     background:linear-gradient(90deg,#38bdf8,#a78bfa);
     color:black;
     cursor:pointer;
 }
 
-#reward-result {
-    margin-top:15px;
-    color:#22c55e;
-}
-
 /* PRICING */
 .pricing {
     display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
+    grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+    gap:20px;
     padding:40px;
 }
 
 .card {
     background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    padding:30px;
-    border-radius:18px;
+    padding:25px;
+    border-radius:15px;
     border:1px solid rgba(255,255,255,0.1);
     text-align:center;
 }
 
-.price {
-    font-size:30px;
-    color:#38bdf8;
-}
+.price { color:#38bdf8; font-size:26px; }
 
-/* CHECK */
 .check {
     position:relative;
-    padding-left:25px;
-    margin:8px 0;
+    padding-left:20px;
 }
 
 .check::before {
@@ -145,32 +135,46 @@ nav {
     color:#22c55e;
 }
 
-/* DISCOUNT BADGE */
-.discount {
-    background:#22c55e;
-    color:black;
-    padding:4px 8px;
-    border-radius:6px;
-    font-size:12px;
-}
-
-/* BUTTON */
-.btn-buy {
-    margin-top:15px;
-    padding:12px 20px;
-    border:1px solid #38bdf8;
-    border-radius:10px;
-    color:#38bdf8;
-    text-decoration:none;
-    display:inline-block;
-}
-
-/* FOOTER */
+/* FOOTER BIG */
 footer {
     background:#0b1224;
-    padding:60px;
-    text-align:center;
+    padding:60px 40px;
     margin-top:40px;
+    position:relative;
+}
+
+.footer-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+}
+
+footer h3 {
+    color:#38bdf8;
+}
+
+footer p {
+    color:#94a3b8;
+}
+
+/* QR */
+.qr-box {
+    position:absolute;
+    right:20px;
+    top:40px;
+    text-align:center;
+}
+
+.qr-box img {
+    width:80px;
+    border-radius:8px;
+    border:2px solid #38bdf8;
+}
+
+.bottom {
+    text-align:center;
+    margin-top:30px;
+    color:#64748b;
 }
 </style>
 </head>
@@ -196,17 +200,15 @@ footer {
 <h2>Premium Plans</h2>
 </section>
 
-<!-- 🎁 REWARD TOP -->
+<!-- SMALL REWARD -->
 <section class="reward-section">
-<h2>🎁 Daily Reward</h2>
 <div class="reward-box">
-<p>Open once per day</p>
-<button onclick="openReward()" class="reward-btn">Open Box</button>
+<p>🎁 Daily Reward</p>
+<button onclick="openReward()" class="reward-btn">Open</button>
 <div id="reward-result"></div>
 </div>
 </section>
 
-<!-- PRICING -->
 <section class="pricing">
 
 <div class="card">
@@ -214,7 +216,6 @@ footer {
 <div class="price">$1.99</div>
 <p class="check">Anti-Raid</p>
 <p class="check">Logs</p>
-<a href="#" class="btn-buy">Buy</a>
 </div>
 
 <div class="card">
@@ -222,22 +223,52 @@ footer {
 <div class="price">$4.99</div>
 <p class="check">Anti-Nuke</p>
 <p class="check">Full Logs</p>
-<a href="#" class="btn-buy">Upgrade</a>
 </div>
 
 <div class="card">
-<span class="discount">25% OFF</span>
 <h3>Ultra</h3>
 <div class="price"><del>$9.99</del> $7.49</div>
 <p class="check">All Features</p>
 <p class="check">AI Protection</p>
-<a href="#" class="btn-buy">Get Ultra</a>
 </div>
 
 </section>
 
+<!-- BIG FOOTER -->
 <footer>
+
+<div class="footer-grid">
+
+<div>
+<h3>Bot</h3>
+<p>Advanced Discord Security</p>
+</div>
+
+<div>
+<h3>Links</h3>
+<p>Home</p>
+<p>Premium</p>
+<p>Support</p>
+</div>
+
+<div>
+<h3>Features</h3>
+<p>Anti-Raid</p>
+<p>Anti-Nuke</p>
+<p>Logs System</p>
+</div>
+
+</div>
+
+<div class="bottom">
 © 2026 Anti Vandalism
+</div>
+
+<div class="qr-box">
+<img src="https://via.placeholder.com/100">
+<p>Scan</p>
+</div>
+
 </footer>
 
 <script>
@@ -251,41 +282,27 @@ document.getElementById("menu").classList.remove("active");
 document.getElementById("overlay").classList.remove("active");
 }
 
-/* 🎁 NEW REWARD SYSTEM */
 function openReward(){
-
 let last = localStorage.getItem("lastOpen");
 let now = new Date().getTime();
 
 if(last && now - last < 86400000){
-document.getElementById("reward-result").innerHTML="❌ Try tomorrow!";
+document.getElementById("reward-result").innerHTML="❌ Tomorrow!";
 return;
 }
 
 localStorage.setItem("lastOpen", now);
 
-let r = Math.random();
-let reward = "";
+let r=Math.random();
+let result="";
 
-/* 5 REWARDS (EDIT NAMES HERE) */
-if(r < 0.02){
-reward="🔥 Free Premium";
-}
-else if(r < 0.05){
-reward="💎 Free Gold";
-}
-else if(r < 0.10){
-reward="🤖 Free AI";
-}
-else if(r < 0.20){
-reward="⚡ Free Silver";
-}
-else{
-reward="😢 Nothing";
-}
+if(r<0.02){result="🔥 Premium";}
+else if(r<0.05){result="💎 Gold";}
+else if(r<0.10){result="🤖 AI";}
+else if(r<0.20){result="⚡ Silver";}
+else{result="😢 Nothing";}
 
-document.getElementById("reward-result").innerHTML = reward;
-
+document.getElementById("reward-result").innerHTML=result;
 }
 </script>
 
