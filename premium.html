@@ -20,6 +20,8 @@ nav {
     align-items:center;
     padding:15px 20px;
     background:#0b1224;
+    position:relative;
+    z-index:1000;
 }
 
 .nav-left {
@@ -51,6 +53,7 @@ nav {
     inset:0;
     background:rgba(0,0,0,0.6);
     display:none;
+    z-index:998;
 }
 
 .overlay.active { display:block; }
@@ -65,10 +68,12 @@ nav {
     padding:25px;
     transition:0.3s;
     text-align:center;
+    z-index:999;
 }
 
 .nav-menu.active { right:0; }
 
+/* PROFILE */
 .menu-bot img {
     width:80px;
     height:80px;
@@ -76,7 +81,7 @@ nav {
     border:2px solid #38bdf8;
 }
 
-.menu-bot h3 { color:#38bdf8; margin:10px 0 5px; }
+.menu-bot h3 { color:#38bdf8; }
 .menu-bot p { color:#94a3b8; font-size:12px; }
 
 .nav-menu a {
@@ -104,41 +109,20 @@ nav {
     padding:40px;
 }
 
-/* CARD */
+/* BEAUTIFUL CARD */
 .card {
-    position:relative;
-    background:#020617;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
     padding:30px;
     border-radius:18px;
-    border:1px solid #1e293b;
+    border:1px solid rgba(255,255,255,0.1);
     text-align:center;
     transition:0.3s;
 }
 
-/* GLOW */
-.card::before {
-    content:"";
-    position:absolute;
-    inset:-2px;
-    border-radius:18px;
-    background:linear-gradient(90deg,#38bdf8,#a78bfa);
-    opacity:0;
-    filter:blur(20px);
-    transition:0.3s;
-    z-index:-1;
-}
-
-.card:hover::before {
-    opacity:0.5;
-}
-
 .card:hover {
-    transform:translateY(-8px) scale(1.02);
-}
-
-/* BEST */
-.best {
-    border:1px solid #38bdf8;
+    transform:translateY(-6px);
+    border-color:#38bdf8;
 }
 
 /* BADGE */
@@ -148,7 +132,6 @@ nav {
     padding:5px 10px;
     border-radius:8px;
     font-size:12px;
-    margin-bottom:10px;
     display:inline-block;
 }
 
@@ -159,28 +142,43 @@ nav {
     color:#38bdf8;
 }
 
-/* FEATURES */
+/* TEXT */
 .card p {
     color:#cbd5e1;
-    margin:8px 0;
 }
 
 /* BUTTON */
 .btn-buy {
     margin-top:20px;
     padding:12px 22px;
-    background:#020617;
+    background:transparent;
     color:#38bdf8;
     border-radius:10px;
     text-decoration:none;
-    border:1px solid #334155;
+    border:1px solid #38bdf8;
     display:inline-block;
     transition:0.3s;
 }
 
 .btn-buy:hover {
-    border-color:#38bdf8;
-    transform:translateY(-2px);
+    background:#38bdf8;
+    color:black;
+}
+
+/* INFO SECTION */
+.info {
+    padding:50px 20px;
+    text-align:center;
+}
+
+.info h2 {
+    color:#38bdf8;
+}
+
+.info p {
+    max-width:600px;
+    margin:auto;
+    color:#cbd5e1;
 }
 
 /* FOOTER */
@@ -210,7 +208,6 @@ footer p { color:#94a3b8; }
     position:absolute;
     right:20px;
     top:40px;
-    text-align:center;
 }
 
 .qr-box img {
@@ -265,14 +262,13 @@ footer p { color:#94a3b8; }
     <a href="#" class="btn-buy">Buy</a>
 </div>
 
-<div class="card best">
-    <div class="badge">🔥 Most Popular</div>
+<div class="card">
+    <span class="badge">🔥 Popular</span>
     <h3>Pro</h3>
     <div class="price">$4.99</div>
     <p>🛡 Advanced Anti-Raid</p>
     <p>⚡ Anti-Nuke</p>
     <p>📊 Full Logs</p>
-    <p>🚀 Priority</p>
     <a href="#" class="btn-buy">Upgrade</a>
 </div>
 
@@ -281,10 +277,18 @@ footer p { color:#94a3b8; }
     <div class="price">$9.99</div>
     <p>🧠 AI Protection</p>
     <p>💎 All Features</p>
-    <p>🎛 Custom</p>
     <a href="#" class="btn-buy">Go Ultra</a>
 </div>
 
+</section>
+
+<!-- INFO -->
+<section class="info">
+    <h2>Why Premium?</h2>
+    <p>
+        Premium gives you powerful protection, faster response to attacks,
+        advanced logging, and full control over your Discord server security.
+    </p>
 </section>
 
 <!-- FOOTER -->
