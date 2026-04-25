@@ -20,8 +20,8 @@ nav {
     align-items:center;
     padding:15px 20px;
     background:#0b1224;
-    position:relative;
     z-index:1000;
+    position:relative;
 }
 
 .nav-left {
@@ -73,7 +73,6 @@ nav {
 
 .nav-menu.active { right:0; }
 
-/* PROFILE */
 .menu-bot img {
     width:80px;
     height:80px;
@@ -109,7 +108,7 @@ nav {
     padding:40px;
 }
 
-/* BEAUTIFUL CARD */
+/* CARD */
 .card {
     background: rgba(255,255,255,0.05);
     backdrop-filter: blur(10px);
@@ -142,9 +141,19 @@ nav {
     color:#38bdf8;
 }
 
-/* TEXT */
-.card p {
+/* CHECK ICON */
+.check {
+    position:relative;
+    padding-left:25px;
     color:#cbd5e1;
+    margin:8px 0;
+}
+
+.check::before {
+    content:"✔";
+    position:absolute;
+    left:0;
+    color:#22c55e;
 }
 
 /* BUTTON */
@@ -165,20 +174,44 @@ nav {
     color:black;
 }
 
-/* INFO SECTION */
+/* INFO */
 .info {
     padding:50px 20px;
     text-align:center;
 }
 
-.info h2 {
-    color:#38bdf8;
+.info h2 { color:#38bdf8; }
+.info p { max-width:600px; margin:auto; color:#cbd5e1; }
+
+/* REWARD */
+.reward-section {
+    text-align:center;
+    padding:50px 20px;
 }
 
-.info p {
-    max-width:600px;
+.reward-box {
     margin:auto;
-    color:#cbd5e1;
+    margin-top:20px;
+    padding:30px;
+    max-width:400px;
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    border-radius:15px;
+}
+
+.reward-btn {
+    margin-top:15px;
+    padding:12px 20px;
+    border:none;
+    border-radius:10px;
+    background:linear-gradient(90deg,#38bdf8,#a78bfa);
+    color:black;
+    cursor:pointer;
+}
+
+#reward-result {
+    margin-top:15px;
+    color:#22c55e;
 }
 
 /* FOOTER */
@@ -220,116 +253,129 @@ footer p { color:#94a3b8; }
 
 <body>
 
-<!-- NAV -->
 <nav>
-    <div class="nav-left">
-        <img src="https://via.placeholder.com/40">
-        <h1>Anti Vandalism</h1>
-    </div>
-    <div class="menu-icon" onclick="toggleMenu()">☰</div>
+<div class="nav-left">
+<img src="https://via.placeholder.com/40">
+<h1>Anti Vandalism</h1>
+</div>
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
 </nav>
 
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
-<!-- MENU -->
 <div class="nav-menu" id="menu">
-    <div class="menu-bot">
-        <img src="https://via.placeholder.com/100">
-        <h3>Anti Vandalism</h3>
-        <p>Security Bot</p>
-    </div>
-
-    <a href="index.html">Home</a>
-    <a href="#">Features</a>
-    <a href="#">Support</a>
-    <a href="Premium.html">Premium</a>
+<div class="menu-bot">
+<img src="https://via.placeholder.com/100">
+<h3>Anti Vandalism</h3>
+<p>Security Bot</p>
 </div>
 
-<!-- HERO -->
+<a href="index.html">Home</a>
+<a href="#">Features</a>
+<a href="#">Support</a>
+<a href="Premium.html">Premium</a>
+</div>
+
 <section class="hero">
-    <h2>Premium Plans</h2>
+<h2>Premium Plans</h2>
 </section>
 
-<!-- PRICING -->
 <section class="pricing">
 
 <div class="card">
-    <h3>Basic</h3>
-    <div class="price">$1.99</div>
-    <p>🛡 Anti-Raid</p>
-    <p>📜 Logs</p>
-    <p>⚙ Protection</p>
-    <a href="#" class="btn-buy">Buy</a>
+<h3>Basic</h3>
+<div class="price">$1.99</div>
+<p class="check">Anti-Raid</p>
+<p class="check">Logs System</p>
+<p class="check">Protection</p>
+<a href="#" class="btn-buy">Buy</a>
 </div>
 
 <div class="card">
-    <span class="badge">🔥 Popular</span>
-    <h3>Pro</h3>
-    <div class="price">$4.99</div>
-    <p>🛡 Advanced Anti-Raid</p>
-    <p>⚡ Anti-Nuke</p>
-    <p>📊 Full Logs</p>
-    <a href="#" class="btn-buy">Upgrade</a>
+<span class="badge">🔥 Popular</span>
+<h3>Pro</h3>
+<div class="price">$4.99</div>
+<p class="check">Advanced Anti-Raid</p>
+<p class="check">Anti-Nuke</p>
+<p class="check">Full Logs</p>
+<a href="#" class="btn-buy">Upgrade</a>
 </div>
 
 <div class="card">
-    <h3>Ultra</h3>
-    <div class="price">$9.99</div>
-    <p>🧠 AI Protection</p>
-    <p>💎 All Features</p>
-    <a href="#" class="btn-buy">Go Ultra</a>
+<h3>Ultra</h3>
+<div class="price">$9.99</div>
+<p class="check">AI Protection</p>
+<p class="check">All Features</p>
+<p class="check">Custom Systems</p>
+<a href="#" class="btn-buy">Go Ultra</a>
 </div>
 
 </section>
 
-<!-- INFO -->
 <section class="info">
-    <h2>Why Premium?</h2>
-    <p>
-        Premium gives you powerful protection, faster response to attacks,
-        advanced logging, and full control over your Discord server security.
-    </p>
+<h2>Why Premium?</h2>
+<p>Premium gives you powerful protection and full control over your Discord server security.</p>
 </section>
 
-<!-- FOOTER -->
+<section class="reward-section">
+<h2>🎁 Daily Reward</h2>
+<div class="reward-box">
+<p>Open once per day</p>
+<button onclick="openReward()" class="reward-btn">Open Box</button>
+<div id="reward-result"></div>
+</div>
+</section>
+
 <footer>
 
 <div class="footer-grid">
-<div>
-    <h3>Bot</h3>
-    <p>Security System</p>
-</div>
-
-<div>
-    <h3>Links</h3>
-    <p>Home</p>
-    <p>Premium</p>
-</div>
-
-<div>
-    <h3>Features</h3>
-    <p>Anti-Raid</p>
-    <p>Anti-Nuke</p>
-</div>
+<div><h3>Bot</h3><p>Security System</p></div>
+<div><h3>Links</h3><p>Home</p><p>Premium</p></div>
+<div><h3>Features</h3><p>Anti-Raid</p><p>Anti-Nuke</p></div>
 </div>
 
 <div class="bottom">© 2026 Anti Vandalism</div>
 
 <div class="qr-box">
-    <img src="https://via.placeholder.com/100">
+<img src="https://via.placeholder.com/100">
 </div>
 
 </footer>
 
 <script>
-function toggleMenu() {
-    document.getElementById("menu").classList.toggle("active");
-    document.getElementById("overlay").classList.toggle("active");
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+document.getElementById("overlay").classList.toggle("active");
 }
 
-function closeMenu() {
-    document.getElementById("menu").classList.remove("active");
-    document.getElementById("overlay").classList.remove("active");
+function closeMenu(){
+document.getElementById("menu").classList.remove("active");
+document.getElementById("overlay").classList.remove("active");
+}
+
+function openReward(){
+let last = localStorage.getItem("lastOpen");
+let now = new Date().getTime();
+
+if(last && now - last < 86400000){
+document.getElementById("reward-result").innerHTML="❌ Try tomorrow!";
+return;
+}
+
+localStorage.setItem("lastOpen", now);
+
+let r = Math.random();
+let result = "";
+
+if(r < 0.05){
+result="🎉 You WON Premium!";
+}else if(r < 0.15){
+result="✨ Small Reward!";
+}else{
+result="😢 No luck!";
+}
+
+document.getElementById("reward-result").innerHTML=result;
 }
 </script>
 
