@@ -121,45 +121,61 @@ nav {
 }
 
 /* HERO BUTTONS */
+/* HERO BUTTONS */
 .hero-buttons {
-    margin-top: 25px;
+    margin-top: 30px;
     display: flex;
     justify-content: center;
     gap: 15px;
     flex-wrap: wrap;
 }
 
-/* PRIMARY BUTTON */
-.btn-primary {
-    padding: 12px 20px;
+/* MAIN PRO BUTTON */
+.btn-pro {
+    position: relative;
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-weight: bold;
+    color: white;
+    text-decoration: none;
+    background: linear-gradient(90deg,#38bdf8,#a78bfa);
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+/* GLOW EFFECT */
+.btn-pro::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(90deg,#38bdf8,#a78bfa);
+    filter: blur(15px);
+    opacity: 0.5;
+    z-index: -1;
+}
+
+/* HOVER */
+.btn-pro:hover {
+    transform: translateY(-3px) scale(1.05);
+}
+
+/* OUTLINE BUTTON */
+.btn-pro-outline {
+    padding: 14px 26px;
+    border-radius: 12px;
+    font-weight: bold;
+    color: #38bdf8;
+    text-decoration: none;
+    border: 2px solid #38bdf8;
+    transition: 0.3s;
+}
+
+/* HOVER */
+.btn-pro-outline:hover {
     background: linear-gradient(90deg,#38bdf8,#a78bfa);
     color: black;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
+    transform: translateY(-3px);
 }
-
-/* SECOND BUTTON */
-.btn-secondary {
-    padding: 12px 20px;
-    background: transparent;
-    border: 2px solid #38bdf8;
-    color: #38bdf8;
-    border-radius: 10px;
-    text-decoration: none;
-    font-weight: bold;
-}
-
-/* HOVER EFFECT */
-.btn-primary:hover {
-    opacity: 0.9;
-}
-
-.btn-secondary:hover {
-    background: #38bdf8;
-    color: black;
-}
-    /* shsvsb */
 /* FEATURES */
 .features {
     display:grid;
@@ -337,9 +353,14 @@ footer p {
     <h2>Discord Security Bot</h2>
 
     <div class="hero-buttons">
-        <a href="#" class="btn-primary">➕ Add Server</a>
-        <a href="#" class="btn-secondary">💬 Support</a>
-    </div>
+    <a href="#" class="btn-pro">
+        🚀 Add Server
+    </a>
+
+    <a href="#" class="btn-pro-outline">
+        💬 Support Server
+    </a>
+</div>
 </section>
 
 <!-- FEATURES -->
