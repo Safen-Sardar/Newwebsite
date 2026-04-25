@@ -43,10 +43,7 @@ nav {
 }
 
 /* MENU */
-.menu-icon {
-    font-size:28px;
-    cursor:pointer;
-}
+.menu-icon { font-size:28px; cursor:pointer; }
 
 .overlay {
     position:fixed;
@@ -73,120 +70,18 @@ nav {
 
 .nav-menu.active { right:0; }
 
-.menu-bot img {
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    border:2px solid #38bdf8;
-}
-
-.menu-bot h3 { color:#38bdf8; }
-.menu-bot p { color:#94a3b8; font-size:12px; }
-
-.nav-menu a {
-    display:block;
-    margin:12px 0;
-    color:#38bdf8;
-    text-decoration:none;
-}
-
 /* HERO */
 .hero {
     text-align:center;
-    padding:60px 20px;
+    padding:40px 20px;
 }
 
-.hero h2 {
-    color:#38bdf8;
-}
+.hero h2 { color:#38bdf8; }
 
-/* PRICING */
-.pricing {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
-    gap:25px;
-    padding:40px;
-}
-
-/* CARD */
-.card {
-    background: rgba(255,255,255,0.05);
-    backdrop-filter: blur(10px);
-    padding:30px;
-    border-radius:18px;
-    border:1px solid rgba(255,255,255,0.1);
-    text-align:center;
-    transition:0.3s;
-}
-
-.card:hover {
-    transform:translateY(-6px);
-    border-color:#38bdf8;
-}
-
-/* BADGE */
-.badge {
-    background:linear-gradient(90deg,#38bdf8,#a78bfa);
-    color:black;
-    padding:5px 10px;
-    border-radius:8px;
-    font-size:12px;
-    display:inline-block;
-}
-
-/* PRICE */
-.price {
-    font-size:30px;
-    margin:15px 0;
-    color:#38bdf8;
-}
-
-/* CHECK ICON */
-.check {
-    position:relative;
-    padding-left:25px;
-    color:#cbd5e1;
-    margin:8px 0;
-}
-
-.check::before {
-    content:"✔";
-    position:absolute;
-    left:0;
-    color:#22c55e;
-}
-
-/* BUTTON */
-.btn-buy {
-    margin-top:20px;
-    padding:12px 22px;
-    background:transparent;
-    color:#38bdf8;
-    border-radius:10px;
-    text-decoration:none;
-    border:1px solid #38bdf8;
-    display:inline-block;
-    transition:0.3s;
-}
-
-.btn-buy:hover {
-    background:#38bdf8;
-    color:black;
-}
-
-/* INFO */
-.info {
-    padding:50px 20px;
-    text-align:center;
-}
-
-.info h2 { color:#38bdf8; }
-.info p { max-width:600px; margin:auto; color:#cbd5e1; }
-
-/* REWARD */
+/* REWARD (TOP NOW) */
 .reward-section {
     text-align:center;
-    padding:50px 20px;
+    padding:40px 20px;
 }
 
 .reward-box {
@@ -214,39 +109,68 @@ nav {
     color:#22c55e;
 }
 
+/* PRICING */
+.pricing {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(260px,1fr));
+    gap:25px;
+    padding:40px;
+}
+
+.card {
+    background: rgba(255,255,255,0.05);
+    backdrop-filter: blur(10px);
+    padding:30px;
+    border-radius:18px;
+    border:1px solid rgba(255,255,255,0.1);
+    text-align:center;
+}
+
+.price {
+    font-size:30px;
+    color:#38bdf8;
+}
+
+/* CHECK */
+.check {
+    position:relative;
+    padding-left:25px;
+    margin:8px 0;
+}
+
+.check::before {
+    content:"✔";
+    position:absolute;
+    left:0;
+    color:#22c55e;
+}
+
+/* DISCOUNT BADGE */
+.discount {
+    background:#22c55e;
+    color:black;
+    padding:4px 8px;
+    border-radius:6px;
+    font-size:12px;
+}
+
+/* BUTTON */
+.btn-buy {
+    margin-top:15px;
+    padding:12px 20px;
+    border:1px solid #38bdf8;
+    border-radius:10px;
+    color:#38bdf8;
+    text-decoration:none;
+    display:inline-block;
+}
+
 /* FOOTER */
 footer {
     background:#0b1224;
     padding:60px;
-    position:relative;
-}
-
-.footer-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:30px;
-}
-
-footer h3 { color:#38bdf8; }
-footer p { color:#94a3b8; }
-
-.bottom {
     text-align:center;
-    margin-top:30px;
-    color:#64748b;
-}
-
-/* QR */
-.qr-box {
-    position:absolute;
-    right:20px;
-    top:40px;
-}
-
-.qr-box img {
-    width:80px;
-    border-radius:8px;
-    border:2px solid #38bdf8;
+    margin-top:40px;
 }
 </style>
 </head>
@@ -264,15 +188,7 @@ footer p { color:#94a3b8; }
 <div class="overlay" id="overlay" onclick="closeMenu()"></div>
 
 <div class="nav-menu" id="menu">
-<div class="menu-bot">
-<img src="https://via.placeholder.com/100">
-<h3>Anti Vandalism</h3>
-<p>Security Bot</p>
-</div>
-
 <a href="index.html">Home</a>
-<a href="#">Features</a>
-<a href="#">Support</a>
 <a href="Premium.html">Premium</a>
 </div>
 
@@ -280,43 +196,7 @@ footer p { color:#94a3b8; }
 <h2>Premium Plans</h2>
 </section>
 
-<section class="pricing">
-
-<div class="card">
-<h3>Basic</h3>
-<div class="price">$1.99</div>
-<p class="check">Anti-Raid</p>
-<p class="check">Logs System</p>
-<p class="check">Protection</p>
-<a href="#" class="btn-buy">Buy</a>
-</div>
-
-<div class="card">
-<span class="badge">🔥 Popular</span>
-<h3>Pro</h3>
-<div class="price">$4.99</div>
-<p class="check">Advanced Anti-Raid</p>
-<p class="check">Anti-Nuke</p>
-<p class="check">Full Logs</p>
-<a href="#" class="btn-buy">Upgrade</a>
-</div>
-
-<div class="card">
-<h3>Ultra</h3>
-<div class="price">$9.99</div>
-<p class="check">AI Protection</p>
-<p class="check">All Features</p>
-<p class="check">Custom Systems</p>
-<a href="#" class="btn-buy">Go Ultra</a>
-</div>
-
-</section>
-
-<section class="info">
-<h2>Why Premium?</h2>
-<p>Premium gives you powerful protection and full control over your Discord server security.</p>
-</section>
-
+<!-- 🎁 REWARD TOP -->
 <section class="reward-section">
 <h2>🎁 Daily Reward</h2>
 <div class="reward-box">
@@ -326,20 +206,38 @@ footer p { color:#94a3b8; }
 </div>
 </section>
 
+<!-- PRICING -->
+<section class="pricing">
+
+<div class="card">
+<h3>Basic</h3>
+<div class="price">$1.99</div>
+<p class="check">Anti-Raid</p>
+<p class="check">Logs</p>
+<a href="#" class="btn-buy">Buy</a>
+</div>
+
+<div class="card">
+<h3>Pro</h3>
+<div class="price">$4.99</div>
+<p class="check">Anti-Nuke</p>
+<p class="check">Full Logs</p>
+<a href="#" class="btn-buy">Upgrade</a>
+</div>
+
+<div class="card">
+<span class="discount">25% OFF</span>
+<h3>Ultra</h3>
+<div class="price"><del>$9.99</del> $7.49</div>
+<p class="check">All Features</p>
+<p class="check">AI Protection</p>
+<a href="#" class="btn-buy">Get Ultra</a>
+</div>
+
+</section>
+
 <footer>
-
-<div class="footer-grid">
-<div><h3>Bot</h3><p>Security System</p></div>
-<div><h3>Links</h3><p>Home</p><p>Premium</p></div>
-<div><h3>Features</h3><p>Anti-Raid</p><p>Anti-Nuke</p></div>
-</div>
-
-<div class="bottom">© 2026 Anti Vandalism</div>
-
-<div class="qr-box">
-<img src="https://via.placeholder.com/100">
-</div>
-
+© 2026 Anti Vandalism
 </footer>
 
 <script>
@@ -353,7 +251,9 @@ document.getElementById("menu").classList.remove("active");
 document.getElementById("overlay").classList.remove("active");
 }
 
+/* 🎁 NEW REWARD SYSTEM */
 function openReward(){
+
 let last = localStorage.getItem("lastOpen");
 let now = new Date().getTime();
 
@@ -365,17 +265,27 @@ return;
 localStorage.setItem("lastOpen", now);
 
 let r = Math.random();
-let result = "";
+let reward = "";
 
-if(r < 0.05){
-result="🎉 You WON Premium!";
-}else if(r < 0.15){
-result="✨ Small Reward!";
-}else{
-result="😢 No luck!";
+/* 5 REWARDS (EDIT NAMES HERE) */
+if(r < 0.02){
+reward="🔥 Free Premium";
+}
+else if(r < 0.05){
+reward="💎 Free Gold";
+}
+else if(r < 0.10){
+reward="🤖 Free AI";
+}
+else if(r < 0.20){
+reward="⚡ Free Silver";
+}
+else{
+reward="😢 Nothing";
 }
 
-document.getElementById("reward-result").innerHTML=result;
+document.getElementById("reward-result").innerHTML = reward;
+
 }
 </script>
 
