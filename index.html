@@ -247,53 +247,67 @@ nav {
 }
 /* */
 /* PARTNERS */
-
-/* SECTION */
-.partners {
+/* TITLE */
+.title {
     text-align:center;
-    padding:60px 20px;
+    color:white;
+    font-size:28px;
+    margin-top:40px;
 }
 
-.partners h2 {
-    color:#38bdf8;
-}
-
-/* SLIDER */
-.slider {
-    overflow:hidden;
-    position:relative;
-    margin-top:30px;
-}
-
-/* TRACK */
-.slide-track {
+/* LIST */
+.partners-list {
+    max-width:800px;
+    margin:40px auto;
     display:flex;
-    width:calc(200px * 8); /* عددی وێنەکان */
-    animation:scroll 20s linear infinite;
+    flex-direction:column;
+    gap:20px;
 }
 
-/* SLIDE */
-.slide {
-    width:200px;
+/* CARD */
+.partner {
     display:flex;
-    justify-content:center;
     align-items:center;
+    gap:20px;
+    padding:20px;
+    border-radius:15px;
+    background:rgba(255,255,255,0.05);
+    border:1px solid rgba(255,255,255,0.08);
+    text-decoration:none;
+    transition:0.3s;
+}
+
+.partner:hover {
+    transform:translateY(-5px) scale(1.02);
+    border-color:#38bdf8;
 }
 
 /* IMAGE */
-.slide img {
-    width:80px;
-    height:80px;
+.partner img {
+    width:60px;
+    height:60px;
     border-radius:50%;
-    border:2px solid #38bdf8;
 }
 
-/* ANIMATION */
-@keyframes scroll {
-    0% { transform: translateX(0); }
-    100% { transform: translateX(-50%); }
+/* INFO */
+.info h3 {
+    margin:0;
+    color:white;
 }
-    
+
+.info p {
+    margin:5px 0 0;
+    color:#94a3b8;
+    font-size:14px;
+}
+
+/* VERIFIED */
+.verify {
+    color:#22c55e;
+    font-size:14px;
+    margin-left:5px;
+    }
+      
 /* FAQ */
 .faq {
     padding:40px;
@@ -450,25 +464,33 @@ footer p {
 
 <section class="partners">
 
-<h2>🤝 Our Partners</h2>
+<h2 class="title">Trusted by Servers</h2>
 
-<div class="slider">
+<div class="partners-list">
 
-    <div class="slide-track">
+    <a href="https://discord.gg/example1" target="_blank" class="partner">
+        <img src="https://via.placeholder.com/60">
+        <div class="info">
+            <h3>Partner One <span class="verify">✔</span></h3>
+            <p>👥 1.1M Members</p>
+        </div>
+    </a>
 
-        <!-- ORIGINAL -->
-        <div class="slide"><img src="https://www.google.com/search?client=ms-android-xiaomi-terr1-rso2&hs=C86U&sca_esv=9f8463f094060b86&sxsrf=ANbL-n7wJBjnl8--atK_M0Pj-OXWrMbxIg:1777226836629&udm=2&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3jljrY5CkLlk8Dq3IvwBz-R5R-93bnJN-gfJetFY0A5MvUJsyueWSBx9Ta_hLqYc2e2XAD0HsQatf-NrCsfSco6rivd4YFK62yFG2Xx3nqtFWB0mkcHaphYxM-Yho0r1mVpaOybgficDFas4X_S850z6LcKQAkIQlzd_BPmzzOBOAD740A&q=image&sa=X&sqi=2&ved=2ahUKEwiwhKHyjYyUAxUIZ_EDHTLBBjUQtKgLegQIEBAB&biw=392&bih=800&dpr=2.75"></div>
-        <div class="slide"><img src="https://via.placeholder.com/100"></div>
-        <div class="slide"><img src="https://via.placeholder.com/100"></div>
-        <div class="slide"><img src="https://via.placeholder.com/100"></div>
+    <a href="https://discord.gg/example2" target="_blank" class="partner">
+        <img src="https://via.placeholder.com/60">
+        <div class="info">
+            <h3>Partner Two <span class="verify">✔</span></h3>
+            <p>👥 640K Members</p>
+        </div>
+    </a>
 
-        <!-- DUPLICATE (IMPORTANT FOR LOOP) -->
-        <div class="slide"><img src="https://via.placeholder.com/100"></div>
-        <div class="slide"><img src="https://via.placeholder.com/100"></div>
-        <div class="slide"><img src="https://www.google.com/search?client=ms-android-xiaomi-terr1-rso2&hs=C86U&sca_esv=9f8463f094060b86&sxsrf=ANbL-n7wJBjnl8--atK_M0Pj-OXWrMbxIg:1777226836629&udm=2&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3jljrY5CkLlk8Dq3IvwBz-R5R-93bnJN-gfJetFY0A5MvUJsyueWSBx9Ta_hLqYc2e2XAD0HsQatf-NrCsfSco6rivd4YFK62yFG2Xx3nqtFWB0mkcHaphYxM-Yho0r1mVpaOybgficDFas4X_S850z6LcKQAkIQlzd_BPmzzOBOAD740A&q=image&sa=X&sqi=2&ved=2ahUKEwiwhKHyjYyUAxUIZ_EDHTLBBjUQtKgLegQIEBAB&biw=392&bih=800&dpr=2.75"></div>
-        <div class="slide"><img src="https://www.google.com/search?client=ms-android-xiaomi-terr1-rso2&hs=C86U&sca_esv=9f8463f094060b86&sxsrf=ANbL-n7wJBjnl8--atK_M0Pj-OXWrMbxIg:1777226836629&udm=2&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3jljrY5CkLlk8Dq3IvwBz-R5R-93bnJN-gfJetFY0A5MvUJsyueWSBx9Ta_hLqYc2e2XAD0HsQatf-NrCsfSco6rivd4YFK62yFG2Xx3nqtFWB0mkcHaphYxM-Yho0r1mVpaOybgficDFas4X_S850z6LcKQAkIQlzd_BPmzzOBOAD740A&q=image&sa=X&sqi=2&ved=2ahUKEwiwhKHyjYyUAxUIZ_EDHTLBBjUQtKgLegQIEBAB&biw=392&bih=800&dpr=2.75"></div>
-
-    </div>
+    <a href="https://discord.gg/example3" target="_blank" class="partner">
+        <img src="https://via.placeholder.com/60">
+        <div class="info">
+            <h3>Partner Three <span class="verify">✔</span></h3>
+            <p>👥 480K Members</p>
+        </div>
+    </a>
 
 </div>
 
