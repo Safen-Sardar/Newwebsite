@@ -245,7 +245,69 @@ nav {
     cursor:pointer;
     font-weight:bold;
 }
+/* */
+/* PARTNERS */
+.partners {
+    text-align:center;
+    padding:60px 20px;
+}
 
+.partners h2 {
+    color:#38bdf8;
+}
+
+/* GRID */
+.partners-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:25px;
+    margin-top:30px;
+}
+
+/* CARD */
+.partner {
+    background:rgba(255,255,255,0.05);
+    padding:25px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.1);
+    transition:0.3s;
+}
+
+.partner:hover {
+    transform:translateY(-5px);
+    border-color:#38bdf8;
+}
+
+/* IMAGE */
+.partner img {
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
+}
+
+/* NAME */
+.partner h3 {
+    margin:10px 0;
+}
+
+/* BUTTON */
+.partner a {
+    display:inline-block;
+    margin-top:10px;
+    padding:8px 15px;
+    border-radius:8px;
+    border:1px solid #38bdf8;
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+.partner a:hover {
+    background:#38bdf8;
+    color:black;
+}
+
+    
 /* FAQ */
 .faq {
     padding:40px;
@@ -398,7 +460,37 @@ footer p {
     <p><b>$1.99 / month</b></p>
     <button>Buy Now</button>
 </div>
+<!-- partnership -->
 
+<section class="partners">
+
+<h2>🤝 Our Partners</h2>
+
+<div class="partners-grid">
+
+    <div class="partner">
+        <img src="https://via.placeholder.com/100">
+        <h3>Partner One</h3>
+        <a href="#">Visit</a>
+    </div>
+
+    <div class="partner">
+        <img src="https://via.placeholder.com/100">
+        <h3>Partner Two</h3>
+        <a href="#">Visit</a>
+    </div>
+
+    <div class="partner">
+        <img src="https://via.placeholder.com/100">
+        <h3>Partner Three</h3>
+        <a href="#">Visit</a>
+    </div>
+
+</div>
+
+</section>
+ 
+    
 <!-- FAQ -->
 <section class="faq">
     <h2>FAQ</h2>
