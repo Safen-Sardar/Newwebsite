@@ -1,0 +1,326 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Commands - Anti Vandalism</title>
+
+<style>
+body {
+    margin:0;
+    font-family:Arial;
+    color:white;
+    background: radial-gradient(circle at top, #111c33 0%, #0b1020 40%, #070a14 100%);
+}
+
+/* NAV */
+nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    background:#0b1224;
+}
+
+.nav-left {
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.nav-left img {
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
+}
+
+.nav-left h1 {
+    color:#38bdf8;
+    margin:0;
+}
+
+.menu-icon { font-size:28px; cursor:pointer; }
+
+/* MENU */
+.overlay {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    z-index:998;
+}
+
+.overlay.active { display:block; }
+
+.nav-menu {
+    position:fixed;
+    top:0;
+    right:-300px;
+    width:260px;
+    height:100%;
+    background:#0b1224;
+    padding:25px;
+    transition:0.3s;
+    z-index:999;
+}
+
+.nav-menu.active { right:0; }
+
+.menu-profile {
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.menu-profile img {
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
+}
+
+.menu-profile h3 {
+    margin:10px 0 5px;
+    color:#38bdf8;
+}
+
+.menu-profile p {
+    font-size:12px;
+    color:#94a3b8;
+}
+
+.nav-menu a {
+    display:block;
+    margin:10px 0;
+    padding:10px;
+    border-radius:8px;
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+.nav-menu a:hover {
+    background:rgba(56,189,248,0.1);
+}
+
+/* HERO */
+.hero {
+    text-align:center;
+    padding:40px 20px;
+}
+
+.hero h2 {
+    color:#38bdf8;
+}
+
+/* SEARCH */
+.search-box {
+    max-width:500px;
+    margin:20px auto;
+}
+
+.search-box input {
+    width:100%;
+    padding:12px;
+    border-radius:10px;
+    border:none;
+    outline:none;
+    background:#0b1224;
+    color:white;
+}
+
+/* COMMANDS */
+.commands {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:40px;
+}
+
+.command {
+    background:rgba(255,255,255,0.05);
+    padding:20px;
+    border-radius:15px;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.command h3 {
+    color:#38bdf8;
+    margin:0 0 10px;
+}
+
+.command p {
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+/* FOOTER */
+footer {
+    background:#0b1224;
+    padding:60px 40px;
+    margin-top:40px;
+    position:relative;
+}
+
+.footer-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+}
+
+footer h3 { color:#38bdf8; }
+footer p { color:#94a3b8; }
+
+.bottom {
+    text-align:center;
+    margin-top:30px;
+    color:#64748b;
+}
+
+.qr-box {
+    position:absolute;
+    right:20px;
+    top:40px;
+}
+
+.qr-box img {
+    width:80px;
+    border-radius:8px;
+    border:2px solid #38bdf8;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<div class="nav-left">
+<img src="https://via.placeholder.com/40">
+<h1>Anti Vandalism</h1>
+</div>
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<!-- MENU -->
+<div class="nav-menu" id="menu">
+
+<div class="menu-profile">
+<img src="https://via.placeholder.com/100">
+<h3>Anti Vandalism</h3>
+<p>Security Bot</p>
+</div>
+
+<a href="index.html">Home</a>
+<a href="Premium.html">Premium</a>
+<a href="commands.html">Commands</a>
+
+</div>
+
+<!-- HERO -->
+<section class="hero">
+<h2>Bot Commands</h2>
+</section>
+
+<!-- SEARCH -->
+<div class="search-box">
+<input type="text" id="search" placeholder="Search command..." onkeyup="searchCommands()">
+</div>
+
+<!-- COMMANDS -->
+<section class="commands" id="commands">
+
+<div class="command">
+<h3>!setup</h3>
+<p>Setup protection system</p>
+</div>
+
+<div class="command">
+<h3>!antinuke</h3>
+<p>Enable anti-nuke system</p>
+</div>
+
+<div class="command">
+<h3>!antiraid</h3>
+<p>Enable anti-raid system</p>
+</div>
+
+<div class="command">
+<h3>!logs</h3>
+<p>Setup logs channel</p>
+</div>
+
+<div class="command">
+<h3>!ban</h3>
+<p>Ban user from server</p>
+</div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h3>Bot</h3>
+<p>Advanced Discord Security</p>
+</div>
+
+<div>
+<h3>Links</h3>
+<p>Home</p>
+<p>Premium</p>
+<p>Commands</p>
+</div>
+
+<div>
+<h3>Features</h3>
+<p>Anti-Raid</p>
+<p>Anti-Nuke</p>
+<p>Logs System</p>
+</div>
+
+</div>
+
+<div class="bottom">
+© 2026 Anti Vandalism
+</div>
+
+<div class="qr-box">
+<img src="https://via.placeholder.com/100">
+</div>
+
+</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+document.getElementById("overlay").classList.toggle("active");
+}
+
+function closeMenu(){
+document.getElementById("menu").classList.remove("active");
+document.getElementById("overlay").classList.remove("active");
+}
+
+/* SEARCH SYSTEM */
+function searchCommands(){
+let input = document.getElementById("search").value.toLowerCase();
+let commands = document.getElementsByClassName("command");
+
+for(let i=0;i<commands.length;i++){
+let text = commands[i].innerText.toLowerCase();
+
+if(text.includes(input)){
+commands[i].style.display="block";
+}else{
+commands[i].style.display="none";
+}
+}
+}
+</script>
+
+</body>
+</html>
