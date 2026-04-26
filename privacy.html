@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Privacy Policy - Anti Vandalism</title>
+
+<style>
+body {
+    margin:0;
+    font-family:Arial;
+    color:white;
+    background: radial-gradient(circle at top, #111c33 0%, #0b1020 40%, #070a14 100%);
+}
+
+/* NAV */
+nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    background:#0b1224;
+}
+
+.nav-left {
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.nav-left img {
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
+}
+
+.nav-left h1 {
+    color:#38bdf8;
+    margin:0;
+}
+
+.menu-icon { font-size:28px; cursor:pointer; }
+
+/* MENU */
+.overlay {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:none;
+}
+
+.overlay.active { display:block; }
+
+.nav-menu {
+    position:fixed;
+    top:0;
+    right:-300px;
+    width:260px;
+    height:100%;
+    background:#0b1224;
+    padding:25px;
+    transition:0.3s;
+}
+
+.nav-menu.active { right:0; }
+
+.menu-profile {
+    text-align:center;
+    margin-bottom:20px;
+}
+
+.menu-profile img {
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
+}
+
+.menu-profile h3 { color:#38bdf8; }
+.menu-profile p { color:#94a3b8; font-size:12px; }
+
+.nav-menu a {
+    display:block;
+    margin:10px 0;
+    padding:10px;
+    border-radius:8px;
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+/* HERO */
+.hero {
+    text-align:center;
+    padding:40px 20px;
+}
+
+.hero h2 {
+    color:#38bdf8;
+}
+
+/* SECTIONS */
+.sections {
+    max-width:900px;
+    margin:auto;
+    padding:20px;
+}
+
+.box {
+    background: rgba(255,255,255,0.05);
+    padding:20px;
+    margin:15px 0;
+    border-radius:12px;
+    border:1px solid rgba(255,255,255,0.1);
+}
+
+.box h3 {
+    color:#38bdf8;
+}
+
+.box p {
+    color:#cbd5e1;
+    font-size:14px;
+}
+
+/* FOOTER */
+footer {
+    background:#0b1224;
+    padding:60px 40px;
+    margin-top:40px;
+    position:relative;
+}
+
+.footer-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+}
+
+footer h3 { color:#38bdf8; }
+footer p { color:#94a3b8; }
+
+.bottom {
+    text-align:center;
+    margin-top:30px;
+    color:#64748b;
+}
+
+.qr-box {
+    position:absolute;
+    right:20px;
+    top:40px;
+}
+
+.qr-box img {
+    width:80px;
+    border-radius:8px;
+    border:2px solid #38bdf8;
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAV -->
+<nav>
+<div class="nav-left">
+<img src="https://via.placeholder.com/40">
+<h1>Anti Vandalism</h1>
+</div>
+<div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<!-- MENU -->
+<div class="nav-menu" id="menu">
+
+<div class="menu-profile">
+<img src="https://via.placeholder.com/100">
+<h3>Anti Vandalism</h3>
+<p>Security Bot</p>
+</div>
+
+<a href="index.html">Home</a>
+<a href="Premium.html">Premium</a>
+<a href="commands.html">Commands</a>
+<a href="privacy.html">Privacy</a>
+
+</div>
+
+<!-- HERO -->
+<section class="hero">
+<h2>Privacy Policy</h2>
+</section>
+
+<!-- 10 SECTIONS -->
+<div class="sections">
+
+<div class="box">
+<h3>1. Data Collection</h3>
+<p>We collect basic server and user data to provide bot functionality.</p>
+</div>
+
+<div class="box">
+<h3>2. Usage of Data</h3>
+<p>Data is used to improve security and provide features.</p>
+</div>
+
+<div class="box">
+<h3>3. Data Storage</h3>
+<p>All data is stored securely and protected from unauthorized access.</p>
+</div>
+
+<div class="box">
+<h3>4. Logs System</h3>
+<p>Server events may be logged for moderation and protection.</p>
+</div>
+
+<div class="box">
+<h3>5. User Privacy</h3>
+<p>We respect your privacy and do not share personal data.</p>
+</div>
+
+<div class="box">
+<h3>6. Third-Party Services</h3>
+<p>We may use trusted services to improve performance.</p>
+</div>
+
+<div class="box">
+<h3>7. Data Removal</h3>
+<p>You can request removal of your data anytime.</p>
+</div>
+
+<div class="box">
+<h3>8. Security Measures</h3>
+<p>We use advanced systems to protect all data.</p>
+</div>
+
+<div class="box">
+<h3>9. Updates</h3>
+<p>This policy may be updated at any time.</p>
+</div>
+
+<div class="box">
+<h3>10. Contact</h3>
+<p>Contact us for any questions about privacy.</p>
+</div>
+
+</div>
+
+<!-- FOOTER -->
+<footer>
+
+<div class="footer-grid">
+
+<div>
+<h3>Bot</h3>
+<p>Advanced Discord Security</p>
+</div>
+
+<div>
+<h3>Links</h3>
+<p>Home</p>
+<p>Premium</p>
+<p>Commands</p>
+</div>
+
+<div>
+<h3>Features</h3>
+<p>Anti-Raid</p>
+<p>Anti-Nuke</p>
+<p>Logs System</p>
+</div>
+
+</div>
+
+<div class="bottom">
+© 2026 Anti Vandalism
+</div>
+
+<div class="qr-box">
+<img src="https://via.placeholder.com/100">
+</div>
+
+</footer>
+
+<script>
+function toggleMenu(){
+document.getElementById("menu").classList.toggle("active");
+document.getElementById("overlay").classList.toggle("active");
+}
+
+function closeMenu(){
+document.getElementById("menu").classList.remove("active");
+document.getElementById("overlay").classList.remove("active");
+}
+</script>
+
+</body>
+</html>
