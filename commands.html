@@ -147,7 +147,8 @@ nav {
 
 
 .command:active {
-    transform: scale(1.05); /* گەورەتر دەبێت */
+    transform: scale(1.08);
+    border-color: #38bdf8;
 }
     
 .command h3 {
@@ -316,7 +317,13 @@ document.getElementById("overlay").classList.remove("active");
 function searchCommands(){
 let input = document.getElementById("search").value.toLowerCase();
 let commands = document.getElementsByClassName("command");
+let commands = document.querySelectorAll(".command");
 
+commands.forEach(cmd => {
+    cmd.addEventListener("click", () => {
+        cmd.classList.toggle("active");
+    });
+    
 for(let i=0;i<commands.length;i++){
 let text = commands[i].innerText.toLowerCase();
 
