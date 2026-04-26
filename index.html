@@ -247,6 +247,8 @@ nav {
 }
 /* */
 /* PARTNERS */
+
+/* SECTION */
 .partners {
     text-align:center;
     padding:60px 20px;
@@ -256,57 +258,41 @@ nav {
     color:#38bdf8;
 }
 
-/* GRID */
-.partners-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:25px;
+/* SLIDER */
+.slider {
+    overflow:hidden;
+    position:relative;
     margin-top:30px;
 }
 
-/* CARD */
-.partner {
-    background:rgba(255,255,255,0.05);
-    padding:25px;
-    border-radius:15px;
-    border:1px solid rgba(255,255,255,0.1);
-    transition:0.3s;
+/* TRACK */
+.slide-track {
+    display:flex;
+    width:calc(200px * 8); /* عددی وێنەکان */
+    animation:scroll 20s linear infinite;
 }
 
-.partner:hover {
-    transform:translateY(-5px);
-    border-color:#38bdf8;
+/* SLIDE */
+.slide {
+    width:200px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
 }
 
 /* IMAGE */
-.partner img {
+.slide img {
     width:80px;
     height:80px;
     border-radius:50%;
     border:2px solid #38bdf8;
 }
 
-/* NAME */
-.partner h3 {
-    margin:10px 0;
+/* ANIMATION */
+@keyframes scroll {
+    0% { transform: translateX(0); }
+    100% { transform: translateX(-50%); }
 }
-
-/* BUTTON */
-.partner a {
-    display:inline-block;
-    margin-top:10px;
-    padding:8px 15px;
-    border-radius:8px;
-    border:1px solid #38bdf8;
-    color:#38bdf8;
-    text-decoration:none;
-}
-
-.partner a:hover {
-    background:#38bdf8;
-    color:black;
-}
-
     
 /* FAQ */
 .faq {
@@ -466,24 +452,22 @@ footer p {
 
 <h2>🤝 Our Partners</h2>
 
-<div class="partners-grid">
+<div class="slider">
 
-    <div class="partner">
-        <img src="https://via.placeholder.com/100">
-        <h3>Partner One</h3>
-        <a href="#">Visit</a>
-    </div>
+    <div class="slide-track">
 
-    <div class="partner">
-        <img src="https://via.placeholder.com/100">
-        <h3>Partner Two</h3>
-        <a href="#">Visit</a>
-    </div>
+        <!-- ORIGINAL -->
+        <div class="slide"><img src="https://www.google.com/search?client=ms-android-xiaomi-terr1-rso2&hs=C86U&sca_esv=9f8463f094060b86&sxsrf=ANbL-n7wJBjnl8--atK_M0Pj-OXWrMbxIg:1777226836629&udm=2&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3jljrY5CkLlk8Dq3IvwBz-R5R-93bnJN-gfJetFY0A5MvUJsyueWSBx9Ta_hLqYc2e2XAD0HsQatf-NrCsfSco6rivd4YFK62yFG2Xx3nqtFWB0mkcHaphYxM-Yho0r1mVpaOybgficDFas4X_S850z6LcKQAkIQlzd_BPmzzOBOAD740A&q=image&sa=X&sqi=2&ved=2ahUKEwiwhKHyjYyUAxUIZ_EDHTLBBjUQtKgLegQIEBAB&biw=392&bih=800&dpr=2.75"></div>
+        <div class="slide"><img src="https://via.placeholder.com/100"></div>
+        <div class="slide"><img src="https://via.placeholder.com/100"></div>
+        <div class="slide"><img src="https://via.placeholder.com/100"></div>
 
-    <div class="partner">
-        <img src="https://via.placeholder.com/100">
-        <h3>Partner Three</h3>
-        <a href="#">Visit</a>
+        <!-- DUPLICATE (IMPORTANT FOR LOOP) -->
+        <div class="slide"><img src="https://via.placeholder.com/100"></div>
+        <div class="slide"><img src="https://via.placeholder.com/100"></div>
+        <div class="slide"><img src="https://www.google.com/search?client=ms-android-xiaomi-terr1-rso2&hs=C86U&sca_esv=9f8463f094060b86&sxsrf=ANbL-n7wJBjnl8--atK_M0Pj-OXWrMbxIg:1777226836629&udm=2&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3jljrY5CkLlk8Dq3IvwBz-R5R-93bnJN-gfJetFY0A5MvUJsyueWSBx9Ta_hLqYc2e2XAD0HsQatf-NrCsfSco6rivd4YFK62yFG2Xx3nqtFWB0mkcHaphYxM-Yho0r1mVpaOybgficDFas4X_S850z6LcKQAkIQlzd_BPmzzOBOAD740A&q=image&sa=X&sqi=2&ved=2ahUKEwiwhKHyjYyUAxUIZ_EDHTLBBjUQtKgLegQIEBAB&biw=392&bih=800&dpr=2.75"></div>
+        <div class="slide"><img src="https://www.google.com/search?client=ms-android-xiaomi-terr1-rso2&hs=C86U&sca_esv=9f8463f094060b86&sxsrf=ANbL-n7wJBjnl8--atK_M0Pj-OXWrMbxIg:1777226836629&udm=2&fbs=ADc_l-aN0CWEZBOHjofHoaMMDiKpaEWjvZ2Py1XXV8d8KvlI3jljrY5CkLlk8Dq3IvwBz-R5R-93bnJN-gfJetFY0A5MvUJsyueWSBx9Ta_hLqYc2e2XAD0HsQatf-NrCsfSco6rivd4YFK62yFG2Xx3nqtFWB0mkcHaphYxM-Yho0r1mVpaOybgficDFas4X_S850z6LcKQAkIQlzd_BPmzzOBOAD740A&q=image&sa=X&sqi=2&ved=2ahUKEwiwhKHyjYyUAxUIZ_EDHTLBBjUQtKgLegQIEBAB&biw=392&bih=800&dpr=2.75"></div>
+
     </div>
 
 </div>
