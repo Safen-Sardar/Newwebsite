@@ -122,7 +122,94 @@ nav {
 }
 
 .price { color:#38bdf8; font-size:26px; }
+/*//////////////*/
 
+/* BOX */
+.premium-box {
+    max-width: 380px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 20px;
+    background: #0b0f1a;
+    border: 1px solid #1e293b;
+}
+
+/* TOP */
+.top {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.top h3 {
+    margin:0;
+    font-size:22px;
+}
+
+/* SAVE BADGE */
+.save {
+    background:#ff5c7a;
+    padding:6px 12px;
+    border-radius:20px;
+    font-size:13px;
+}
+
+/* PRICE */
+.price h1 {
+    font-size:40px;
+    margin:15px 0 5px;
+    color:#fbbf24;
+}
+
+.price span {
+    font-size:16px;
+    color:#94a3b8;
+}
+
+.old {
+    color:#64748b;
+    text-decoration: line-through;
+    font-size:14px;
+}
+
+/* FEATURES */
+.features {
+    margin-top:20px;
+}
+
+.check {
+    position:relative;
+    padding-left:25px;
+    margin:10px 0;
+    color:#cbd5e1;
+}
+
+.check::before {
+    content:"✔";
+    position:absolute;
+    left:0;
+    color:#22c55e;
+}
+
+/* BUTTON */
+.main-btn {
+    width:100%;
+    margin-top:25px;
+    padding:15px;
+    border:none;
+    border-radius:12px;
+    background:#2f3440;
+    color:white;
+    font-size:16px;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.main-btn:hover {
+    background:#3b4252;
+}
+
+    
 /* CHECK FIX */
 .check {
     display:flex;
@@ -214,26 +301,48 @@ footer p {
 
 <section class="pricing">
 
-<div class="card">
-<h3>Basic</h3>
-<div class="price">$1.99</div>
-<p class="check">Anti-Raid</p>
-<p class="check">Logs</p>
+<div class="premium-box">
+
+    <div class="top">
+        <h3>Monthly</h3>
+        <span class="save">Save 50%</span>
+    </div>
+
+    <div class="price">
+        <h1>$5.99 <span>/mo</span></h1>
+        <p class="old">$11.99 $5.99 for the first month</p>
+    </div>
+
+    <div class="features">
+        <p class="check">Fully refundable for 7 days</p>
+        <p class="check">Transferable to another server</p>
+    </div>
+
+    <button class="main-btn">Get the Monthly plan</button>
+
 </div>
 
-<div class="card">
-<h3>Pro</h3>
-<div class="price">$4.99</div>
-<p class="check">Anti-Nuke</p>
-<p class="check">Full Logs</p>
-</div>
 
-<div class="card">
-<h3>Ultra</h3>
-<div class="price"><del>$9.99</del> $7.49</div>
-<p class="check">All Features</p>
-<p class="check">AI Protection</p>
-</div>
+    <div class="premium-box">
+
+    <div class="top">
+        <h3>Monthly</h3>
+        <span class="save">Save 50%</span>
+    </div>
+
+    <div class="price">
+        <h1>$5.99 <span>/mo</span></h1>
+        <p class="old">$11.99 $5.99 for the first month</p>
+    </div>
+
+    <div class="features">
+        <p class="check">Fully refundable for 7 days</p>
+        <p class="check">Transferable to another server</p>
+    </div>
+
+    <button class="main-btn">Get the Monthly plan</button>
+
+    </div>
 
 </section>
 
