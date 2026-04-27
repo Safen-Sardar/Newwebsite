@@ -1,0 +1,209 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anti Vandalism</title>
+    <link rel="stylesheet" href="./dash.css">
+    <link rel="icon" href="./logo/InShot_20241122_174106348.jpg">
+    <base href="/">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+
+    <style>
+        #server-list {
+    list-style: none;
+    padding: 0;
+    margin: 40px auto;
+    max-width: 700px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+#server-list li {
+    display: flex;
+    align-items: center;
+    background: linear-gradient(135deg, #3a4fcc, #7289da);
+    padding: 20px;
+    border-radius: 15px;
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.3s ease;
+    overflow: hidden;
+    position: relative;
+}
+
+#server-list li:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.25);
+    background: linear-gradient(135deg, #4a5eda, #99aab5);
+}
+
+.guild img {
+    margin-right: 20px;
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid rgba(255, 255, 255, 0.9);
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+.guild span {
+    font-size: 18px;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+    flex-grow: 1;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+}
+
+.invite-button {
+    background: linear-gradient(135deg, #ff5c5c, #ff8c8c);
+    color: #ffffff;
+    border: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    cursor: pointer;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
+}
+
+.invite-button:hover {
+    background: linear-gradient(135deg, #ff4040, #ff7373);
+    transform: translateY(-3px);
+    box-shadow: 0 5px 12px rgba(0, 0, 0, 0.3);
+}
+
+#server-list li:before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.15), transparent 70%);
+    transform: rotate(45deg);
+    opacity: 0;
+    z-index: 0;
+    transition: opacity 0.3s ease;
+}
+
+#server-list li:hover:before {
+    opacity: 1;
+}
+
+.guild, .invite-button {
+    position: relative;
+    z-index: 1;
+}
+        
+        
+    </style>
+</head>
+<body>
+    <header>
+        <a href="/" class="logo">Logout</a>
+    </header>
+    <div class="wrapper">
+        <div class="home" id="home">
+            <h3 id="name"></h3>
+            <img src="" id="avatar" style="width: 100px; height: 100px; border-radius: 50%;" />
+            <p id="guilds">Your servers</p>
+        </div>
+    </div>
+    <a href="./manager.html" class="btn-area">setup</a>
+
+                
+    <ul id="server-list"></ul>
+
+    <script>
+        window.onload = () => {
+            const fragment = new URLSearchParams(window.location.hash.slice(1));
+            const accessToken = fragment.get('access_token');
+            const tokenType = fragment.get('token_type');
+
+            if (!accessToken || !tokenType) {
+                console.error("Missing access token or token type.");
+                window.location.href = '/';
+                return;
+            }
+
+            // Fetch user info
+            fetch('https://discord.com/api/users/@me', {
+                headers: {
+                    authorization: `${tokenType} ${accessToken}`,
+                },
+            })
+            .then(result => result.json())
+            .then(user => {
+                document.getElementById('name').innerText = user.username;
+                document.getElementById('avatar').src = `https://cdn.discordapp.com/avatars/${user.id}/${user.avatar}.png`;
+
+                // Fetch user guilds
+                return fetch('https://discord.com/api/users/@me/guilds', {
+                    headers: {
+                        authorization: `${tokenType} ${accessToken}`,
+                    },
+                });
+            })
+            .then(result => result.json())
+            .then(guilds => {
+                const serverList = document.getElementById('server-list');
+
+                // Filter guilds where the user has Administrator permissions
+                const adminGuilds = guilds.filter(guild => {
+                    const permissions = BigInt(guild.permissions);
+                    const hasAdmin = (permissions & (1n << 3n)) !== 0n; // Check Administrator bit
+                    return hasAdmin;
+                });
+
+                if (adminGuilds.length === 0) {
+                    document.getElementById('guilds').innerText = "No guilds with Administrator role.";
+                    return;
+                }
+
+                // Populate the list of admin guilds with Invite Bot button
+                adminGuilds.forEach(guild => {
+                    const guildIconUrl = guild.icon
+                        ? `https://cdn.discordapp.com/icons/${guild.id}/${guild.icon}.png`
+                        : 'https://via.placeholder.com/50?text=No+Icon';
+
+                    const listItem = document.createElement('li');
+                    listItem.classList.add('guild');
+                    listItem.innerHTML = `
+                        <img src="${guildIconUrl}" alt="${guild.name} icon" />
+                        <span>${guild.name}</span>
+                    `;
+
+                    const inviteButton = document.createElement('button');
+                    inviteButton.classList.add('invite-button');
+                    inviteButton.innerText = 'Invite Bot';
+                    inviteButton.onclick = () => {
+                        inviteBot(guild.id);
+                    };
+
+                    listItem.appendChild(inviteButton);
+                    serverList.appendChild(listItem);
+                });
+            })
+            .catch(error => {
+                console.error('Error:', error);
+                document.getElementById('guilds').innerText = "Error fetching guilds.";
+            });
+        };
+
+        // Function to invite the bot to a guild
+        function inviteBot(guildId) {
+            const botClientId = '711328570374619207'; // Replace with your bot's client ID
+            const permissions = '2416016446'; // Set desired bot permissions
+            const inviteLink = `https://discord.com/oauth2/authorize?client_id=${botClientId}&scope=bot&permissions=${permissions}&guild_id=${guildId}`;
+            window.open(inviteLink, '_blank');
+        }
+    </script>
+</body>
+</html>
