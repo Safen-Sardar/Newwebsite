@@ -121,6 +121,27 @@ nav {
 }
 
 /* HERO BUTTONS */
+
+/* CHART */
+.chart {
+    padding:60px 20px;
+    text-align:center;
+}
+
+.chart h2 {
+    color:#38bdf8;
+}
+
+#statsChart {
+    max-width:800px;
+    width:100%;
+    margin:30px auto;
+    background:rgba(255,255,255,0.05);
+    border-radius:15px;
+    padding:15px;
+}
+
+    
 /* HERO BUTTONS */
 .hero-buttons {
     margin-top: 30px;
@@ -460,6 +481,19 @@ footer p {
     <p><b>$1.99 / month</b></p>
     <button>Buy Now</button>
 </div>
+
+
+
+<section class="chart">
+
+<h2>📊 Bot Activity</h2>
+
+<canvas id="statsChart"></canvas>
+
+</section>
+
+
+    
 <!-- partnership -->
 
 <section class="partners">
@@ -566,6 +600,57 @@ function toggleFaq(el) {
     let p = el.querySelector("p");
     p.style.display = (p.style.display === "block") ? "none" : "block";
 }
+
+const canvas = document.getElementById("statsChart");
+const ctx = canvas.getContext("2d");
+
+canvas.width = 800;
+canvas.height = 300;
+
+const data = [10, 40, 25, 60, 80, 55, 90]; // داتاکانت
+const labels = ["Mon","Tue","Wed","Thu","Fri","Sat","Sun"];
+
+function drawChart() {
+    ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+    ctx.beginPath();
+    ctx.strokeStyle = "#38bdf8";
+    ctx.lineWidth = 3;
+
+    let stepX = canvas.width / (data.length - 1);
+    let max = Math.max(...data);
+
+    data.forEach((value, i) => {
+        let x = i * stepX;
+        let y = canvas.height - (value / max * 250);
+
+        if(i === 0){
+            ctx.moveTo(x, y);
+        } else {
+            ctx.lineTo(x, y);
+        }
+
+        // circle points
+        ctx.fillStyle = "#38bdf8";
+        ctx.beginPath();
+        ctx.arc(x, y, 5, 0, Math.PI * 2);
+        ctx.fill();
+    });
+
+    ctx.stroke();
+
+    // labels
+    ctx.fillStyle = "#94a3b8";
+    ctx.font = "12px Arial";
+
+    labels.forEach((text, i) => {
+        let x = i * stepX;
+        ctx.fillText(text, x, canvas.height - 10);
+    });
+}
+
+drawChart();
+   
 </script>
 
 </body>
