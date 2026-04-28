@@ -45,27 +45,58 @@ nav {
 }
 
 /* ALERT */
-.alert {
-    width:100%;
-    background:linear-gradient(90deg,#38bdf8,#a78bfa);
-    color:black;
-    padding:12px 20px;
+/* OVERLAY */
+.popup-overlay {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.7);
     display:flex;
-    justify-content:space-between;
+    justify-content:center;
     align-items:center;
-    font-size:14px;
-    position:sticky;
-    top:0;
-    z-index:10000;
+    z-index:9999;
+}
+
+/* BOX */
+.popup-box {
+    background:#0b1224;
+    padding:30px;
+    border-radius:15px;
+    width:300px;
+    text-align:center;
+    position:relative;
+    border:1px solid #1e293b;
+}
+
+/* CLOSE */
+.close-btn {
+    position:absolute;
+    top:10px;
+    right:10px;
+    background:none;
+    border:none;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+/* TEXT */
+.popup-box h2 {
+    color:#38bdf8;
+}
+
+.popup-box p {
+    color:#94a3b8;
+    margin:10px 0 20px;
 }
 
 /* BUTTON */
-.alert button {
-    background:none;
-    border:none;
-    font-size:18px;
-    cursor:pointer;
+.popup-btn {
+    display:inline-block;
+    padding:10px 20px;
+    background:#38bdf8;
     color:black;
+    border-radius:10px;
+    text-decoration:none;
 }
     
 /* MENU ICON */
@@ -438,13 +469,18 @@ footer p {
 
 <body>
 
-<div class="alert" id="alertBox">
+<div class="popup-overlay" id="popup">
 
-    <span>
-        🚀 New Update! Premium plans now available — Get 25% OFF
-    </span>
+    <div class="popup-box">
 
-    <button onclick="closeAlert()">✖</button>
+        <button class="close-btn" onclick="closePopup()">✖</button>
+
+        <h2>🚀 Special Offer</h2>
+        <p>Get 25% discount on Premium plans today!</p>
+
+        <a href="Premium.html" class="popup-btn">Get Now</a>
+
+    </div>
 
 </div>
 
@@ -710,9 +746,17 @@ function drawChart(){
 drawChart();
 
 
-function closeAlert(){
-    document.getElementById("alertBox").style.display = "none";
+
+function closePopup(){
+    document.getElementById("popup").style.display = "none";
 }
+
+/* OPTIONAL: 2 چرکە دوای load */
+window.onload = function(){
+    setTimeout(() => {
+        document.getElementById("popup").style.display = "flex";
+    }, 1500);
+};
     
 </script>
 
