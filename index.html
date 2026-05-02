@@ -329,6 +329,14 @@ nav {
     cursor:pointer;
     font-weight:bold;
 }
+
+    /* OFFER TIMER */
+.offer-timer {
+    margin-top:15px;
+    font-size:18px;
+    color:#38bdf8;
+    font-weight:bold;
+}
 /* */
 /* PARTNERS */
 /* TITLE */
@@ -559,6 +567,15 @@ footer p {
     <p>Full protection + logs + support</p>
     <p><b>$1.99 / month</b></p>
     <button>Buy Now</button>
+
+<!-- ✅ TIMER -->
+    <div class="offer-timer">
+        <span id="days">0</span>d :
+        <span id="hours">0</span>h :
+        <span id="minutes">0</span>m :
+        <span id="seconds">0</span>s
+    </div>
+    
 </div>
 
 
@@ -757,6 +774,35 @@ window.onload = function(){
         document.getElementById("popup").style.display = "flex";
     }, 1500);
 };
+
+
+/* OFFER COUNTDOWN */
+let endDate = new Date("2026-06-01 00:00:00").getTime();
+
+let offerTimer = setInterval(function(){
+
+let now = new Date().getTime();
+let distance = endDate - now;
+
+if(distance < 0){
+    clearInterval(offerTimer);
+    document.querySelector(".offer-timer").innerHTML = "Offer Expired ❌";
+    return;
+}
+
+let days = Math.floor(distance / (1000 * 60 * 60 * 24));
+let hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+let minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
+let seconds = Math.floor((distance % (1000 * 60)) / 1000);
+
+document.getElementById("days").innerText = days;
+document.getElementById("hours").innerText = hours;
+document.getElementById("minutes").innerText = minutes;
+document.getElementById("seconds").innerText = seconds;
+
+}, 1000);
+
+
     
 </script>
 
