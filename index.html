@@ -135,7 +135,35 @@ nav {
 .nav-menu.active {
     right:0;
 }
+/*. */
 
+.nav-right {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+/* PREMIUM BUTTON */
+.premium-btn {
+    background: linear-gradient(135deg, #3b2f1d, #1a140b);
+    color: #facc15;
+    padding: 8px 16px;
+    border-radius: 12px;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    border: 1px solid rgba(255,255,255,0.1);
+    transition: 0.3s;
+}
+
+/* HOVER EFFECT */
+.premium-btn:hover {
+    transform: scale(1.05);
+    background: linear-gradient(135deg, #4a3820, #22180c);
+}
+    
 /* BOT PROFILE */
 .menu-bot img {
     width:80px;
@@ -477,7 +505,7 @@ footer p {
 
 <body>
 
-<div class="popup-overlay" id="popup">
+<!-- <div class="popup-overlay" id="popup">
 
     <div class="popup-box">
 
@@ -490,7 +518,7 @@ footer p {
 
     </div>
 
-</div>
+</div>. -->
 
     
 <!-- NAV -->
@@ -499,6 +527,10 @@ footer p {
         <img src="https://cdn.discordapp.com/attachments/970073623232667698/1497650990126600242/grok_image_xedti3c.jpg?ex=69ee4bad&is=69ecfa2d&hm=2d3f6191941f9dd3d42165637470cea2981bc40d3e7909e3b25b1d3e237b38fc&">
         <h1>Anti Vandalism</h1>
     </div>
+    <div class="nav-right">
+    <a href="Premium.html" class="premium-btn">
+        👑 Premium
+    </a>
     <div class="menu-icon" onclick="toggleMenu()">☰</div>
 </nav>
 
