@@ -45,6 +45,19 @@ nav {
 }
 
 /* ALERT */
+
+/* SCROLL ANIMATION */
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+    
 /* OVERLAY */
 .popup-overlay {
     position:fixed;
@@ -580,7 +593,7 @@ for Discord</h2>
 </section>
 
 <!-- FEATURES -->
-<section class="features" id="sss">
+<section class="features reveal" id="sss">
     <div class="card">
         <h3>🛡 Anti-Raid</h3>
         <p>Stops mass joins instantly.</p>
@@ -596,7 +609,7 @@ for Discord</h2>
 </section>
 
 <!-- IMAGE -->
-<section class="image-cards">
+<section class="image-cards reveal">
     <div class="img-card">
         <img src="https://via.placeholder.com/400x200">
         <div class="text">Anti Raid System</div>
@@ -625,7 +638,7 @@ for Discord</h2>
 
 
 
-<section class="chart">
+<section class="chart reveal">
 
 <div class="chart-box">
     <canvas id="statsChart"></canvas>
@@ -636,7 +649,7 @@ for Discord</h2>
     
 <!-- partnership -->
 
-<section class="partners">
+<section class="partners reveal">
 
 <h2 class="title">Trusted by Servers</h2>
 
@@ -672,7 +685,7 @@ for Discord</h2>
  
     
 <!-- FAQ -->
-<section class="faq">
+<section class="faq reveal">
     <h2>FAQ</h2>
 
     <div class="faq-item" onclick="toggleFaq(this)">
@@ -690,7 +703,7 @@ for Discord</h2>
 <!-- FOOTER -->
 <footer>
 
-<div class="footer-grid">
+<div class="footer-grid reveal">
     <div>
         <h3>Bot</h3>
         <p>Anti raid system</p>
@@ -867,6 +880,26 @@ document.getElementById("seconds").innerText = seconds;
 }, 1000);
 
 
+function revealOnScroll() {
+    let reveals = document.querySelectorAll(".reveal");
+
+    reveals.forEach(el => {
+        let windowHeight = window.innerHeight;
+        let elementTop = el.getBoundingClientRect().top;
+        let revealPoint = 100;
+
+        if (elementTop < windowHeight - revealPoint) {
+            el.classList.add("active");
+        }
+    });
+}
+
+window.addEventListener("scroll", revealOnScroll);
+
+/* run once */
+revealOnScroll();
+
+                          
     
 </script>
 
