@@ -224,7 +224,106 @@ nav {
     color:#22c55e;
     font-weight:bold;
 }
+/*life*/
 
+.lifetime-card {
+    max-width: 420px;
+    margin: 40px auto;
+    padding: 30px;
+    border-radius: 20px;
+
+    background: radial-gradient(circle at top left, #2a1f0f, #0b0f1a);
+    border: 2px solid #fbbf24;
+
+    box-shadow: 0 0 25px rgba(251,191,36,0.2);
+}
+
+/* TOP */
+.card-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.card-top h2 {
+    font-size: 28px;
+    margin: 0;
+}
+
+.badge {
+    background: #ff5c7a;
+    padding: 6px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+}
+
+/* PRICE */
+.price-box h1 {
+    font-size: 42px;
+    margin: 20px 0 5px;
+    color: #fbbf24;
+}
+
+.price-box span {
+    font-size: 18px;
+    color: #cbd5e1;
+}
+
+.old-price {
+    color: #64748b;
+    text-decoration: line-through;
+    font-size: 15px;
+}
+
+.old-price span {
+    text-decoration: none;
+    margin-left: 5px;
+    color: #94a3b8;
+}
+
+/* FEATURES */
+.features {
+    margin-top: 20px;
+}
+
+.item {
+    position: relative;
+    padding-left: 25px;
+    margin: 10px 0;
+    color: #cbd5e1;
+}
+
+.item::before {
+    content: "✔";
+    position: absolute;
+    left: 0;
+    color: #22c55e;
+    font-weight: bold;
+}
+
+/* BUTTON */
+.lifetime-btn {
+    width: 100%;
+    margin-top: 25px;
+    padding: 16px;
+    border: none;
+    border-radius: 14px;
+
+    background: linear-gradient(90deg, #fbbf24, #f59e0b);
+    color: black;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+.lifetime-btn:hover {
+    opacity: 0.9;
+}
+
+
+    
 /* FOOTER BIG */
 footer {
     background:#0b1224;
@@ -290,7 +389,7 @@ footer p {
 <h2>Premium Plans</h2>
 </section>
 
-<!-- SMALL REWARD -->
+<!-- SMALL REWARD 
 <section class="reward-section">
 <div class="reward-box">
 <p>🎁 Daily Reward</p>
@@ -298,9 +397,31 @@ footer p {
 <div id="reward-result"></div>
 </div>
 </section>
+-->
 
+<div class="lifetime-card">
+    <div class="card-top">
+        <h2>Lifetime</h2>
+        <span class="badge">Best value</span>
+    </div>
+
+    <div class="price-box">
+        <h1>US$44.99 <span>/life</span></h1>
+        <p class="old-price">US$89.99 <span>US$44.99 paid only once</span></p>
+    </div>
+
+    <div class="features">
+        <p class="item">Biggest savings</p>
+        <p class="item">Fully refundable for 7 days</p>
+        <p class="item">Transferable to another server</p>
+        <p class="item">Bot Personalizer addon included</p>
+    </div>
+
+    <button class="lifetime-btn">Get the Lifetime plan</button>
+
+</div>
+    <!-- SMALL REWARD -->
 <section class="pricing">
-
 <div class="premium-box">
 
     <div class="top">
