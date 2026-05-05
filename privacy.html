@@ -100,11 +100,25 @@ nav {
 }
 
 /* SECTIONS */
+
+.reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 0.8s ease;
+}
+
+.reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+    
 .sections {
-    max-width:900px;
-    margin:auto;
-    padding:20px;
     text-align:center;
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+    gap:20px;
+    padding:40px;
 }
 
 .box {
@@ -198,17 +212,17 @@ footer p { color:#94a3b8; }
 <!-- 10 SECTIONS -->
 <div class="sections">
 
-<div class="box">
+<div class="box reveal">
 <h3>1. Data Collection</h3>
 <p>Anti Vandalism collects message content for moderation purposes. This includes detecting and removing spam, links, and offensive content.</p>
 </div>
 
-<div class="box">
+<div class="box reveal">
 <h3>2. Usage of Data</h3>
 <p>The collected data is used solely for real-time moderation within the Discord server. Anti Vandalism does not store any message content off-platform.</p></p>
 </div>
 
-<div class="box">
+<div class="box reveal">
 <h3>3. What data do we collect?</h3>
 <p>We collect the following data:
 
