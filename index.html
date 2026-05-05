@@ -381,6 +381,49 @@ nav {
 }
 /* */
 /* PARTNERS */
+    /* VIDEO SECTION */
+.video-section {
+    padding:60px 20px;
+    text-align:center;
+}
+
+.video-title {
+    color:#38bdf8;
+    margin-bottom:25px;
+}
+
+/* VIDEO BOX */
+.video-box {
+    position:relative;
+    max-width:700px;
+    margin:auto;
+    border-radius:15px;
+    overflow:hidden;
+    border:1px solid #334155;
+    box-shadow:0 10px 40px rgba(0,0,0,0.6);
+}
+
+/* VIDEO */
+.video-box video {
+    width:100%;
+    display:block;
+}
+
+/* OVERLAY TEXT */
+.video-overlay {
+    position:absolute;
+    bottom:15px;
+    left:15px;
+    background:rgba(0,0,0,0.6);
+    padding:10px 15px;
+    border-radius:10px;
+    color:white;
+}
+
+.video-overlay h3 {
+    margin:0;
+    font-size:16px;
+}
 /* TITLE */
 .title {
     text-align:center;
@@ -593,7 +636,24 @@ for Discord</h2>
     </div>
     
 </section>
+    
+<section class="video-section reveal">
 
+    <h2 class="video-title">🎬 Watch Our Bot in Action</h2>
+
+    <div class="video-box">
+        <video controls>
+            <source src="your-video.mp4" type="video/mp4">
+            Your browser does not support video.
+        </video>
+
+        <!-- TEXT ON VIDEO -->
+        <div class="video-overlay">
+            <h3>Best Anti-Raid System 🔥</h3>
+        </div>
+    </div>
+
+</section>
 <!-- IMAGE 
 <section class="image-cards reveal">
     <div class="img-card">
