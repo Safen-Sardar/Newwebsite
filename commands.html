@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Commands - Anti Vandalism</title>
+<title>Premium - Anti Vandalism</title>
 
 <style>
 body {
@@ -20,6 +20,7 @@ nav {
     align-items:center;
     padding:15px 20px;
     background:#0b1224;
+    z-index:1000;
 }
 
 .nav-left {
@@ -39,6 +40,8 @@ nav {
     color:#38bdf8;
     margin:0;
 }
+
+/* MENU */
 
 .menu-icon {
     font-size:28px;
@@ -107,63 +110,19 @@ nav {
 /* HERO */
 .hero {
     text-align:center;
-    padding:40px 20px;
-}
-
-.hero h2 {
-    color:#38bdf8;
-}
-
-/* SEARCH */
-.search-box {
-    max-width:500px;
-    margin:20px auto;
-}
-
-.search-box input {
-    width:100%;
-    padding:12px;
-    border-radius:10px;
-    border:none;
-    outline:none;
-    background:#0b1224;
-    color:white;
-}
-
-/* COMMANDS */
-.commands {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-    gap:20px;
     padding:40px;
 }
 
-.command {
-    background:rgba(255,255,255,0.05);
-    padding:20px;
-    border-radius:15px;
-    border:1px solid rgba(255,255,255,0.1);
-    transition: 0.2s;
-    cursor: pointer;
-}
 
 
-.command:active {
-    transform: scale(1.08);
-    border-color: #38bdf8;
-}
+
+
+گ
     
-.command h3 {
-    color:#38bdf8;
-    margin:0 0 10px;
-}
 
-.command p {
-    color:#cbd5e1;
-    font-size:14px;
-}
 
-/* FOOTER */
+    
+/* FOOTER BIG */
 footer {
     background:#0b1224;
     padding:60px 40px;
@@ -177,19 +136,20 @@ footer {
     gap:30px;
 }
 
-footer h3 { color:#38bdf8; }
-footer p { color:#94a3b8; }
-
-.bottom {
-    text-align:center;
-    margin-top:30px;
-    color:#64748b;
+footer h3 {
+    color:#38bdf8;
 }
 
+footer p {
+    color:#94a3b8;
+}
+
+/* QR */
 .qr-box {
     position:absolute;
     right:20px;
     top:40px;
+    text-align:center;
 }
 
 .qr-box img {
@@ -197,18 +157,24 @@ footer p { color:#94a3b8; }
     border-radius:8px;
     border:2px solid #38bdf8;
 }
+
+.bottom {
+    text-align:center;
+    margin-top:30px;
+    color:#64748b;
+}
 </style>
 </head>
 
 <body>
 
-<!-- NAV -->
 <nav>
 <div class="nav-left">
 <img src="https://via.placeholder.com/40">
 <h1>Anti Vandalism</h1>
 </div>
-   <!-- MENU -->
+
+    <!-- MENU -->
 
   <div class="menu-icon" onclick="toggleMenu()">☰</div>
 </nav>
@@ -231,53 +197,19 @@ for Discord</p>
 </div>
 
 
-<!-- HERO -->
-<section class="hero">
-<h2>Bot Commands</h2>
-</section>
+    
 
-<!-- SEARCH -->
-<div class="search-box">
-<input type="text" id="search" placeholder="Search command..." onkeyup="searchCommands()">
-</div>
 
-<!-- COMMANDS -->
-<section class="commands" id="commands">
+ 
 
-<div class="command">
-<h3>!setup</h3>
-<p>Setup protection system</p>
-</div>
+    
 
-<div class="command">
-<h3>!antinuke</h3>
-<p>Enable anti-nuke system</p>
-</div>
-
-<div class="command">
-<h3>!antiraid</h3>
-<p>Enable anti-raid system</p>
-</div>
-
-<div class="command">
-<h3>!logs</h3>
-<p>Setup logs channel</p>
-</div>
-
-<div class="command">
-<h3>!ban</h3>
-<p>Ban user from server</p>
-</div>
-
-</section>
-
-<!-- FOOTER -->
+<!-- BIG FOOTER -->
 <footer>
 
 <div class="footer-grid">
-
-<div>
-<h3>Bot</h3>
+  <div>
+        <h3>Bot</h3>
         <p>Anti raid system</p>
     </div>
 
@@ -323,6 +255,7 @@ YouTube
 
 <div class="qr-box">
 <img src="https://via.placeholder.com/100">
+<p>Scan</p>
 </div>
 
 </footer>
@@ -338,27 +271,6 @@ document.getElementById("menu").classList.remove("active");
 document.getElementById("overlay").classList.remove("active");
 }
 
-/* SEARCH SYSTEM */
-function searchCommands(){
-let input = document.getElementById("search").value.toLowerCase();
-let commands = document.getElementsByClassName("command");
-let commands = document.querySelectorAll(".command");
-
-commands.forEach(cmd => {
-    cmd.addEventListener("click", () => {
-        cmd.classList.toggle("active");
-    });
-    
-for(let i=0;i<commands.length;i++){
-let text = commands[i].innerText.toLowerCase();
-
-if(text.includes(input)){
-commands[i].style.display="block";
-}else{
-commands[i].style.display="none";
-}
-}
-}
 </script>
 
 </body>
