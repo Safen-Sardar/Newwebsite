@@ -42,8 +42,13 @@ nav {
 }
 
 /* MENU */
-.menu-icon { font-size:28px; cursor:pointer; }
 
+.menu-icon {
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* OVERLAY */
 .overlay {
     position:fixed;
     inset:0;
@@ -52,8 +57,11 @@ nav {
     z-index:998;
 }
 
-.overlay.active { display:block; }
+.overlay.active {
+    display:block;
+}
 
+/* MENU */
 .nav-menu {
     position:fixed;
     top:0;
@@ -62,11 +70,35 @@ nav {
     height:100%;
     background:#0b1224;
     padding:25px;
-    transition:0.3s;
+    transition:0.35s;
     z-index:999;
+    text-align:center;
 }
 
-.nav-menu.active { right:0; }
+.nav-menu.active {
+    right:0;
+}
+/*. */
+
+    
+/* BOT PROFILE */
+.menu-bot img {
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
+}
+
+.menu-bot h3 {
+    margin:10px 0 5px;
+    color:#38bdf8;
+}
+
+.menu-bot p {
+    margin:0 0 20px;
+    font-size:12px;
+    color:#94a3b8;
+}
 
 .nav-menu a {
     display:block;
