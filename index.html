@@ -650,6 +650,10 @@ for Discord</h2>
         <!-- TEXT ON VIDEO -->
         <div class="video-overlay">
              <h3>Views: <span id="views">0</span></h3>
+            <div class="likes">
+    ❤️ <span id="likes">0</span>
+    <button onclick="likeVideo()">Like</button>
+            </div>
         </div>
     </div>
 
@@ -945,6 +949,24 @@ window.addEventListener("scroll", revealOnScroll);
 
 /* run once */
 revealOnScroll();
+
+
+let likes = localStorage.getItem("video_likes");
+
+if (!likes) {
+    likes = 0;
+} else {
+    likes = parseInt(likes);
+}
+
+document.getElementById("likes").innerText = likes;
+
+function likeVideo() {
+    likes++;
+    localStorage.setItem("video_likes", likes);
+    document.getElementById("likes").innerText = likes;
+}
+    
 </script>
 
 <script type="module">
