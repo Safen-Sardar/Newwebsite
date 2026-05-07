@@ -1,277 +1,69 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Premium - Anti Vandalism</title>
+<!-- COMMANDS SECTION -->
+<section class="commands">
 
-<style>
-body {
-    margin:0;
-    font-family:Arial;
-    color:white;
-    background: radial-gradient(circle at top, #111c33 0%, #0b1020 40%, #070a14 100%);
-}
+<h2>Bot Commands</h2>
 
-/* NAV */
-nav {
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    padding:15px 20px;
-    background:#0b1224;
-    z-index:1000;
-}
+<!-- SEARCH -->
+<input type="text" id="search" placeholder="Search commands..." onkeyup="searchCommands()">
 
-.nav-left {
-    display:flex;
-    align-items:center;
-    gap:10px;
-}
-
-.nav-left img {
-    width:35px;
-    height:35px;
-    border-radius:50%;
-    border:2px solid #38bdf8;
-}
-
-.nav-left h1 {
-    color:#38bdf8;
-    margin:0;
-}
-
-/* MENU */
-
-.menu-icon {
-    font-size:28px;
-    cursor:pointer;
-}
-
-/* OVERLAY */
-.overlay {
-    position:fixed;
-    inset:0;
-    background:rgba(0,0,0,0.6);
-    display:none;
-    z-index:998;
-}
-
-.overlay.active {
-    display:block;
-}
-
-/* MENU */
-.nav-menu {
-    position:fixed;
-    top:0;
-    right:-300px;
-    width:260px;
-    height:100%;
-    background:#0b1224;
-    padding:25px;
-    transition:0.35s;
-    z-index:999;
-    text-align:center;
-}
-
-.nav-menu.active {
-    right:0;
-}
-/*. */
-
-    
-/* BOT PROFILE */
-.menu-bot img {
-    width:80px;
-    height:80px;
-    border-radius:50%;
-    border:2px solid #38bdf8;
-}
-
-.menu-bot h3 {
-    margin:10px 0 5px;
-    color:#38bdf8;
-}
-
-.menu-bot p {
-    margin:0 0 20px;
-    font-size:12px;
-    color:#94a3b8;
-}
-
-.nav-menu a {
-    display:block;
-    margin:12px 0;
-    color:#38bdf8;
-    text-decoration:none;
-}
-
-/* HERO */
-.hero {
-    text-align:center;
-    padding:40px;
-}
-
-
-
-
-
-گ
-    
-
-
-    
-/* FOOTER BIG */
-footer {
-    background:#0b1224;
-    padding:60px 40px;
-    margin-top:40px;
-    position:relative;
-}
-
-.footer-grid {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:30px;
-}
-
-footer h3 {
-    color:#38bdf8;
-}
-
-footer p {
-    color:#94a3b8;
-}
-
-/* QR */
-.qr-box {
-    position:absolute;
-    right:20px;
-    top:40px;
-    text-align:center;
-}
-
-.qr-box img {
-    width:80px;
-    border-radius:8px;
-    border:2px solid #38bdf8;
-}
-
-.bottom {
-    text-align:center;
-    margin-top:30px;
-    color:#64748b;
-}
-</style>
-</head>
-
-<body>
-
-<nav>
-<div class="nav-left">
-<img src="https://via.placeholder.com/40">
-<h1>Anti Vandalism</h1>
+<!-- FILTER -->
+<div class="filters">
+<button onclick="filterCommands('all')">All</button>
+<button onclick="filterCommands('security')">Security</button>
+<button onclick="filterCommands('admin')">Admin</button>
+<button onclick="filterCommands('fun')">Fun</button>
 </div>
 
-    <!-- MENU -->
+<!-- COMMAND LIST -->
+<div class="command-list" id="commandList">
 
-  <div class="menu-icon" onclick="toggleMenu()">☰</div>
-</nav>
+<!-- SECURITY -->
+<div class="command security">!ban - Ban user</div>
+<div class="command security">!kick - Kick user</div>
+<div class="command security">!mute - Mute user</div>
+<div class="command security">!unmute - Unmute user</div>
+<div class="command security">!lock - Lock channel</div>
+<div class="command security">!unlock - Unlock channel</div>
+<div class="command security">!anti-raid - Enable anti raid</div>
+<div class="command security">!anti-link - Block links</div>
+<div class="command security">!warn - Warn user</div>
+<div class="command security">!clearwarns - Clear warns</div>
 
-<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+<!-- ADMIN -->
+<div class="command admin">!setup - Setup bot</div>
+<div class="command admin">!prefix - Change prefix</div>
+<div class="command admin">!role - Add role</div>
+<div class="command admin">!removerole - Remove role</div>
+<div class="command admin">!nickname - Change nickname</div>
+<div class="command admin">!slowmode - Set slowmode</div>
+<div class="command admin">!announce - Make announcement</div>
+<div class="command admin">!embed - Create embed</div>
+<div class="command admin">!backup - Backup server</div>
+<div class="command admin">!restore - Restore backup</div>
 
-<!-- MENU -->
-<div class="nav-menu" id="menu">
-    <div class="menu-bot">
-        <img src="https://cdn.discordapp.com/attachments/970073623232667698/1497650990126600242/grok_image_xedti3c.jpg?ex=69ee4bad&is=69ecfa2d&hm=2d3f6191941f9dd3d42165637470cea2981bc40d3e7909e3b25b1d3e237b38fc&">
-        <h3>Anti Vandalism</h3>
-        <p>The best all-in-one bot
-for Discord</p>
-    </div>
+<!-- FUN -->
+<div class="command fun">!meme - Random meme</div>
+<div class="command fun">!joke - Tell joke</div>
+<div class="command fun">!8ball - Ask question</div>
+<div class="command fun">!coinflip - Flip coin</div>
+<div class="command fun">!avatar - Show avatar</div>
+<div class="command fun">!gif - Random gif</div>
+<div class="command fun">!quote - Random quote</div>
+<div class="command fun">!roll - Roll dice</div>
+<div class="command fun">!ship - Ship users</div>
+<div class="command fun">!hack - Fake hack</div>
 
-    <a href="#">Premium</a>
-    <a href="#">Commands</a>
-    <a href="#">privacy policy</a>
-    <a href="#">Invite Bot</a>
+<!-- EXTRA (40 total) -->
+<div class="command admin">!help - Show help</div>
+<div class="command security">!logs - Show logs</div>
+<div class="command admin">!settings - Bot settings</div>
+<div class="command fun">!ping - Bot ping</div>
+<div class="command security">!blacklist - Blacklist user</div>
+<div class="command security">!whitelist - Whitelist user</div>
+<div class="command admin">!autorole - Set auto role</div>
+<div class="command admin">!welcome - Welcome system</div>
+<div class="command fun">!rank - User rank</div>
+<div class="command fun">!level - User level</div>
+
 </div>
-
-
-    
-
-
- 
-
-    
-
-<!-- BIG FOOTER -->
-<footer>
-
-<div class="footer-grid">
-  <div>
-        <h3>Bot</h3>
-        <p>Anti raid system</p>
-    </div>
-
-    <div>
-        <h3>Links</h3>
-        <p><a href="https://top.gg/bot/711328570374619207/vote" target="_blank" style="color:#38bdf8;text-decoration:none;">
-Top.gg
-</a></p>
-        <p><a href="https://alternative.me/discord/bots/anti-vandalism" target="_blank" style="color:#38bdf8;text-decoration:none;">
-Alternative
-</a></p>
-        <p><a href="https://discordlist.gg/bot/711328570374619207" target="_blank" style="color:#38bdf8;text-decoration:none;">
-Discordlist
-</a></p>
-        <p><a href="https://discords.com/bots/bot/711328570374619207" target="_blank" style="color:#38bdf8;text-decoration:none;">
-Discords
-</a></p>
-        <p><a href="https://discordbots.net/bot/2079-anti-vandalism" target="_blank" style="color:#38bdf8;text-decoration:none;">
-Discordbots
-</a></p>
-        <p><a href="https://discord.gg/YOUR_INVITE" target="_blank" style="color:#38bdf8;text-decoration:none;">
-privacy policy
-</a></p>
-    </div>
-
-    <div>
-        <h3>Social Midea</h3>
-        <p><a href="https://discord.gg/YOUR_INVITE" target="_blank" style="color:#38bdf8;text-decoration:none;">
-Discord Support
-</a></p>
-        <p><a href="https://discord.gg/YOUR_INVITE" target="_blank" style="color:#38bdf8;text-decoration:none;">
-Twitter
-</a></p>
-        <p><a href="https://discord.gg/YOUR_INVITE" target="_blank" style="color:#38bdf8;text-decoration:none;">
-YouTube
-</a></p>
-    </div>
-</div>
-
-<div class="bottom">
-    © 2026 Anti Vandalism Bot
-</div>
-
-<div class="qr-box">
-<img src="https://via.placeholder.com/100">
-<p>Scan</p>
-</div>
-
-</footer>
-
-<script>
-function toggleMenu(){
-document.getElementById("menu").classList.toggle("active");
-document.getElementById("overlay").classList.toggle("active");
-}
-
-function closeMenu(){
-document.getElementById("menu").classList.remove("active");
-document.getElementById("overlay").classList.remove("active");
-}
-
-</script>
-
-</body>
-</html>
+</section>
