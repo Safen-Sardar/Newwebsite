@@ -649,12 +649,13 @@ for Discord</h2>
         </video>
         <!-- TEXT ON VIDEO -->
         <div class="video-overlay">
-            <h3>Views: <span id="views">0</span></h3>
+             <h3>Views: <span id="views">0</span></h3>
         </div>
     </div>
 
 </section>
 <!-- IMAGE 
+    
 <section class="image-cards reveal">
     <div class="img-card">
         <img src="https://via.placeholder.com/400x200">
@@ -944,23 +945,44 @@ window.addEventListener("scroll", revealOnScroll);
 
 /* run once */
 revealOnScroll();
-
-
-let views = localStorage.getItem("videoViews");
-
-if (!views) {
-  views = 1;
-} else {
-  views = parseInt(views) + 1;
-}
-
-localStorage.setItem("videoViews", views);
-document.getElementById("views").innerText = views;
-
-
-        
-    
 </script>
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, doc, getDoc, updateDoc, increment, setDoc } 
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+// config ـەکەت لێرە دابنێ
+const firebaseConfig = {
+  apiKey: "YOUR_KEY",
+  authDomain: "YOUR_DOMAIN",
+  projectId: "YOUR_PROJECT"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const videoRef = doc(db, "videos", "video1");
+
+async function updateViews() {
+    const snap = await getDoc(videoRef);
+
+    if (!snap.exists()) {
+        await setDoc(videoRef, { views: 1 });
+        document.getElementById("views").innerText = 1;
+    } else {
+        await updateDoc(videoRef, {
+            views: increment(1)
+        });
+
+        const newSnap = await getDoc(videoRef);
+        document.getElementById("views").innerText = newSnap.data().views;
+    }
+}
+
+updateViews();
+</script>
+
+    
 </body>
 </html>
