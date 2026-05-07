@@ -951,15 +951,19 @@ window.addEventListener("scroll", revealOnScroll);
 revealOnScroll();
 
 </script>
+    
 <script type="module">
 import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, doc, getDoc, updateDoc, increment, setDoc }
+import { getFirestore, doc, getDoc, setDoc, updateDoc, increment }
 from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
 const firebaseConfig = {
-  apiKey: "YOUR_KEY",
-  authDomain: "YOUR_DOMAIN",
-  projectId: "YOUR_PROJECT"
+  apiKey: "AIzaSyA3DjSiMpJMWRs50G4pFeSpARmSsMpRw50",
+  authDomain: "safen-d7e1f.firebaseapp.com",
+  projectId: "safen-d7e1f",
+  storageBucket: "safen-d7e1f.firebasestorage.app",
+  messagingSenderId: "608775201210",
+  appId: "1:608775201210:web:428ad4c1305a8cbc21fd83"
 };
 
 const app = initializeApp(firebaseConfig);
@@ -968,37 +972,43 @@ const db = getFirestore(app);
 const videoRef = doc(db, "videos", "video1");
 
 //
-// ===== VIEWS =====
+// ===== INIT =====
 //
-async function updateViews() {
+async function init() {
     const snap = await getDoc(videoRef);
 
     if (!snap.exists()) {
-        await setDoc(videoRef, { views: 1, likes: 0 });
-        document.getElementById("views").innerText = 1;
-        document.getElementById("likes").innerText = 0;
-    } else {
-        await updateDoc(videoRef, {
-            views: increment(1)
+        await setDoc(videoRef, {
+            views: 0,
+            likes: 0
         });
-
-        const newSnap = await getDoc(videoRef);
-        document.getElementById("views").innerText = newSnap.data().views;
     }
+
+    const data = (await getDoc(videoRef)).data();
+
+    document.getElementById("views").innerText = data.views;
+    document.getElementById("likes").innerText = data.likes;
 }
 
-updateViews();
+init();
 
 //
-// ===== LIKES (ONE TIME ONLY) =====
+// ===== VIEWS =====
 //
-async function loadLikes() {
+async function addView() {
+    await updateDoc(videoRef, {
+        views: increment(1)
+    });
+
     const snap = await getDoc(videoRef);
-    document.getElementById("likes").innerText = snap.data()?.likes || 0;
+    document.getElementById("views").innerText = snap.data().views;
 }
 
-loadLikes();
+addView();
 
+//
+// ===== LIKE (1 per device) =====
+//
 window.likeVideo = async function () {
 
     if (localStorage.getItem("liked_video1")) {
@@ -1015,7 +1025,7 @@ window.likeVideo = async function () {
 
     localStorage.setItem("liked_video1", "true");
 };
-</script>
+            </script>
     
     
 </body>
