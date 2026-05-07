@@ -1,69 +1,62 @@
-<!-- COMMANDS SECTION -->
-<section class="commands">
+.commands {
+    padding:40px 20px;
+    text-align:center;
+}
 
-<h2>Bot Commands</h2>
+.commands h2 {
+    color:#38bdf8;
+    margin-bottom:20px;
+}
 
-<!-- SEARCH -->
-<input type="text" id="search" placeholder="Search commands..." onkeyup="searchCommands()">
+/* SEARCH */
+#search {
+    width:90%;
+    max-width:400px;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    margin-bottom:15px;
+    outline:none;
+}
 
-<!-- FILTER -->
-<div class="filters">
-<button onclick="filterCommands('all')">All</button>
-<button onclick="filterCommands('security')">Security</button>
-<button onclick="filterCommands('admin')">Admin</button>
-<button onclick="filterCommands('fun')">Fun</button>
-</div>
+/* FILTER */
+.filters {
+    margin-bottom:20px;
+}
 
-<!-- COMMAND LIST -->
-<div class="command-list" id="commandList">
+.filters button {
+    margin:5px;
+    padding:8px 15px;
+    border:none;
+    border-radius:20px;
+    background:#1e293b;
+    color:#38bdf8;
+    cursor:pointer;
+    transition:0.3s;
+}
 
-<!-- SECURITY -->
-<div class="command security">!ban - Ban user</div>
-<div class="command security">!kick - Kick user</div>
-<div class="command security">!mute - Mute user</div>
-<div class="command security">!unmute - Unmute user</div>
-<div class="command security">!lock - Lock channel</div>
-<div class="command security">!unlock - Unlock channel</div>
-<div class="command security">!anti-raid - Enable anti raid</div>
-<div class="command security">!anti-link - Block links</div>
-<div class="command security">!warn - Warn user</div>
-<div class="command security">!clearwarns - Clear warns</div>
+.filters button:hover {
+    background:#38bdf8;
+    color:black;
+}
 
-<!-- ADMIN -->
-<div class="command admin">!setup - Setup bot</div>
-<div class="command admin">!prefix - Change prefix</div>
-<div class="command admin">!role - Add role</div>
-<div class="command admin">!removerole - Remove role</div>
-<div class="command admin">!nickname - Change nickname</div>
-<div class="command admin">!slowmode - Set slowmode</div>
-<div class="command admin">!announce - Make announcement</div>
-<div class="command admin">!embed - Create embed</div>
-<div class="command admin">!backup - Backup server</div>
-<div class="command admin">!restore - Restore backup</div>
+/* COMMAND LIST */
+.command-list {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
 
-<!-- FUN -->
-<div class="command fun">!meme - Random meme</div>
-<div class="command fun">!joke - Tell joke</div>
-<div class="command fun">!8ball - Ask question</div>
-<div class="command fun">!coinflip - Flip coin</div>
-<div class="command fun">!avatar - Show avatar</div>
-<div class="command fun">!gif - Random gif</div>
-<div class="command fun">!quote - Random quote</div>
-<div class="command fun">!roll - Roll dice</div>
-<div class="command fun">!ship - Ship users</div>
-<div class="command fun">!hack - Fake hack</div>
+/* COMMAND CARD */
+.command {
+    background:#0b1224;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #1e293b;
+    transition:0.3s;
+}
 
-<!-- EXTRA (40 total) -->
-<div class="command admin">!help - Show help</div>
-<div class="command security">!logs - Show logs</div>
-<div class="command admin">!settings - Bot settings</div>
-<div class="command fun">!ping - Bot ping</div>
-<div class="command security">!blacklist - Blacklist user</div>
-<div class="command security">!whitelist - Whitelist user</div>
-<div class="command admin">!autorole - Set auto role</div>
-<div class="command admin">!welcome - Welcome system</div>
-<div class="command fun">!rank - User rank</div>
-<div class="command fun">!level - User level</div>
-
-</div>
-</section>
+.command:hover {
+    transform:scale(1.05);
+    border-color:#38bdf8;
+}
