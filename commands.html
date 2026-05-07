@@ -199,8 +199,531 @@ for Discord</p>
 
     
 
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium - Anti Vandalism</title>
 
- 
+<style>
+body {
+    margin:0;
+    font-family:Arial;
+    color:white;
+    background: radial-gradient(circle at top, #111c33 0%, #0b1020 40%, #070a14 100%);
+}
+
+/* NAV */
+nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    background:#0b1224;
+    z-index:1000;
+}
+
+.nav-left {
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.nav-left img {
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
+}
+
+.nav-left h1 {
+    color:#38bdf8;
+    margin:0;
+}
+
+/* MENU */
+
+.menu-icon {
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* OVERLAY */
+.overlay {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    z-index:998;
+}
+
+.overlay.active {
+    display:block;
+}
+
+/* MENU */
+.nav-menu {
+    position:fixed;
+    top:0;
+    right:-300px;
+    width:260px;
+    height:100%;
+    background:#0b1224;
+    padding:25px;
+    transition:0.35s;
+    z-index:999;
+    text-align:center;
+}
+
+.nav-menu.active {
+    right:0;
+}
+/*. */
+
+    
+/* BOT PROFILE */
+.menu-bot img {
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
+}
+
+.menu-bot h3 {
+    margin:10px 0 5px;
+    color:#38bdf8;
+}
+
+.menu-bot p {
+    margin:0 0 20px;
+    font-size:12px;
+    color:#94a3b8;
+}
+
+.nav-menu a {
+    display:block;
+    margin:12px 0;
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+/* HERO */
+.hero {
+    text-align:center;
+    padding:40px;
+}
+
+
+
+
+
+گ
+    
+
+
+    
+/* FOOTER BIG */
+footer {
+    background:#0b1224;
+    padding:60px 40px;
+    margin-top:40px;
+    position:relative;
+}
+
+.footer-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+}
+
+footer h3 {
+    color:#38bdf8;
+}
+
+footer p {
+    color:#94a3b8;
+}
+
+/* QR */
+.qr-box {
+    position:absolute;
+    right:20px;
+    top:40px;
+    text-align:center;
+}
+
+.qr-box img {
+    width:80px;
+    border-radius:8px;
+    border:2px solid #38bdf8;
+}
+
+.bottom {
+    text-align:center;
+    margin-top:30px;
+    color:#64748b;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="nav-left">
+<img src="https://via.placeholder.com/40">
+<h1>Anti Vandalism</h1>
+</div>
+
+    <!-- MENU -->
+
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<!-- MENU -->
+<div class="nav-menu" id="menu">
+    <div class="menu-bot">
+        <img src="https://cdn.discordapp.com/attachments/970073623232667698/1497650990126600242/grok_image_xedti3c.jpg?ex=69ee4bad&is=69ecfa2d&hm=2d3f6191941f9dd3d42165637470cea2981bc40d3e7909e3b25b1d3e237b38fc&">
+        <h3>Anti Vandalism</h3>
+        <p>The best all-in-one bot
+for Discord</p>
+    </div>
+
+    <a href="#">Premium</a>
+    <a href="#">Commands</a>
+    <a href="#">privacy policy</a>
+    <a href="#">Invite Bot</a>
+</div>
+
+
+    
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Premium - Anti Vandalism</title>
+
+<style>
+body {
+    margin:0;
+    font-family:Arial;
+    color:white;
+    background: radial-gradient(circle at top, #111c33 0%, #0b1020 40%, #070a14 100%);
+}
+
+/* NAV */
+nav {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 20px;
+    background:#0b1224;
+    z-index:1000;
+}
+
+.nav-left {
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.nav-left img {
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
+}
+
+.nav-left h1 {
+    color:#38bdf8;
+    margin:0;
+}
+
+/* MENU */
+
+.menu-icon {
+    font-size:28px;
+    cursor:pointer;
+}
+
+/* OVERLAY */
+.overlay {
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,0.6);
+    display:none;
+    z-index:998;
+}
+
+.overlay.active {
+    display:block;
+}
+
+/* MENU */
+.nav-menu {
+    position:fixed;
+    top:0;
+    right:-300px;
+    width:260px;
+    height:100%;
+    background:#0b1224;
+    padding:25px;
+    transition:0.35s;
+    z-index:999;
+    text-align:center;
+}
+
+.nav-menu.active {
+    right:0;
+}
+/*. */
+
+    
+/* BOT PROFILE */
+.menu-bot img {
+    width:80px;
+    height:80px;
+    border-radius:50%;
+    border:2px solid #38bdf8;
+}
+
+.menu-bot h3 {
+    margin:10px 0 5px;
+    color:#38bdf8;
+}
+
+.menu-bot p {
+    margin:0 0 20px;
+    font-size:12px;
+    color:#94a3b8;
+}
+
+.nav-menu a {
+    display:block;
+    margin:12px 0;
+    color:#38bdf8;
+    text-decoration:none;
+}
+
+/* HERO */
+.hero {
+    text-align:center;
+    padding:40px;
+}
+
+.commands {
+    padding:40px 20px;
+    text-align:center;
+}
+
+.commands h2 {
+    color:#38bdf8;
+    margin-bottom:20px;
+}
+
+/* SEARCH */
+#search {
+    width:90%;
+    max-width:400px;
+    padding:10px;
+    border:none;
+    border-radius:8px;
+    margin-bottom:15px;
+    outline:none;
+}
+
+/* FILTER */
+.filters {
+    margin-bottom:20px;
+}
+
+.filters button {
+    margin:5px;
+    padding:8px 15px;
+    border:none;
+    border-radius:20px;
+    background:#1e293b;
+    color:#38bdf8;
+    cursor:pointer;
+    transition:0.3s;
+}
+
+.filters button:hover {
+    background:#38bdf8;
+    color:black;
+}
+
+/* COMMAND LIST */
+.command-list {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:15px;
+}
+
+/* COMMAND CARD */
+.command {
+    background:#0b1224;
+    padding:15px;
+    border-radius:10px;
+    border:1px solid #1e293b;
+    transition:0.3s;
+}
+
+.command:hover {
+    transform:scale(1.05);
+    border-color:#38bdf8;
+}
+
+    
+/* FOOTER BIG */
+footer {
+    background:#0b1224;
+    padding:60px 40px;
+    margin-top:40px;
+    position:relative;
+}
+
+.footer-grid {
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
+    gap:30px;
+}
+
+footer h3 {
+    color:#38bdf8;
+}
+
+footer p {
+    color:#94a3b8;
+}
+
+/* QR */
+.qr-box {
+    position:absolute;
+    right:20px;
+    top:40px;
+    text-align:center;
+}
+
+.qr-box img {
+    width:80px;
+    border-radius:8px;
+    border:2px solid #38bdf8;
+}
+
+.bottom {
+    text-align:center;
+    margin-top:30px;
+    color:#64748b;
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<div class="nav-left">
+<img src="https://via.placeholder.com/40">
+<h1>Anti Vandalism</h1>
+</div>
+
+    <!-- MENU -->
+
+  <div class="menu-icon" onclick="toggleMenu()">☰</div>
+</nav>
+
+<div class="overlay" id="overlay" onclick="closeMenu()"></div>
+
+<!-- MENU -->
+<div class="nav-menu" id="menu">
+    <div class="menu-bot">
+        <img src="https://cdn.discordapp.com/attachments/970073623232667698/1497650990126600242/grok_image_xedti3c.jpg?ex=69ee4bad&is=69ecfa2d&hm=2d3f6191941f9dd3d42165637470cea2981bc40d3e7909e3b25b1d3e237b38fc&">
+        <h3>Anti Vandalism</h3>
+        <p>The best all-in-one bot
+for Discord</p>
+    </div>
+
+    <a href="#">Premium</a>
+    <a href="#">Commands</a>
+    <a href="#">privacy policy</a>
+    <a href="#">Invite Bot</a>
+</div>
+
+
+
+<!-- COMMANDS SECTION -->
+<section class="commands">
+
+<h2>Bot Commands</h2>
+
+<!-- SEARCH -->
+<input type="text" id="search" placeholder="Search commands..." onkeyup="searchCommands()">
+
+<!-- FILTER -->
+<div class="filters">
+<button onclick="filterCommands('all')">All</button>
+<button onclick="filterCommands('security')">Security</button>
+<button onclick="filterCommands('admin')">Admin</button>
+<button onclick="filterCommands('fun')">Fun</button>
+</div>
+
+<!-- COMMAND LIST -->
+<div class="command-list" id="commandList">
+
+<!-- SECURITY -->
+<div class="command security">!ban - Ban user</div>
+<div class="command security">!kick - Kick user</div>
+<div class="command security">!mute - Mute user</div>
+<div class="command security">!unmute - Unmute user</div>
+<div class="command security">!lock - Lock channel</div>
+<div class="command security">!unlock - Unlock channel</div>
+<div class="command security">!anti-raid - Enable anti raid</div>
+<div class="command security">!anti-link - Block links</div>
+<div class="command security">!warn - Warn user</div>
+<div class="command security">!clearwarns - Clear warns</div>
+
+<!-- ADMIN -->
+<div class="command admin">!setup - Setup bot</div>
+<div class="command admin">!prefix - Change prefix</div>
+<div class="command admin">!role - Add role</div>
+<div class="command admin">!removerole - Remove role</div>
+<div class="command admin">!nickname - Change nickname</div>
+<div class="command admin">!slowmode - Set slowmode</div>
+<div class="command admin">!announce - Make announcement</div>
+<div class="command admin">!embed - Create embed</div>
+<div class="command admin">!backup - Backup server</div>
+<div class="command admin">!restore - Restore backup</div>
+
+<!-- FUN -->
+<div class="command fun">!meme - Random meme</div>
+<div class="command fun">!joke - Tell joke</div>
+<div class="command fun">!8ball - Ask question</div>
+<div class="command fun">!coinflip - Flip coin</div>
+<div class="command fun">!avatar - Show avatar</div>
+<div class="command fun">!gif - Random gif</div>
+<div class="command fun">!quote - Random quote</div>
+<div class="command fun">!roll - Roll dice</div>
+<div class="command fun">!ship - Ship users</div>
+<div class="command fun">!hack - Fake hack</div>
+
+<!-- EXTRA (40 total) -->
+<div class="command admin">!help - Show help</div>
+<div class="command security">!logs - Show logs</div>
+<div class="command admin">!settings - Bot settings</div>
+<div class="command fun">!ping - Bot ping</div>
+<div class="command security">!blacklist - Blacklist user</div>
+<div class="command security">!whitelist - Whitelist user</div>
+<div class="command admin">!autorole - Set auto role</div>
+<div class="command admin">!welcome - Welcome system</div>
+<div class="command fun">!rank - User rank</div>
+<div class="command fun">!level - User level</div>
+
+</div>
+</section>
 
     
 
@@ -271,6 +794,33 @@ document.getElementById("menu").classList.remove("active");
 document.getElementById("overlay").classList.remove("active");
 }
 
+
+
+function searchCommands() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let commands = document.getElementsByClassName("command");
+
+    for (let i = 0; i < commands.length; i++) {
+        let text = commands[i].innerText.toLowerCase();
+        commands[i].style.display = text.includes(input) ? "block" : "none";
+    }
+}
+
+function filterCommands(category) {
+    let commands = document.getElementsByClassName("command");
+
+    for (let i = 0; i < commands.length; i++) {
+        if (category === "all") {
+            commands[i].style.display = "block";
+        } else {
+            commands[i].style.display =
+                commands[i].classList.contains(category) ? "block" : "none";
+        }
+    }
+}
+
+
+    
 </script>
 
 </body>
