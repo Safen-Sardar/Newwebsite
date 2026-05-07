@@ -675,6 +675,8 @@ for Discord</h2>
 
 <!-- ✅ TIMER -->
     <div class="offer-timer">
+        <h3>Views: <span id="views">0</span></h3>
+        
         <span id="days">0</span>d :
         <span id="hours">0</span>h :
         <span id="minutes">0</span>m :
@@ -796,12 +798,12 @@ YouTube
     © 2026 Anti Vandalism Bot
 </div>
 
-<!-- QR CODE -->
+<!-- QR CODE 
 <div class="qr-box">
     <img src="https://cdn.discordapp.com/attachments/970073623232667698/1497649900437901342/image0.png?ex=69ee4aa9&is=69ecf929&hm=7c9256dc1a3f9d18c37813b5d71043220d3dda2f715cef349f62abf947047cc4&">
     <p></p>
 </div>
-
+-->
 </footer>
 
 <script>
@@ -946,7 +948,20 @@ window.addEventListener("scroll", revealOnScroll);
 /* run once */
 revealOnScroll();
 
-                          
+
+let views = localStorage.getItem("videoViews");
+
+if (!views) {
+  views = 1;
+} else {
+  views = parseInt(views) + 1;
+}
+
+localStorage.setItem("videoViews", views);
+document.getElementById("views").innerText = views;
+
+
+        
     
 </script>
 
