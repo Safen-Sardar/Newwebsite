@@ -950,81 +950,8 @@ window.addEventListener("scroll", revealOnScroll);
 /* run once */
 revealOnScroll();
 </script>
-//////////
-<script>
-import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
-import { getFirestore, doc, getDoc, setDoc, updateDoc, increment }
-from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
 
-const firebaseConfig = {
-  apiKey: "AIzaSyA3DjSiMpJMWRs50G4pFeSpARmSsMpRw50",
-  authDomain: "safen-d7e1f.firebaseapp.com",
-  projectId: "safen-d7e1f",
-  storageBucket: "safen-d7e1f.firebasestorage.app",
-  messagingSenderId: "608775201210",
-  appId: "1:608775201210:web:428ad4c1305a8cbc21fd83"
-};
 
-const app = initializeApp(firebaseConfig);
-const db = getFirestore(app);
-
-const videoRef = doc(db, "videos", "video1");
-
-//
-// ===== INIT =====
-//
-async function init() {
-    const snap = await getDoc(videoRef);
-
-    if (!snap.exists()) {
-        await setDoc(videoRef, {
-            views: 0,
-            likes: 0
-        });
-    }
-
-    const data = (await getDoc(videoRef)).data();
-
-    document.getElementById("views").innerText = data.views;
-    document.getElementById("likes").innerText = data.likes;
-}
-
-init();
-
-//
-// ===== VIEWS =====
-//
-async function addView() {
-    await updateDoc(videoRef, {
-        views: increment(1)
-    });
-
-    const snap = await getDoc(videoRef);
-    document.getElementById("views").innerText = snap.data().views;
-}
-
-addView();
-
-//
-// ===== LIKE (1 per device) =====
-//
-window.likeVideo = async function () {
-
-    if (localStorage.getItem("liked_video1")) {
-        alert("تۆ پێشتر لایکت کردووە ❤️");
-        return;
-    }
-
-    await updateDoc(videoRef, {
-        likes: increment(1)
-    });
-
-    const snap = await getDoc(videoRef);
-    document.getElementById("likes").innerText = snap.data().likes;
-
-    localStorage.setItem("liked_video1", "true");
-};
-            </script>
     
     
 </body>
