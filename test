@@ -1,62 +1,24 @@
-.commands {
-    padding:40px 20px;
-    text-align:center;
+<script>
+function searchCommands() {
+    let input = document.getElementById("search").value.toLowerCase();
+    let commands = document.getElementsByClassName("command");
+
+    for (let i = 0; i < commands.length; i++) {
+        let text = commands[i].innerText.toLowerCase();
+        commands[i].style.display = text.includes(input) ? "block" : "none";
+    }
 }
 
-.commands h2 {
-    color:#38bdf8;
-    margin-bottom:20px;
-}
+function filterCommands(category) {
+    let commands = document.getElementsByClassName("command");
 
-/* SEARCH */
-#search {
-    width:90%;
-    max-width:400px;
-    padding:10px;
-    border:none;
-    border-radius:8px;
-    margin-bottom:15px;
-    outline:none;
+    for (let i = 0; i < commands.length; i++) {
+        if (category === "all") {
+            commands[i].style.display = "block";
+        } else {
+            commands[i].style.display =
+                commands[i].classList.contains(category) ? "block" : "none";
+        }
+    }
 }
-
-/* FILTER */
-.filters {
-    margin-bottom:20px;
-}
-
-.filters button {
-    margin:5px;
-    padding:8px 15px;
-    border:none;
-    border-radius:20px;
-    background:#1e293b;
-    color:#38bdf8;
-    cursor:pointer;
-    transition:0.3s;
-}
-
-.filters button:hover {
-    background:#38bdf8;
-    color:black;
-}
-
-/* COMMAND LIST */
-.command-list {
-    display:grid;
-    grid-template-columns:repeat(auto-fit,minmax(200px,1fr));
-    gap:15px;
-}
-
-/* COMMAND CARD */
-.command {
-    background:#0b1224;
-    padding:15px;
-    border-radius:10px;
-    border:1px solid #1e293b;
-    transition:0.3s;
-}
-
-.command:hover {
-    transform:scale(1.05);
-    border-color:#38bdf8;
-}
+</script>
