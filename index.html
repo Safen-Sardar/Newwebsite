@@ -950,23 +950,6 @@ window.addEventListener("scroll", revealOnScroll);
 /* run once */
 revealOnScroll();
 
-
-let likes = localStorage.getItem("video_likes");
-
-if (!likes) {
-    likes = 0;
-} else {
-    likes = parseInt(likes);
-}
-
-document.getElementById("likes").innerText = likes;
-
-function likeVideo() {
-    likes++;
-    localStorage.setItem("video_likes", likes);
-    document.getElementById("likes").innerText = likes;
-}
-    
 </script>
 
 <script type="module">
@@ -1005,6 +988,58 @@ async function updateViews() {
 updateViews();
 </script>
 
+<script type="module">
+import { initializeApp } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-app.js";
+import { getFirestore, doc, getDoc, updateDoc, increment, setDoc }
+from "https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore.js";
+
+const firebaseConfig = {
+  apiKey: "YOUR_KEY",
+  authDomain: "YOUR_DOMAIN",
+  projectId: "YOUR_PROJECT"
+};
+
+const app = initializeApp(firebaseConfig);
+const db = getFirestore(app);
+
+const videoRef = doc(db, "videos", "video1");
+
+// show likes
+async function loadLikes() {
+    const snap = await getDoc(videoRef);
+
+    if (!snap.exists()) {
+        await setDoc(videoRef, { likes: 0 });
+        document.getElementById("likes").innerText = 0;
+    } else {
+        document.getElementById("likes").innerText = snap.data().likes;
+    }
+}
+
+loadLikes();
+
+// like only once per device
+window.likeVideo = async function () {
+
+    // check if already liked
+    if (localStorage.getItem("liked_video1")) {
+        alert("تۆ پێشتر لایکت کردووە ❤️");
+        return;
+    }
+
+    // add like to firebase
+    await updateDoc(videoRef, {
+        likes: increment(1)
+    });
+
+    const snap = await getDoc(videoRef);
+    document.getElementById("likes").innerText = snap.data().likes;
+
+    // mark as liked
+    localStorage.setItem("liked_video1", "true");
+};
+</script>
+    
     
 </body>
 </html>
