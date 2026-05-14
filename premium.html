@@ -121,20 +121,92 @@ nav {
 
 .reward-box {
     margin:auto;
+    margin-top:50px;
     padding:20px;
-    max-width:300px; /* SMALLER */
-    background: rgba(255,255,255,0.05);
+    max-width:300px;
+}
+
+/* ====== CHEST ====== */
+.chest {
+    position: relative;
+    width:120px;
+    height:80px;
+    margin:auto;
+    cursor:pointer;
+}
+
+.lid {
+    position:absolute;
+    width:100%;
+    height:40px;
+    background: linear-gradient(90deg,#facc15,#f59e0b);
+    border-radius:10px 10px 0 0;
+    top:0;
+    transform-origin: top;
+    transition:0.5s;
+}
+
+.base {
+    position:absolute;
+    bottom:0;
+    width:100%;
+    height:50px;
+    background: linear-gradient(90deg,#a16207,#78350f);
+    border-radius:0 0 10px 10px;
+}
+
+.chest.open .lid {
+    transform: rotateX(-120deg);
+}
+
+.chest::after {
+    content:"✨";
+    position:absolute;
+    top:-20px;
+    left:50%;
+    transform:translateX(-50%);
+    opacity:0;
+    transition:0.5s;
+    font-size:22px;
+}
+
+.chest.open::after {
+    opacity:1;
+    top:-40px;
+}
+
+/* ====== VIDEO AD ====== */
+.ad-overlay {
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background: rgba(0,0,0,0.9);
+    display:none;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.ad-box {
+    width:90%;
+    max-width:400px;
+    background:#111;
+    padding:15px;
     border-radius:12px;
 }
 
-.reward-btn {
+#skip-btn {
     margin-top:10px;
-    padding:10px 16px;
+    padding:10px;
+    width:100%;
     border:none;
     border-radius:8px;
-    background:linear-gradient(90deg,#38bdf8,#a78bfa);
-    color:black;
+    background:#22c55e;
+    color:white;
     cursor:pointer;
+    display:none;
 }
 
 /* PRICING */
@@ -394,20 +466,36 @@ for Discord</p>
     </div>
     </section>
     
-<!--
+
 <section class="hero">
 <h2>Premium Plans</h2>
 </section>
 
- SMALL REWARD 
+  
 <section class="reward-section">
 <div class="reward-box">
-<p>🎁 Daily Reward</p>
-<button onclick="openReward()" class="reward-btn">Open</button>
-<div id="reward-result"></div>
+
+    <div class="chest" onclick="startAd()">
+        <div class="lid"></div>
+        <div class="base"></div>
+    </div>
+
+    <p>🎁 Daily Reward</p>
+    <div id="reward-result"></div>
+
+</div>
+
+<!-- VIDEO AD -->
+<div id="ad-overlay" class="ad-overlay">
+    <div class="ad-box">
+        <video id="ad-video" width="100%">
+            <source src="your-video.mp4" type="video/mp4">
+        </video>
+        <button id="skip-btn" onclick="finishAd()">Skip</button>
+    </div>
 </div>
 </section>
--->
+
 
 
  
@@ -535,28 +623,62 @@ document.getElementById("menu").classList.remove("active");
 document.getElementById("overlay").classList.remove("active");
 }
 
+function startAd(){
+    document.getElementById("ad-overlay").style.display = "flex";
+
+    let video = document.getElementById("ad-video");
+    let skip = document.getElementById("skip-btn");
+
+    video.currentTime = 0;
+    video.play();
+
+    skip.style.display = "none";
+
+    // ⏳ دوای 10 چرکە Skip دەردەکەوێت
+    setTimeout(()=>{
+        skip.style.display = "block";
+    },10000);
+
+    // 🎬 کاتێک ڤیدیۆ تەواو بوو
+    video.onended = function(){
+        finishAd();
+    };
+}
+
+/* ===== FINISH AD ===== */
+function finishAd(){
+    document.getElementById("ad-overlay").style.display = "none";
+
+    let chest = document.querySelector(".chest");
+    chest.classList.add("open");
+
+    openReward();
+}
+
+/* ===== REWARD SYSTEM ===== */
 function openReward(){
-let last = localStorage.getItem("lastOpen");
-let now = new Date().getTime();
+    let last = localStorage.getItem("lastOpen");
+    let now = new Date().getTime();
 
-if(last && now - last < 86400000){
-document.getElementById("reward-result").innerHTML="❌ Tomorrow!";
-return;
+    if(last && now - last < 86400000){
+        document.getElementById("reward-result").innerHTML="❌ Tomorrow!";
+        return;
+    }
+
+    localStorage.setItem("lastOpen", now);
+
+    let r=Math.random();
+    let result="";
+
+    if(r<0.02){result="🔥 Premium";}
+    else if(r<0.05){result="💎 Gold";}
+    else if(r<0.10){result="🤖 AI";}
+    else if(r<0.20){result="⚡ Silver";}
+    else{result="😢 Nothing";}
+
+    document.getElementById("reward-result").innerHTML=result;
 }
 
-localStorage.setItem("lastOpen", now);
-
-let r=Math.random();
-let result="";
-
-if(r<0.02){result="🔥 Premium";}
-else if(r<0.05){result="💎 Gold";}
-else if(r<0.10){result="🤖 AI";}
-else if(r<0.20){result="⚡ Silver";}
-else{result="😢 Nothing";}
-
-document.getElementById("reward-result").innerHTML=result;
-}
 </script>
 
 </body>
