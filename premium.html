@@ -119,63 +119,82 @@ nav {
     padding:30px;
 }
 
+/* ===== BOX ===== */
 .reward-box {
     margin:auto;
-    margin-top:50px;
+    margin-top:60px;
     padding:20px;
     max-width:300px;
 }
 
-/* ====== CHEST ====== */
+/* ===== BEAUTIFUL CHEST ===== */
 .chest {
-    position: relative;
-    width:120px;
-    height:80px;
+    width:140px;
+    height:100px;
     margin:auto;
+    position:relative;
     cursor:pointer;
+    perspective:600px;
 }
 
+/* LID */
 .lid {
-    position:absolute;
-    width:100%;
-    height:40px;
-    background: linear-gradient(90deg,#facc15,#f59e0b);
-    border-radius:10px 10px 0 0;
-    top:0;
-    transform-origin: top;
-    transition:0.5s;
-}
-
-.base {
-    position:absolute;
-    bottom:0;
     width:100%;
     height:50px;
-    background: linear-gradient(90deg,#a16207,#78350f);
-    border-radius:0 0 10px 10px;
-}
-
-.chest.open .lid {
-    transform: rotateX(-120deg);
-}
-
-.chest::after {
-    content:"✨";
+    background: linear-gradient(180deg,#facc15,#eab308);
+    border-radius:12px 12px 0 0;
     position:absolute;
-    top:-20px;
+    top:0;
+    transform-origin: top;
+    transition:0.6s;
+    box-shadow: inset 0 -4px 0 rgba(0,0,0,0.3);
+}
+
+/* BASE */
+.base {
+    width:100%;
+    height:60px;
+    background: linear-gradient(180deg,#92400e,#451a03);
+    position:absolute;
+    bottom:0;
+    border-radius:0 0 12px 12px;
+    box-shadow: inset 0 4px 0 rgba(255,255,255,0.1);
+}
+
+/* GOLD LOCK */
+.lock {
+    width:20px;
+    height:20px;
+    background:gold;
+    position:absolute;
+    top:40px;
     left:50%;
     transform:translateX(-50%);
-    opacity:0;
-    transition:0.5s;
-    font-size:22px;
+    border-radius:4px;
 }
 
-.chest.open::after {
+/* OPEN STATE */
+.chest.open .lid {
+    transform: rotateX(-130deg);
+}
+
+/* GLOW */
+.glow {
+    position:absolute;
+    width:100%;
+    top:-20px;
+    text-align:center;
+    font-size:24px;
+    opacity:0;
+    transition:0.5s;
+}
+
+.chest.open .glow {
     opacity:1;
     top:-40px;
 }
 
-/* ====== VIDEO AD ====== */
+/* ===== VIDEO ===== */
 .ad-overlay {
     position: fixed;
     top:0;
@@ -208,6 +227,7 @@ nav {
     cursor:pointer;
     display:none;
 }
+
 
 /* PRICING */
 .pricing {
@@ -475,9 +495,11 @@ for Discord</p>
 <section class="reward-section">
 <div class="reward-box">
 
-    <div class="chest" onclick="startAd()">
+    <div class="chest" id="chest" onclick="handleChest()">
         <div class="lid"></div>
         <div class="base"></div>
+        <div class="lock"></div>
+        <div class="glow">✨💎✨</div>
     </div>
 
     <p>🎁 Daily Reward</p>
@@ -485,7 +507,7 @@ for Discord</p>
 
 </div>
 
-<!-- VIDEO AD -->
+<!-- VIDEO -->
 <div id="ad-overlay" class="ad-overlay">
     <div class="ad-box">
         <video id="ad-video" width="100%">
@@ -494,6 +516,7 @@ for Discord</p>
         <button id="skip-btn" onclick="finishAd()">Skip</button>
     </div>
 </div>
+
 </section>
 
 
@@ -623,6 +646,20 @@ document.getElementById("menu").classList.remove("active");
 document.getElementById("overlay").classList.remove("active");
 }
 
+
+
+function handleChest(){
+
+    // ئەگەر پێشتر کراوە → ڤیدیۆ مەهێنە
+    if(localStorage.getItem("chestOpened")){
+        document.getElementById("chest").classList.add("open");
+        return;
+    }
+
+    startAd();
+}
+
+/* ===== START AD ===== */
 function startAd(){
     document.getElementById("ad-overlay").style.display = "flex";
 
@@ -634,28 +671,29 @@ function startAd(){
 
     skip.style.display = "none";
 
-    // ⏳ دوای 10 چرکە Skip دەردەکەوێت
     setTimeout(()=>{
         skip.style.display = "block";
     },10000);
 
-    // 🎬 کاتێک ڤیدیۆ تەواو بوو
     video.onended = function(){
         finishAd();
     };
 }
 
-/* ===== FINISH AD ===== */
+/* ===== FINISH ===== */
 function finishAd(){
     document.getElementById("ad-overlay").style.display = "none";
 
-    let chest = document.querySelector(".chest");
+    let chest = document.getElementById("chest");
     chest.classList.add("open");
+
+    // 💾 تۆمار بکە کە کراوە
+    localStorage.setItem("chestOpened", "true");
 
     openReward();
 }
 
-/* ===== REWARD SYSTEM ===== */
+/* ===== REWARD ===== */
 function openReward(){
     let last = localStorage.getItem("lastOpen");
     let now = new Date().getTime();
@@ -678,6 +716,13 @@ function openReward(){
 
     document.getElementById("reward-result").innerHTML=result;
 }
+
+/* ===== LOAD STATE ===== */
+window.onload = function(){
+    if(localStorage.getItem("chestOpened")){
+        document.getElementById("chest").classList.add("open");
+    }
+};
 
 </script>
 
