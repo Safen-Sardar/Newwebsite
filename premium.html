@@ -506,7 +506,7 @@ for Discord</p>
     <div class="body"></div>
     <div class="lock"></div>
     <div class="shine"></div>
-        <p id="timer">time</p>
+     <p id="timer"></p>
 </div>
     <p>Open it and receive a gift</p>
     <div id="reward-result"></div>
@@ -742,10 +742,7 @@ function updateTimer(){
 
     let remaining = 64 - (now - last);
 
-    if(remaining <= 0){
-        timerText.innerHTML = "✅ Ready to open!";
-        return;
-    }
+    
 
     let hours = Math.floor(remaining / (1000 * 60 * 60));
     let minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
