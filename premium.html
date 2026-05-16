@@ -708,10 +708,6 @@ function openReward(){
     }
 
     document.getElementById("reward-result").innerHTML = result;
-    document.getElementById("reward-popup").style.display = "flex";
-    document.getElementById("popup-reward").innerHTML = result;
-}
-
 }
 
 /* ===== TIMER ===== */
@@ -764,13 +760,6 @@ window.onload = function(){
 setInterval(updateTimer,1000);
 </script>
 
-
-<div id="reward-popup" class="reward-popup">
-    <div class="reward-content">
-        <h1 id="popup-reward"></h1>
-        <button onclick="closeReward()">Close</button>
-    </div>
-</div>
     
 </body>
 </html>
