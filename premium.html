@@ -512,17 +512,6 @@ for Discord</p>
     <div id="reward-result"></div>
 
 </div>
-
-<!-- VIDEO -->
-<div id="ad-overlay" class="ad-overlay">
-    <div class="ad-box">
-        <video id="ad-video" width="100%">
-            <source src="./image/InShot_20250309_221019157.mp4" type="video/mp4">
-        </video>
-        <button id="skip-btn" onclick="finishAd()">Skip</button>
-    </div>
-</div>
-
 </section>
 
 
@@ -643,107 +632,86 @@ YouTube
 
 <script>
 function toggleMenu(){
-document.getElementById("menu").classList.toggle("active");
-document.getElementById("overlay").classList.toggle("active");
+    document.getElementById("menu").classList.toggle("active");
+    document.getElementById("overlay").classList.toggle("active");
 }
 
 function closeMenu(){
-document.getElementById("menu").classList.remove("active");
-document.getElementById("overlay").classList.remove("active");
+    document.getElementById("menu").classList.remove("active");
+    document.getElementById("overlay").classList.remove("active");
 }
 
-
-
+/* ===== OPEN CHEST ===== */
 function handleChest(){
 
-    // ئەگەر پێشتر کراوە → ڤیدیۆ مەهێنە
-    if(localStorage.getItem("chestOpened")){
-        document.getElementById("chest").classList.add("open");
+    let last = localStorage.getItem("lastOpen");
+    let now = new Date().getTime();
+
+    /* 24 hours cooldown */
+    if(last && now - last < 86400000){
+        document.getElementById("reward-result").innerHTML =
+        "❌ You already opened it today!";
         return;
     }
 
-    startAd();
-}
-
-/* ===== START AD ===== */
-function startAd(){
-    document.getElementById("ad-overlay").style.display = "flex";
-
-    let video = document.getElementById("ad-video");
-    let skip = document.getElementById("skip-btn");
-
-    video.currentTime = 0;
-    video.play();
-
-    skip.style.display = "none";
-
-    setTimeout(()=>{
-        skip.style.display = "block";
-    },10000);
-
-    video.onended = function(){
-        finishAd();
-    };
-}
-
-/* ===== FINISH ===== */
-function finishAd(){
-    document.getElementById("ad-overlay").style.display = "none";
-
+    /* open animation */
     let chest = document.getElementById("chest");
     chest.classList.add("open");
 
-    // 💾 تۆمار بکە کە کراوە
-    localStorage.setItem("chestOpened", "true");
-
-    openReward();
-}
-
-/* ===== REWARD ===== */
-function openReward(){
-    let last = localStorage.getItem("lastOpen");
-    let now = new Date().getTime();
-
-    if(last && now - last < 64){
-        document.getElementById("reward-result").innerHTML="❌ Tomorrow!";
-        return;
-    }
-
+    /* save time */
     localStorage.setItem("lastOpen", now);
 
-    let r=Math.random();
-    let result="";
-
-    if(r<0.02){result="🔥 Premium";}
-    else if(r<0.05){result="💎 Gold";}
-    else if(r<0.10){result="🤖 AI";}
-    else if(r<0.20){result="⚡ Silver";}
-    else{result="😢 Nothing";}
-
-    document.getElementById("reward-result").innerHTML=result;
+    openReward();
+    updateTimer();
 }
 
-/* ===== LOAD STATE ===== */
-window.onload = function(){
-    if(localStorage.getItem("chestOpened")){
-        document.getElementById("chest").classList.add("open");
+/* ===== RANDOM REWARD ===== */
+function openReward(){
+
+    let r = Math.random();
+    let result = "";
+
+    if(r < 0.02){
+        result = "🔥 Premium Plan";
     }
+    else if(r < 0.05){
+        result = "💎 Gold Reward";
+    }
+    else if(r < 0.10){
+        result = "🤖 AI Reward";
+    }
+    else if(r < 0.20){
+        result = "⚡ Silver Reward";
+    }
+    else{
+        result = "😢 Nothing";
+    }
+
+    document.getElementById("reward-result").innerHTML = result;
 }
 
+/* ===== TIMER ===== */
 function updateTimer(){
+
     let last = localStorage.getItem("lastOpen");
-    let now = new Date().getTime();
     let timerText = document.getElementById("timer");
 
     if(!last){
-        timerText.innerHTML = "✅ You can open now!";
+        timerText.innerHTML = "✅ Ready to open!";
         return;
     }
 
-    let remaining = 64 - (now - last);
+    let now = new Date().getTime();
+
+    /* 24h */
+    let remaining = 86400000 - (now - last);
 
     if(remaining <= 0){
+
         timerText.innerHTML = "✅ Ready to open!";
+
+        document.getElementById("chest").classList.remove("open");
+
         return;
     }
 
@@ -751,21 +719,25 @@ function updateTimer(){
     let minutes = Math.floor((remaining % (1000 * 60 * 60)) / (1000 * 60));
     let seconds = Math.floor((remaining % (1000 * 60)) / 1000);
 
-    timerText.innerHTML = `⏳ ${hours}h ${minutes}m ${seconds}s`;
+    timerText.innerHTML =
+    `⏳ ${hours}h ${minutes}m ${seconds}s`;
 }
 
-/* هەر چرکەیەک نوێ بکەرەوە */
-setInterval(updateTimer,1000);
-
-/* لە load */
+/* ===== LOAD ===== */
 window.onload = function(){
-    if(localStorage.getItem("chestOpened")){
+
+    let last = localStorage.getItem("lastOpen");
+    let now = new Date().getTime();
+
+    if(last && now - last < 86400000){
         document.getElementById("chest").classList.add("open");
     }
 
     updateTimer();
 }
-    
+
+/* update every second */
+setInterval(updateTimer,1000);
 </script>
 
 </body>
