@@ -704,7 +704,7 @@ function openReward(){
     let last = localStorage.getItem("lastOpen");
     let now = new Date().getTime();
 
-    if(last && now - last < 86400000){
+    if(last && now - last < 64){
         document.getElementById("reward-result").innerHTML="❌ Tomorrow!";
         return;
     }
@@ -740,7 +740,7 @@ function updateTimer(){
         return;
     }
 
-    let remaining = 86400000 - (now - last);
+    let remaining = 64 - (now - last);
 
     if(remaining <= 0){
         timerText.innerHTML = "✅ Ready to open!";
