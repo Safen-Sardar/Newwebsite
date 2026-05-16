@@ -648,7 +648,7 @@ function handleChest(){
     let now = new Date().getTime();
 
     /* 24 hours cooldown */
-    if(last && now - last < 86400000){
+    if(last && now - last < 21600000){
         document.getElementById("reward-result").innerHTML =
         "❌ You already opened it today!";
         return;
@@ -672,16 +672,16 @@ function openReward(){
     let result = "";
 
     if(r < 0.02){
-        result = "🔥 Premium Plan";
+        result = "🔥 Nitrix";
     }
     else if(r < 0.05){
-        result = "💎 Gold Reward";
+        result = "💎 Nitrix basic";
     }
     else if(r < 0.10){
-        result = "🤖 AI Reward";
+        result = "🥳 Discount ";
     }
     else if(r < 0.20){
-        result = "⚡ Silver Reward";
+        result = "😢 Nothing";
     }
     else{
         result = "😢 Nothing";
@@ -704,7 +704,7 @@ function updateTimer(){
     let now = new Date().getTime();
 
     /* 24h */
-    let remaining = 86400000 - (now - last);
+    let remaining = 21600000 - (now - last);
 
     if(remaining <= 0){
 
@@ -729,7 +729,7 @@ window.onload = function(){
     let last = localStorage.getItem("lastOpen");
     let now = new Date().getTime();
 
-    if(last && now - last < 86400000){
+    if(last && now - last < 21600000){
         document.getElementById("chest").classList.add("open");
     }
 
