@@ -697,7 +697,7 @@ function updateTimer(){
     let timerText = document.getElementById("timer");
 
     if(!last){
-        timerText.innerHTML = "✅ Ready to open!";
+        timerText.innerHTML = "";
         return;
     }
 
@@ -708,7 +708,7 @@ function updateTimer(){
 
     if(remaining <= 0){
 
-        timerText.innerHTML = "✅ Ready to open!";
+        timerText.innerHTML = "";
 
         document.getElementById("chest").classList.remove("open");
 
