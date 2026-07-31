@@ -1,0 +1,415 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>NITRIX REWARDS | Unlock Prestige</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300..700&amp;family=JetBrains+Mono:wght@400..700&amp;family=Hanken+Grotesk:wght@400;600&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "on-surface-variant": "#bfc7d5",
+                    "on-background": "#e4e1ea",
+                    "surface-container-high": "#2a2930",
+                    "on-primary": "#003259",
+                    "surface-dim": "#131319",
+                    "primary-container": "#0099ff",
+                    "surface-variant": "#35343b",
+                    "outline": "#89919e",
+                    "tertiary-fixed-dim": "#00dbe9",
+                    "on-error-container": "#ffdad6",
+                    "on-primary-container": "#002f54",
+                    "surface-bright": "#393840",
+                    "inverse-surface": "#e4e1ea",
+                    "inverse-on-surface": "#303037",
+                    "on-primary-fixed-variant": "#00497e",
+                    "on-primary-fixed": "#001d36",
+                    "surface-container-highest": "#35343b",
+                    "on-tertiary-container": "#003337",
+                    "surface-container-low": "#1b1b22",
+                    "on-secondary-fixed-variant": "#5700c9",
+                    "secondary-fixed": "#e9ddff",
+                    "on-secondary-fixed": "#23005b",
+                    "surface-tint": "#9fcaff",
+                    "on-secondary": "#3c0090",
+                    "surface": "#131319",
+                    "error-container": "#93000a",
+                    "primary": "#9fcaff",
+                    "surface-container-lowest": "#0e0e14",
+                    "on-tertiary-fixed": "#002022",
+                    "on-secondary-container": "#ddcdff",
+                    "secondary": "#d1bcff",
+                    "background": "#131319",
+                    "surface-container": "#1f1f26",
+                    "primary-fixed": "#d2e4ff",
+                    "on-error": "#690005",
+                    "tertiary-container": "#00a5af",
+                    "on-tertiary": "#00363a",
+                    "error": "#ffb4ab",
+                    "secondary-fixed-dim": "#d1bcff",
+                    "outline-variant": "#3f4753",
+                    "tertiary": "#00dbe9",
+                    "on-surface": "#e4e1ea",
+                    "primary-fixed-dim": "#9fcaff",
+                    "inverse-primary": "#0061a5",
+                    "secondary-container": "#7000ff",
+                    "tertiary-fixed": "#7df4ff",
+                    "on-tertiary-fixed-variant": "#004f54"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "spacing": {
+                    "container-max": "1280px",
+                    "margin-mobile": "16px",
+                    "unit": "4px",
+                    "margin-desktop": "64px",
+                    "gutter": "24px"
+            },
+            "fontFamily": {
+                    "body-md": ["Hanken Grotesk"],
+                    "label-md": ["JetBrains Mono"],
+                    "display-lg": ["Space Grotesk"],
+                    "headline-lg": ["Space Grotesk"],
+                    "title-md": ["Space Grotesk"],
+                    "headline-lg-mobile": ["Space Grotesk"],
+                    "body-lg": ["Hanken Grotesk"],
+                    "label-sm": ["JetBrains Mono"]
+            },
+            "fontSize": {
+                    "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-md": ["14px", {"lineHeight": "1.2", "letterSpacing": "0.05em", "fontWeight": "500"}],
+                    "display-lg": ["72px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "headline-lg": ["40px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "title-md": ["24px", {"lineHeight": "1.4", "fontWeight": "600"}],
+                    "headline-lg-mobile": ["32px", {"lineHeight": "1.2", "fontWeight": "700"}],
+                    "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                    "label-sm": ["12px", {"lineHeight": "1.2", "letterSpacing": "0.1em", "fontWeight": "500"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        @keyframes float {
+            0%, 100% { transform: translateY(0px) rotate(0deg); }
+            50% { transform: translateY(-20px) rotate(1deg); }
+        }
+
+        @keyframes chest-glow {
+            0%, 100% { filter: drop-shadow(0 0 15px rgba(0, 153, 255, 0.4)); }
+            50% { filter: drop-shadow(0 0 40px rgba(0, 219, 233, 0.8)); }
+        }
+
+        @keyframes particle-rise {
+            0% { transform: translateY(0) scale(1); opacity: 0; }
+            50% { opacity: 0.8; }
+            100% { transform: translateY(-100vh) scale(0.5); opacity: 0; }
+        }
+
+        .animate-float { animation: float 4s ease-in-out infinite; }
+        .animate-chest-glow { animation: chest-glow 3s ease-in-out infinite; }
+        
+        .particle {
+            position: fixed;
+            background: theme('colors.tertiary');
+            border-radius: 50%;
+            pointer-events: none;
+            z-index: 5;
+        }
+
+        .glass-panel {
+            background: rgba(19, 19, 25, 0.7);
+            backdrop-filter: blur(24px);
+            border: 1px solid rgba(159, 202, 255, 0.2);
+        }
+
+        .reward-item {
+            transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .reward-item:hover {
+            background: rgba(0, 165, 175, 0.15);
+            border-color: theme('colors.tertiary');
+            padding-left: 1.5rem;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+</head>
+<body class="bg-surface text-on-surface font-body-md selection:bg-primary-container selection:text-on-primary-container overflow-x-hidden">
+<!-- Shader Background -->
+<!-- STITCH_SHADER_START:ANIMATION_2 class="fixed inset-0 w-full h-full z-0 opacity-40" -->
+<div class="fixed inset-0 w-full h-full z-0 opacity-40" style="display:block;">
+<canvas id="shader-canvas-ANIMATION_2" style="display:block;width:100%;height:100%"></canvas>
+<script>
+(function() {
+  const canvas = document.getElementById('shader-canvas-ANIMATION_2');
+
+  // Sync the WebGL drawing-buffer size with the CSS-driven layout size.
+  // This fires on initial layout and whenever the element is resized.
+  function syncSize() {
+    const w = canvas.clientWidth  || 1280;
+    const h = canvas.clientHeight || 720;
+    if (canvas.width !== w || canvas.height !== h) {
+      canvas.width  = w;
+      canvas.height = h;
+    }
+  }
+  if (typeof ResizeObserver !== 'undefined') {
+    new ResizeObserver(syncSize).observe(canvas);
+  }
+  syncSize();
+
+  const gl = canvas.getContext('webgl') || canvas.getContext('experimental-webgl');
+  if (!gl) return;
+  const vs = `attribute vec2 a_position;
+varying vec2 v_texCoord;
+void main() {
+  v_texCoord = a_position * 0.5 + 0.5;
+  gl_Position = vec4(a_position, 0.0, 1.0);
+}`;
+  const fs = `precision highp float;
+uniform float u_time;
+uniform vec2 u_resolution;
+varying vec2 v_texCoord;
+
+void main() {
+    vec2 uv = v_texCoord;
+    
+    // Create a dark, glowing blue/purple ambient background
+    vec3 color1 = vec3(0.01, 0.02, 0.1); // Deep Navy
+    vec3 color2 = vec3(0.05, 0.1, 0.4);  // Electric Blue
+    vec3 color3 = vec3(0.1, 0.05, 0.3);  // Dark Purple
+    
+    float noise = sin(uv.x * 3.0 + u_time * 0.5) * cos(uv.y * 3.0 - u_time * 0.4);
+    noise += sin(uv.y * 5.0 + u_time * 0.8) * cos(uv.x * 2.0 + u_time * 0.3);
+    
+    vec3 finalColor = mix(color1, color2, clamp(noise, 0.0, 1.0));
+    finalColor = mix(finalColor, color3, clamp(sin(u_time * 0.2 + uv.y * 2.0), 0.0, 1.0) * 0.3);
+    
+    // Add some subtle moving light "wisps"
+    float light = 0.02 / distance(uv, vec2(0.5 + sin(u_time)*0.3, 0.5 + cos(u_time*0.7)*0.3));
+    finalColor += vec3(0.1, 0.3, 0.8) * light;
+    
+    gl_FragColor = vec4(finalColor, 1.0);
+}`;
+  function cs(type, src) {
+    const s = gl.createShader(type);
+    gl.shaderSource(s, src);
+    gl.compileShader(s);
+    return s;
+  }
+  const prog = gl.createProgram();
+  gl.attachShader(prog, cs(gl.VERTEX_SHADER, vs));
+  gl.attachShader(prog, cs(gl.FRAGMENT_SHADER, fs));
+  gl.linkProgram(prog);
+  gl.useProgram(prog);
+  const buf = gl.createBuffer();
+  gl.bindBuffer(gl.ARRAY_BUFFER, buf);
+  gl.bufferData(gl.ARRAY_BUFFER, new Float32Array([-1,-1, 1,-1, -1,1, 1,1]), gl.STATIC_DRAW);
+  const pos = gl.getAttribLocation(prog, 'a_position');
+  gl.enableVertexAttribArray(pos);
+  gl.vertexAttribPointer(pos, 2, gl.FLOAT, false, 0, 0);
+  const uTime = gl.getUniformLocation(prog, 'u_time');
+  const uRes = gl.getUniformLocation(prog, 'u_resolution');
+  const uMouse = gl.getUniformLocation(prog, 'u_mouse');
+
+  // u_mouse is in pixel coordinates matching u_resolution (ShaderToy convention).
+  // Shaders that need normalized coords should use: u_mouse / u_resolution.
+  let mouse = { x: canvas.width / 2, y: canvas.height / 2 };
+  window.addEventListener('mousemove', (event) => {
+    const rect = canvas.getBoundingClientRect();
+    if (rect.width && rect.height) {
+      const nx = (event.clientX - rect.left) / rect.width;
+      const ny = 1.0 - (event.clientY - rect.top) / rect.height;
+      mouse.x = nx * canvas.width;
+      mouse.y = ny * canvas.height;
+    }
+  });
+
+  function render(t) {
+    if (typeof ResizeObserver === 'undefined') syncSize();
+    gl.viewport(0, 0, canvas.width, canvas.height);
+    if (uTime) gl.uniform1f(uTime, t * 0.001);
+    if (uRes) gl.uniform2f(uRes, canvas.width, canvas.height);
+    if (uMouse) gl.uniform2f(uMouse, mouse.x, mouse.y);
+    gl.drawArrays(gl.TRIANGLE_STRIP, 0, 4);
+    requestAnimationFrame(render);
+  }
+  render(0);
+})();
+</script>
+</div>
+<!-- STITCH_SHADER_END:ANIMATION_2 -->
+<!-- UI Overlay Shell -->
+<div class="relative z-10 min-h-screen flex flex-col">
+<!-- TopAppBar -->
+<header class="docked full-width top-0 sticky bg-surface/80 dark:bg-surface-dim/80 backdrop-blur-xl border-b border-primary/20 flex justify-between items-center w-full px-margin-mobile h-16 shadow-[0_4px_20px_rgba(0,153,255,0.15)]">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary scale-95 active:scale-90 transition-transform">menu</button>
+<h1 class="text-title-md font-display-lg italic tracking-tighter text-primary dark:text-tertiary drop-shadow-[0_0_8px_rgba(159,202,255,0.8)]">NITRIX REWARDS</h1>
+</div>
+<div class="w-10 h-10 rounded-full border-2 border-tertiary p-0.5 overflow-hidden ring-4 ring-tertiary/10">
+<img class="w-full h-full object-cover rounded-full" data-alt="A stylized portrait of a high-tech gamer avatar with neon blue glowing eyes and circuitry patterns on their skin. The background is a dark, atmospheric digital void with floating shards of data. Professional gaming aesthetic with sharp lighting and deep sapphire tones." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBk7iaF92H-76JU23EToUrEkTEApLZ6LulCgz8lfPuKeA92NunMiH66KD-BYyja58fy9eMOyb-c6CPA2nPFw8CcufCnFwjz0r75-odaJRYBzwfpFuWe73K6WvyqvImvVZqJLrtebsPT3EN-5ODIPHGFpKa9on1FlqEkypesnSMy2PNxz0jzGSCtN1e-G8cvmd6cBNdGX1yLmo2LlJH9FtpMa27bUc7HUptrosjaKVCJb6BDCTTkXCyB"/>
+</div>
+</header>
+<!-- Main Experience Canvas -->
+<main class="flex-grow flex flex-col items-center justify-center px-margin-mobile py-8 space-y-12">
+<!-- Hero Countdown -->
+<div class="text-center space-y-2">
+<div class="flex items-center justify-center gap-3 mb-2">
+<span class="material-symbols-outlined text-tertiary animate-pulse">timer</span>
+<p class="text-label-md font-label-md uppercase tracking-[0.2em] text-primary">NEW REWARD EVERY 6 HOURS!</p>
+</div>
+<div class="text-[48px] md:text-[64px] font-display-lg leading-none tracking-tighter text-on-background drop-shadow-[0_0_12px_rgba(255,255,255,0.3)]" id="countdown">
+                    05:42:19
+                </div>
+</div>
+<!-- Central Chest Module -->
+<div class="relative w-full max-w-sm flex flex-col items-center">
+<!-- Glowing Platform -->
+<div class="absolute bottom-0 w-64 h-8 bg-primary/20 blur-2xl rounded-[100%] scale-y-50"></div>
+<!-- Interactive Chest -->
+<div class="animate-float">
+<div class="animate-chest-glow relative cursor-pointer active:scale-95 transition-transform duration-200">
+<img class="w-72 h-72 md:w-96 md:h-96 object-contain drop-shadow-2xl" data-alt="A futuristic, high-fidelity digital reward chest heavily inspired by cyber-brutalist aesthetics. The chest is constructed from brushed dark titanium with luminescent cyan circuits glowing along its edges. It rests on a circular neon platform, radiating a powerful electric blue energy. The design features sharp angles and polished metallic surfaces." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBghe-HIHneWfA_mSAo7oPEMREK6Z43iZVUnqGWHmjq4RukVaUccwF85KY_k_M7v9R9l5z5OwLvUn-jjQJMXkznRNmLbVJZq4yv94g9L7APXYodlu7j8zbhJNpzinQRKklUD8ZwLx9L--rK2y3N4Z_F2kC4pT2kpE1_6dqdkZ0Rt_UywIqRFhAgvwJe3JaiQpaj9Blw8aQLQCik-TZRUzJ0a7OzAZg2jpQxRulP7PITjgyCFMzP6Nki"/>
+</div>
+</div>
+<!-- Action Button -->
+<button class="mt-8 relative group">
+<div class="absolute -inset-1 bg-gradient-to-r from-primary to-tertiary rounded-xl blur opacity-75 group-hover:opacity-100 transition duration-1000 group-hover:duration-200 animate-pulse"></div>
+<div class="relative bg-surface-container-highest px-12 py-4 rounded-xl border border-primary/50 flex items-center gap-4 transition-all duration-300 active:scale-90">
+<span class="font-display-lg text-title-md text-primary tracking-widest uppercase">OPEN THE CHEST</span>
+<span class="material-symbols-outlined text-tertiary">lock_open</span>
+</div>
+</button>
+</div>
+<!-- Rewards Bento Section -->
+<section class="w-full max-w-md glass-panel rounded-xl p-6 space-y-6">
+<div class="flex justify-between items-center border-b border-primary/20 pb-4">
+<h2 class="font-display-lg text-label-md uppercase tracking-[0.3em] text-on-surface-variant">POSSIBLE REWARDS</h2>
+<span class="material-symbols-outlined text-primary/40">info</span>
+</div>
+<div class="space-y-3">
+<!-- Reward Row -->
+<div class="reward-item flex items-center justify-between p-3 rounded-lg border border-transparent bg-surface-container-low">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-primary/10 rounded border border-primary/30">
+<span class="material-symbols-outlined text-primary" style="font-variation-settings: 'FILL' 1;">security</span>
+</div>
+<span class="font-label-md text-on-surface">NITRIX ELITE</span>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary">ULTRA RARE</span>
+</div>
+<!-- Reward Row -->
+<div class="reward-item flex items-center justify-between p-3 rounded-lg border border-transparent bg-surface-container-low">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-secondary/10 rounded border border-secondary/30">
+<span class="material-symbols-outlined text-secondary">verified_user</span>
+</div>
+<span class="font-label-md text-on-surface">NITRIX BASIC</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">COMMON</span>
+</div>
+<!-- Reward Row -->
+<div class="reward-item flex items-center justify-between p-3 rounded-lg border border-transparent bg-surface-container-low">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-tertiary/10 rounded border border-tertiary/30">
+<span class="material-symbols-outlined text-tertiary" style="font-variation-settings: 'FILL' 1;">percent</span>
+</div>
+<span class="font-label-md text-on-surface">DISCOUNT 20%</span>
+</div>
+<span class="text-label-sm font-label-sm text-tertiary">RARE</span>
+</div>
+<!-- Reward Row -->
+<div class="reward-item flex items-center justify-between p-3 rounded-lg border border-transparent bg-surface-container-low opacity-60">
+<div class="flex items-center gap-4">
+<div class="w-10 h-10 flex items-center justify-center bg-outline/10 rounded border border-outline/30">
+<span class="material-symbols-outlined text-outline">percent</span>
+</div>
+<span class="font-label-md text-on-surface">DISCOUNT 10%</span>
+</div>
+<span class="text-label-sm font-label-sm text-on-surface-variant">COMMON</span>
+</div>
+</div>
+</section>
+<!-- Bottom Spacer for Nav -->
+<div class="h-24"></div>
+</main>
+<!-- BottomNavBar -->
+<nav class="fixed bottom-0 w-full z-50 rounded-t-xl bg-surface-container-lowest/90 dark:bg-surface-container-lowest/90 backdrop-blur-2xl border-t border-primary/30 shadow-[0_-10px_30px_rgba(0,153,255,0.1)] flex justify-around items-center py-4 px-2">
+<a class="flex flex-col items-center justify-center text-primary dark:text-tertiary scale-110 drop-shadow-[0_0_10px_rgba(0,219,233,0.6)] animate-pulse" href="#">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">home</span>
+<span class="text-label-sm font-label-sm uppercase tracking-widest mt-1">HOME</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline opacity-60 hover:opacity-100 hover:bg-surface-variant/20 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">military_tech</span>
+<span class="text-label-sm font-label-sm uppercase tracking-widest mt-1">REWARDS</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline opacity-60 hover:opacity-100 hover:bg-surface-variant/20 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">inventory_2</span>
+<span class="text-label-sm font-label-sm uppercase tracking-widest mt-1">VAULT</span>
+</a>
+<a class="flex flex-col items-center justify-center text-outline opacity-60 hover:opacity-100 hover:bg-surface-variant/20 transition-all duration-300" href="#">
+<span class="material-symbols-outlined">person</span>
+<span class="text-label-sm font-label-sm uppercase tracking-widest mt-1">PROFILE</span>
+</a>
+</nav>
+</div>
+<!-- Micro-Interactions Script -->
+<script>
+        // Particle System
+        const createParticles = () => {
+            const container = document.body;
+            for (let i = 0; i < 20; i++) {
+                const p = document.createElement('div');
+                p.className = 'particle';
+                const size = Math.random() * 3 + 1;
+                p.style.width = `${size}px`;
+                p.style.height = `${size}px`;
+                p.style.left = `${Math.random() * 100}vw`;
+                p.style.bottom = `-10px`;
+                p.style.animation = `particle-rise ${Math.random() * 5 + 5}s linear infinite`;
+                p.style.animationDelay = `${Math.random() * 5}s`;
+                p.style.opacity = Math.random() * 0.5 + 0.1;
+                container.appendChild(p);
+            }
+        };
+
+        // Countdown Logic
+        let seconds = 20539; // ~5h 42m
+        const updateCountdown = () => {
+            const h = Math.floor(seconds / 3600);
+            const m = Math.floor((seconds % 3600) / 60);
+            const s = seconds % 60;
+            document.getElementById('countdown').innerText = 
+                `${h.toString().padStart(2, '0')}:${m.toString().padStart(2, '0')}:${s.toString().padStart(2, '0')}`;
+            if (seconds > 0) seconds--;
+        };
+
+        // Initialize
+        window.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            setInterval(updateCountdown, 1000);
+        });
+
+        // Click interaction on chest
+        document.querySelector('.animate-float').addEventListener('click', () => {
+            const btn = document.querySelector('button.group');
+            btn.classList.add('scale-110');
+            setTimeout(() => btn.classList.remove('scale-110'), 200);
+        });
+    </script>
+</body></html>
